@@ -1,15 +1,32 @@
-const home = document.getElementById("home");
-const games = document.getElementById("games");
+document.addEventListener("DOMContentLoaded", function () {
 
-const artinButton = document.getElementById("artinButton");
-const backButton = document.getElementById("backButton");
+    const home = document.getElementById("home");
+    const games = document.getElementById("games");
 
-artinButton.onclick = function () {
-    home.classList.remove("active");
-    games.classList.add("active");
-};
+    const artinButton = document.getElementById("artinButton");
+    const backButton = document.getElementById("backButton");
 
-backButton.onclick = function () {
-    games.classList.remove("active");
-    home.classList.add("active");
-};
+
+    // ARTIN button
+    artinButton.addEventListener("click", function () {
+
+        home.classList.remove("active");
+        games.classList.add("active");
+
+        window.scrollTo(0, 0);
+
+    });
+
+
+    // BACK button
+    backButton.addEventListener("click", function () {
+
+        games.classList.remove("active");
+        home.classList.add("active");
+
+        window.scrollTo(0, 0);
+
+    });
+
+
+});
