@@ -1,120 +1,191 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ARTIN // Game Archive</title>
+    <title>ARTIN GAMES</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="background-grid"></div>
+    <!-- Background effects -->
+    <div class="background">
+        <div class="glow glow1"></div>
+        <div class="glow glow2"></div>
+    </div>
 
-    <div class="glow glow-blue"></div>
-    <div class="glow glow-purple"></div>
+    <!-- HOME -->
+    <section id="home" class="screen active">
 
-    <main>
+        <div class="logo-container">
 
-        <!-- صفحه اصلی -->
-        <section id="home" class="screen active">
+            <button id="artinButton" class="artin-button">
+                ARTIN
+            </button>
 
-            <div class="top-bar">
-                <span>ARTIN // DIGITAL ARCHIVE</span>
-                <span>● ONLINE</span>
+            <p class="subtitle">GAMING WORLD</p>
+
+            <p class="click-text">CLICK TO ENTER</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- GAMES -->
+    <section id="games" class="screen">
+
+        <header class="header">
+
+            <div>
+                <h1>ARTIN GAMES</h1>
+                <p>MY COMPLETED GAMES</p>
             </div>
 
-            <div class="hero">
+            <button id="backButton" class="back-button">
+                ← BACK
+            </button>
 
-                <p class="welcome">
-                    WELCOME TO MY GAME WORLD
-                </p>
-
-                <button id="artinButton" class="artin-button">
-
-                    <span class="outer-ring"></span>
-                    <span class="inner-ring"></span>
-
-                    <span class="artin-text">
-                        ARTIN
-                    </span>
-
-                    <span class="click-text">
-                        CLICK TO ENTER
-                    </span>
-
-                </button>
-
-                <p class="enter-text">
-                    ENTER THE ARCHIVE
-                </p>
-
-            </div>
-
-            <div class="bottom-bar">
-                <span>GAMES / COMPLETED</span>
-                <span>© 2026 ARTIN</span>
-            </div>
-
-        </section>
+        </header>
 
 
-        <!-- صفحه بازی‌ها -->
-        <section id="games" class="screen">
+        <main class="games-container">
 
-            <div class="top-bar">
+            <!-- Call of Duty -->
+            <article class="game-card">
 
-                <button id="backButton" class="back-button">
-                    ← BACK
-                </button>
+                <div class="game-image cod"></div>
 
-                <span id="gameCount">
-                    05 GAMES
-                </span>
+                <div class="game-info">
 
-            </div>
+                    <h2>Call of Duty</h2>
 
+                    <h3>Modern Warfare 2 SP</h3>
 
-            <div class="games-header">
+                    <p>
+                        A legendary military action game
+                        with an intense cinematic campaign.
+                    </p>
 
-                <p class="welcome">
-                    ARTIN // COMPLETED GAMES
-                </p>
+                    <button class="game-button">
+                        VIEW GAME
+                    </button>
 
-                <h1>
-                    GAME <span>ARCHIVE</span>
-                </h1>
+                </div>
 
-                <p class="description">
-                    A collection of games completed by ARTIN.
-                </p>
-
-            </div>
+            </article>
 
 
-            <div id="gamesGrid" class="games-grid"></div>
+            <!-- Resident Evil -->
+            <article class="game-card">
+
+                <div class="game-image re4"></div>
+
+                <div class="game-info">
+
+                    <h2>Resident Evil 4</h2>
+
+                    <h3>Remake</h3>
+
+                    <p>
+                        A dark survival horror adventure
+                        with intense action and exploration.
+                    </p>
+
+                    <button class="game-button">
+                        VIEW GAME
+                    </button>
+
+                </div>
+
+            </article>
 
 
-            <div class="bottom-bar">
+            <!-- Hitman -->
+            <article class="game-card">
 
-                <span>
-                    STATUS: ALL COMPLETED
-                </span>
+                <div class="game-image hitman"></div>
 
-                <span>
-                    ARTIN // GAME ARCHIVE
-                </span>
+                <div class="game-info">
 
-            </div>
+                    <h2>Hitman 3</h2>
 
-        </section>
+                    <h3>World of Assassination</h3>
 
-    </main>
+                    <p>
+                        Become Agent 47 and complete
+                        dangerous missions around the world.
+                    </p>
+
+                    <button class="game-button">
+                        VIEW GAME
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Metro -->
+            <article class="game-card">
+
+                <div class="game-image metro"></div>
+
+                <div class="game-info">
+
+                    <h2>Metro Exodus</h2>
+
+                    <h3>Gold Edition</h3>
+
+                    <p>
+                        Explore a post-apocalyptic world
+                        filled with danger and mystery.
+                    </p>
+
+                    <button class="game-button">
+                        VIEW GAME
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- God of War -->
+            <article class="game-card">
+
+                <div class="game-image gow"></div>
+
+                <div class="game-info">
+
+                    <h2>God of War</h2>
+
+                    <h3>2018</h3>
+
+                    <p>
+                        Follow Kratos and Atreus through
+                        a powerful Norse mythology adventure.
+                    </p>
+
+                    <button class="game-button">
+                        VIEW GAME
+                    </button>
+
+                </div>
+
+            </article>
+
+        </main>
+
+    </section>
 
 
     <script src="script.js"></script>
 
 </body>
 </html>
+```
