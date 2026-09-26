@@ -1,4 +1,3 @@
-```css
 * {
     margin: 0;
     padding: 0;
@@ -78,23 +77,15 @@ body {
 }
 
 .artin-button {
-    position: relative;
-
     width: 360px;
     height: 150px;
-
     border-radius: 50%;
-
     background: rgba(0, 0, 0, 0.8);
-
     color: white;
-
     font-size: 65px;
     font-weight: bold;
     letter-spacing: 12px;
-
     border: 4px solid cyan;
-
     cursor: pointer;
 
     box-shadow:
@@ -116,23 +107,16 @@ body {
 
 .subtitle {
     margin-top: 25px;
-
     letter-spacing: 8px;
-
     font-size: 18px;
-
     color: #aaa;
 }
 
 .click-text {
     margin-top: 40px;
-
     color: cyan;
-
     font-size: 14px;
-
     letter-spacing: 4px;
-
     animation: pulse 1.5s infinite;
 }
 
@@ -143,29 +127,21 @@ body {
 
 .header {
     padding: 35px 60px;
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     border-bottom: 1px solid rgba(0, 255, 255, 0.2);
 }
 
 .header h1 {
     font-size: 34px;
-
     letter-spacing: 5px;
-
     color: cyan;
 }
 
 .header p {
     margin-top: 6px;
-
     color: #777;
-
     letter-spacing: 3px;
 }
 
@@ -174,27 +150,18 @@ body {
 
 .back-button {
     background: transparent;
-
     border: 1px solid cyan;
-
     color: cyan;
-
     padding: 12px 22px;
-
     border-radius: 8px;
-
     cursor: pointer;
-
     font-size: 14px;
-
     transition: 0.3s;
 }
 
 .back-button:hover {
     background: cyan;
-
     color: black;
-
     box-shadow: 0 0 20px cyan;
 }
 
@@ -204,11 +171,8 @@ body {
 ========================= */
 
 .games-container {
-
     width: 90%;
-
     max-width: 1300px;
-
     margin: 50px auto;
 
     display: grid;
@@ -220,10 +184,11 @@ body {
 }
 
 
-/* GAME CARD */
+/* =========================
+   GAME CARD
+========================= */
 
 .game-card {
-
     background: rgba(10, 10, 10, 0.85);
 
     border: 1px solid rgba(0, 255, 255, 0.25);
@@ -235,11 +200,9 @@ body {
     transition: 0.4s;
 
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-
 }
 
 .game-card:hover {
-
     transform: translateY(-10px);
 
     border-color: cyan;
@@ -247,7 +210,6 @@ body {
     box-shadow:
         0 0 20px rgba(0, 255, 255, 0.3),
         0 0 50px rgba(0, 255, 255, 0.1);
-
 }
 
 
@@ -256,7 +218,6 @@ body {
 ========================= */
 
 .game-image {
-
     height: 220px;
 
     background-size: cover;
@@ -267,20 +228,22 @@ body {
 }
 
 
-/*
-   Temporary backgrounds.
-   Later we can replace these
-   with real game cover images.
-*/
+/* CALL OF DUTY REAL IMAGE */
 
 .cod {
-    background:
+    background-image:
         linear-gradient(
-            rgba(0,0,0,0.2),
-            rgba(0,0,0,0.7)
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.55)
         ),
-        linear-gradient(135deg, #111, #333);
+        url("Call-of-Duty-Modern-Warfare-2-PC-Game.jpg");
+
+    background-size: cover;
+    background-position: center;
 }
+
+
+/* OTHER GAMES - TEMPORARY */
 
 .re4 {
     background:
@@ -324,36 +287,25 @@ body {
 ========================= */
 
 .game-info {
-
     padding: 22px;
 }
 
 .game-info h2 {
-
     font-size: 25px;
-
     margin-bottom: 5px;
 }
 
 .game-info h3 {
-
     color: cyan;
-
     font-size: 14px;
-
     letter-spacing: 2px;
-
     margin-bottom: 15px;
 }
 
 .game-info p {
-
     color: #aaa;
-
     line-height: 1.6;
-
     font-size: 14px;
-
     min-height: 65px;
 }
 
@@ -361,7 +313,6 @@ body {
 /* GAME BUTTON */
 
 .game-button {
-
     margin-top: 18px;
 
     width: 100%;
@@ -382,11 +333,8 @@ body {
 }
 
 .game-button:hover {
-
     background: cyan;
-
     color: black;
-
     box-shadow: 0 0 20px cyan;
 }
 
@@ -396,7 +344,6 @@ body {
 ========================= */
 
 @keyframes fadeIn {
-
     from {
         opacity: 0;
         transform: scale(0.9);
@@ -409,7 +356,6 @@ body {
 }
 
 @keyframes pulse {
-
     0%, 100% {
         opacity: 0.4;
     }
@@ -427,32 +373,20 @@ body {
 @media (max-width: 600px) {
 
     .artin-button {
-
         width: 280px;
-
         height: 120px;
-
         font-size: 45px;
-
     }
 
     .header {
-
         padding: 25px;
-
     }
 
     .header h1 {
-
         font-size: 24px;
-
     }
 
     .games-container {
-
         width: 92%;
-
     }
-
 }
-```
