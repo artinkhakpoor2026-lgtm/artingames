@@ -1,5 +1,21 @@
 const artinButton = document.getElementById("artinButton");
+const backButton = document.getElementById("backButton");
+
+const home = document.getElementById("home");
+const games = document.getElementById("games");
+
 
 artinButton.onclick = function () {
-    document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:100px;'>IT WORKS!</h1>";
+
+    home.style.display = "none";
+    games.style.display = "block";
+
+};
+
+
+backButton.onclick = function () {
+
+    games.style.display = "none";
+    home.style.display = "flex";
+
 };
