@@ -1,8 +1,5 @@
 const artinButton = document.getElementById("artinButton");
-const home = document.getElementById("home");
-const games = document.getElementById("games");
 
 artinButton.onclick = function () {
-    home.style.display = "none";
-    games.style.display = "block";
+    document.body.innerHTML = "<h1 style='color:white;text-align:center;margin-top:100px;'>IT WORKS!</h1>";
 };
