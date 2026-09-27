@@ -6,13 +6,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ARTIN GAMES | دنیای گیم</title>
+    <title>ARTIN GAMES | دنیای بازی</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <!-- Background -->
     <div class="background">
         <div class="grid-lines"></div>
         <div class="glow glow-red"></div>
@@ -20,372 +21,286 @@
     </div>
 
 
-    <!-- ================= HEADER ================= -->
-
-    <header class="top-header">
-
-        <div class="header-box">
-
-            <div class="logo-box">
-                <span class="logo-main">ARTIN</span>
-                <span class="logo-sub">GAMES</span>
-            </div>
-
-
-            <nav class="navigation">
-
-                <a href="#home">خانه</a>
-
-                <a href="#news">اخبار گیم</a>
-
-                <a href="#games">بازی‌های من</a>
-
-            </nav>
-
-        </div>
-
-    </header>
-
-
-
     <!-- ================= HOME ================= -->
 
-    <main id="home" class="home-page">
+    <div id="homePage">
+
+        <header class="top-header">
+
+            <div class="header-box">
+
+                <div class="logo-box">
+                    <span class="logo-main">ARTIN</span>
+                    <span class="logo-sub">GAMES</span>
+                </div>
+
+                <nav class="navigation">
+                    <a href="#home">خانه</a>
+                    <a href="#news">اخبار گیم</a>
+                    <a href="#library">بازی‌ها</a>
+                </nav>
+
+            </div>
+
+        </header>
 
 
-        <!-- HERO -->
+        <main id="home">
 
-        <section class="hero-frame">
+            <!-- HERO -->
 
-            <div class="hero-inner">
+            <section class="hero-frame">
 
+                <div class="hero-inner">
 
-                <div class="hero-text-box">
+                    <div class="hero-text-box">
 
-                    <div class="small-title">
-                        ARTIN GAMES
+                        <div class="small-title">
+                            ARTIN GAMES
+                        </div>
+
+                        <h1>
+                            دنیای بازی
+                            <span>از نگاه آرتین</span>
+                        </h1>
+
+                        <p>
+                            وارد دنیای بازی‌های ویدیویی شو؛
+                            بازی‌ها، اخبار، معرفی‌ها و تجربه‌های گیمینگ
+                            در یک مجموعه حرفه‌ای.
+                        </p>
+
+                        <div class="hero-buttons">
+
+                            <button
+                                id="artinButton"
+                                class="main-button">
+                                ورود به دنیای بازی
+                            </button>
+
+                            <a
+                                href="#news"
+                                class="outline-button">
+                                آخرین اخبار
+                            </a>
+
+                        </div>
+
                     </div>
 
 
-                    <h1>
-                        دنیای بازی
-                        <span>از نگاه آرتین</span>
-                    </h1>
+                    <div class="hero-logo-frame">
+
+                        <div class="hero-logo">
+                            <span>ARTIN</span>
+                            <small>GAMING</small>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
 
 
-                    <p>
-                        اخبار بازی‌ها، معرفی بازی‌های جذاب
-                        و تجربه‌های گیمینگ در یک فضای متفاوت.
-                    </p>
+            <!-- ================= NEWS ================= -->
+
+            <section id="news" class="content-frame">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">NEWS</span>
+                        <h2>آخرین اخبار گیم</h2>
+                    </div>
+
+                    <div class="section-number">01</div>
+
+                </div>
 
 
-                    <div class="hero-buttons">
+                <div class="news-grid">
+
+                    <article class="news-card">
+
+                        <div class="news-card-top">
+                            <span class="news-category">اخبار بازی</span>
+                            <span class="news-icon">🎮</span>
+                        </div>
+
+                        <div class="news-card-body">
+
+                            <h3>
+                                جدیدترین اتفاقات دنیای بازی
+                            </h3>
+
+                            <p>
+                                اخبار مهم و اتفاقات جدید صنعت
+                                بازی‌های ویدیویی در این قسمت قرار می‌گیرد.
+                            </p>
+
+                        </div>
+
+                        <div class="news-card-bottom">
+                            <span>به‌زودی</span>
+                            <span>←</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="news-card">
+
+                        <div class="news-card-top">
+                            <span class="news-category">بازی‌های جدید</span>
+                            <span class="news-icon">🔥</span>
+                        </div>
+
+                        <div class="news-card-body">
+
+                            <h3>
+                                معرفی بازی‌های جدید
+                            </h3>
+
+                            <p>
+                                معرفی بازی‌های جدید، تریلرها،
+                                آپدیت‌ها و اخبار مهم بازی‌ها.
+                            </p>
+
+                        </div>
+
+                        <div class="news-card-bottom">
+                            <span>به‌زودی</span>
+                            <span>←</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="news-card">
+
+                        <div class="news-card-top">
+                            <span class="news-category">اخبار روز</span>
+                            <span class="news-icon">📰</span>
+                        </div>
+
+                        <div class="news-card-body">
+
+                            <h3>
+                                اخبار روز دنیای گیم
+                            </h3>
+
+                            <p>
+                                این بخش در مرحله بعد به سیستم
+                                اخبار روز و خودکار متصل خواهد شد.
+                            </p>
+
+                        </div>
+
+                        <div class="news-card-bottom">
+                            <span>در حال آماده‌سازی</span>
+                            <span>←</span>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= GAME LIBRARY PREVIEW ================= -->
+
+            <section class="content-frame">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-label">GAME LIBRARY</span>
+                        <h2>کتابخانه بازی‌ها</h2>
+                    </div>
+
+                    <div class="section-number">02</div>
+
+                </div>
+
+
+                <div class="games-preview-box">
+
+                    <div class="games-preview-text">
+
+                        <h3>
+                            دنیای بازی‌ها منتظر توست
+                        </h3>
+
+                        <p>
+                            بازی‌های مختلف را بر اساس ژانر و
+                            دسته‌بندی پیدا کن.
+                        </p>
 
                         <button
-                            id="artinButton"
+                            id="artinButton2"
                             class="main-button">
-                            ورود به بازی‌ها
+                            مشاهده همه بازی‌ها
                         </button>
 
+                    </div>
 
-                        <a
-                            href="#news"
-                            class="outline-button">
-                            مشاهده اخبار
-                        </a>
+
+                    <div class="games-preview-number">
+
+                        <strong>GAME</strong>
+                        <span>LIBRARY</span>
 
                     </div>
 
                 </div>
 
+            </section>
 
 
-                <div class="hero-logo-frame">
+            <!-- FOOTER -->
 
-                    <div class="hero-logo">
+            <footer class="footer-frame">
 
-                        <span>ARTIN</span>
-
-                        <small>
-                            GAMING
-                        </small>
-
-                    </div>
-
+                <div class="footer-logo">
+                    ARTIN GAMES
                 </div>
 
+                <p>
+                    دنیای گیمینگ آرتین
+                </p>
 
-            </div>
+                <span>
+                    © 2026
+                </span>
 
-        </section>
+            </footer>
 
+        </main>
 
+    </div>
 
-        <!-- ================= NEWS ================= -->
 
-        <section
-            id="news"
-            class="content-frame">
 
+    <!-- ================= GAME LIBRARY ================= -->
 
-            <div class="section-header">
-
-                <div>
-
-                    <span class="section-label">
-                        NEWS
-                    </span>
-
-                    <h2>
-                        آخرین اخبار گیم
-                    </h2>
-
-                </div>
-
-
-                <div class="section-number">
-                    01
-                </div>
-
-            </div>
-
-
-
-            <div class="news-grid">
-
-
-                <article class="news-card">
-
-                    <div class="news-card-top">
-
-                        <span class="news-category">
-                            اخبار بازی
-                        </span>
-
-                        <span class="news-icon">
-                            🎮
-                        </span>
-
-                    </div>
-
-
-                    <div class="news-card-body">
-
-                        <h3>
-                            جدیدترین اتفاقات دنیای بازی
-                        </h3>
-
-                        <p>
-                            اخبار مهم و اتفاقات جدید صنعت
-                            بازی‌های ویدیویی در این قسمت قرار می‌گیرد.
-                        </p>
-
-                    </div>
-
-
-                    <div class="news-card-bottom">
-                        <span>به‌زودی</span>
-                        <span>←</span>
-                    </div>
-
-                </article>
-
-
-
-                <article class="news-card">
-
-                    <div class="news-card-top">
-
-                        <span class="news-category">
-                            بازی‌های جدید
-                        </span>
-
-                        <span class="news-icon">
-                            🔥
-                        </span>
-
-                    </div>
-
-
-                    <div class="news-card-body">
-
-                        <h3>
-                            معرفی بازی‌های جدید
-                        </h3>
-
-                        <p>
-                            معرفی بازی‌های جدید، تریلرها،
-                            آپدیت‌ها و اخبار مهم بازی‌ها.
-                        </p>
-
-                    </div>
-
-
-                    <div class="news-card-bottom">
-                        <span>به‌زودی</span>
-                        <span>←</span>
-                    </div>
-
-                </article>
-
-
-
-                <article class="news-card">
-
-                    <div class="news-card-top">
-
-                        <span class="news-category">
-                            اخبار روز
-                        </span>
-
-                        <span class="news-icon">
-                            📰
-                        </span>
-
-                    </div>
-
-
-                    <div class="news-card-body">
-
-                        <h3>
-                            اخبار روز دنیای گیم
-                        </h3>
-
-                        <p>
-                            این بخش در مرحله بعد به سیستم
-                            اخبار روز و خودکار متصل خواهد شد.
-                        </p>
-
-                    </div>
-
-
-                    <div class="news-card-bottom">
-                        <span>در حال آماده‌سازی</span>
-                        <span>←</span>
-                    </div>
-
-                </article>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================= MY GAMES ================= -->
-
-        <section class="content-frame games-preview">
-
-
-            <div class="section-header">
-
-                <div>
-
-                    <span class="section-label">
-                        MY GAMES
-                    </span>
-
-                    <h2>
-                        بازی‌های من
-                    </h2>
-
-                </div>
-
-
-                <div class="section-number">
-                    02
-                </div>
-
-            </div>
-
-
-            <div class="games-preview-box">
-
-
-                <div class="games-preview-text">
-
-                    <h3>
-                        مجموعه بازی‌های تمام‌شده
-                    </h3>
-
-                    <p>
-                        بازی‌هایی که تجربه کرده‌ام را
-                        اینجا می‌توانید مشاهده کنید.
-                    </p>
-
-                    <button
-                        id="artinButton2"
-                        class="main-button">
-                        مشاهده بازی‌ها
-                    </button>
-
-                </div>
-
-
-                <div class="games-preview-number">
-
-                    <strong>
-                        05
-                    </strong>
-
-                    <span>
-                        بازی
-                    </span>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================= FOOTER ================= -->
-
-        <footer class="footer-frame">
-
-            <div class="footer-logo">
-                ARTIN GAMES
-            </div>
-
-
-            <p>
-                دنیای گیمینگ آرتین
-            </p>
-
-
-            <span>
-                © 2026
-            </span>
-
-        </footer>
-
-
-    </main>
-
-
-
-    <!-- ================= GAMES PAGE ================= -->
-
-    <section id="games" class="screen">
-
+    <section id="libraryPage" class="screen">
 
         <header class="games-header">
 
             <div>
 
                 <span class="section-label">
-                    MY GAMES
+                    GAME LIBRARY
                 </span>
 
                 <h1>
-                    بازی‌های من
+                    کتابخانه بازی‌ها
                 </h1>
 
                 <p>
-                    بازی‌هایی که تجربه و تمام کرده‌ام
+                    بازی مورد علاقه‌ات را پیدا کن
                 </p>
 
             </div>
@@ -394,238 +309,546 @@
             <button
                 id="backButton"
                 class="back-button">
-                بازگشت
+                بازگشت به خانه
             </button>
 
         </header>
 
 
+        <main id="library" class="library-container">
 
-        <main class="games-container">
 
+            <!-- SEARCH -->
 
-            <!-- CALL OF DUTY -->
+            <div class="library-tools">
 
-            <article class="game-card">
+                <div class="search-box">
 
-                <div class="game-image">
+                    <span>⌕</span>
 
-                    <img
-                        src="https://artinkhakpoor2026-lgtm.github.io/artingames/Call-of-Duty-Modern-Warfare-2-PC-Game.jpg"
-                        alt="Call of Duty Modern Warfare 2"
-                    >
+                    <input
+                        id="gameSearch"
+                        type="text"
+                        placeholder="جستجوی نام بازی..."
+                        autocomplete="off">
 
                 </div>
 
 
-                <div class="game-info">
+                <div class="filter-box">
 
-                    <span class="game-number">
-                        01
-                    </span>
+                    <button
+                        class="filter-button active"
+                        data-filter="all">
+                        همه
+                    </button>
 
-                    <h2>
-                        Call of Duty
-                    </h2>
+                    <button
+                        class="filter-button"
+                        data-filter="action">
+                        اکشن
+                    </button>
 
-                    <h3>
-                        Modern Warfare 2 SP
-                    </h3>
+                    <button
+                        class="filter-button"
+                        data-filter="shooter">
+                        شوتر
+                    </button>
 
-                    <p>
-                        یک بازی اکشن نظامی با داستانی
-                        سینمایی و هیجان‌انگیز.
-                    </p>
+                    <button
+                        class="filter-button"
+                        data-filter="horror">
+                        ترسناک
+                    </button>
 
-                    <button class="game-button">
-                        مشاهده بازی
+                    <button
+                        class="filter-button"
+                        data-filter="adventure">
+                        ماجراجویی
+                    </button>
+
+                    <button
+                        class="filter-button"
+                        data-filter="openworld">
+                        جهان‌باز
                     </button>
 
                 </div>
 
-            </article>
+            </div>
 
 
+            <!-- RESULT -->
 
-            <!-- RESIDENT EVIL -->
+            <div class="library-result">
 
-            <article class="game-card">
+                <span id="gameCount">
+                    10 بازی
+                </span>
 
-                <div class="game-image">
+                <span>
+                    GAME DATABASE
+                </span>
 
-                    <img
-                        src="https://artinkhakpoor2026-lgtm.github.io/artingames/Resident_Evil_4_remake_cover_art.jpg"
-                        alt="Resident Evil 4 Remake"
-                    >
+            </div>
 
-                </div>
 
+            <!-- GAMES -->
 
-                <div class="game-info">
+            <div id="gamesGrid" class="library-grid">
 
-                    <span class="game-number">
-                        02
-                    </span>
 
-                    <h2>
-                        Resident Evil 4
-                    </h2>
+                <!-- CALL OF DUTY -->
 
-                    <h3>
-                        Remake
-                    </h3>
+                <article
+                    class="library-card"
+                    data-title="call of duty modern warfare 2"
+                    data-category="action shooter">
 
-                    <p>
-                        یک ماجراجویی ترسناک و اکشن
-                        در دنیایی تاریک و خطرناک.
-                    </p>
+                    <div class="library-image">
 
-                    <button class="game-button">
-                        مشاهده بازی
-                    </button>
+                        <img
+                            src="Call-of-Duty-Modern-Warfare-2-PC-Game.jpg"
+                            alt="Call of Duty Modern Warfare 2">
 
-                </div>
+                        <span class="game-tag">
+                            SHOOTER
+                        </span>
 
-            </article>
+                    </div>
 
+                    <div class="library-info">
 
+                        <span class="game-number">
+                            01
+                        </span>
 
-            <!-- HITMAN -->
+                        <h2>
+                            Call of Duty
+                        </h2>
 
-            <article class="game-card">
+                        <h3>
+                            Modern Warfare 2
+                        </h3>
 
-                <div class="game-image">
+                        <p>
+                            اکشن • شوتر • جنگی
+                        </p>
 
-                    <img
-                        src="https://artinkhakpoor2026-lgtm.github.io/artingames/Hitman_3_Packart.jpg"
-                        alt="Hitman 3"
-                    >
+                        <button class="view-game">
+                            مشاهده بازی
+                        </button>
 
-                </div>
+                    </div>
 
+                </article>
 
-                <div class="game-info">
 
-                    <span class="game-number">
-                        03
-                    </span>
+                <!-- RESIDENT EVIL -->
 
-                    <h2>
-                        Hitman 3
-                    </h2>
+                <article
+                    class="library-card"
+                    data-title="resident evil 4 remake"
+                    data-category="action horror">
 
-                    <h3>
-                        World of Assassination
-                    </h3>
+                    <div class="library-image">
 
-                    <p>
-                        در نقش مأمور 47 وارد مأموریت‌های
-                        مختلف در سراسر جهان شوید.
-                    </p>
+                        <img
+                            src="Resident_Evil_4_remake_cover_art.jpg"
+                            alt="Resident Evil 4 Remake">
 
-                    <button class="game-button">
-                        مشاهده بازی
-                    </button>
+                        <span class="game-tag">
+                            HORROR
+                        </span>
 
-                </div>
+                    </div>
 
-            </article>
+                    <div class="library-info">
 
+                        <span class="game-number">
+                            02
+                        </span>
 
+                        <h2>
+                            Resident Evil 4
+                        </h2>
 
-            <!-- METRO -->
+                        <h3>
+                            Remake
+                        </h3>
 
-            <article class="game-card">
+                        <p>
+                            ترسناک • اکشن • بقا
+                        </p>
 
-                <div class="game-image">
+                        <button class="view-game">
+                            مشاهده بازی
+                        </button>
 
-                    <img
-                        src="https://artinkhakpoor2026-lgtm.github.io/artingames/Metro-Exodus-PC-Enhanced-Edition-pc-cover-large.jpg"
-                        alt="Metro Exodus"
-                    >
+                    </div>
 
-                </div>
+                </article>
 
 
-                <div class="game-info">
+                <!-- HITMAN -->
 
-                    <span class="game-number">
-                        04
-                    </span>
+                <article
+                    class="library-card"
+                    data-title="hitman 3 world of assassination"
+                    data-category="action shooter">
 
-                    <h2>
-                        Metro Exodus
-                    </h2>
+                    <div class="library-image">
 
-                    <h3>
-                        Gold Edition
-                    </h3>
+                        <img
+                            src="Hitman_3_Packart.jpg"
+                            alt="Hitman 3">
 
-                    <p>
-                        سفری در دنیایی آخرالزمانی
-                        پر از خطر و رازهای ناشناخته.
-                    </p>
+                        <span class="game-tag">
+                            ACTION
+                        </span>
 
-                    <button class="game-button">
-                        مشاهده بازی
-                    </button>
+                    </div>
 
-                </div>
+                    <div class="library-info">
 
-            </article>
+                        <span class="game-number">
+                            03
+                        </span>
 
+                        <h2>
+                            Hitman 3
+                        </h2>
 
+                        <h3>
+                            World of Assassination
+                        </h3>
 
-            <!-- GOD OF WAR -->
+                        <p>
+                            اکشن • مخفی‌کاری • تیراندازی
+                        </p>
 
-            <article class="game-card">
+                        <button class="view-game">
+                            مشاهده بازی
+                        </button>
 
-                <div class="game-image">
+                    </div>
 
-                    <img
-                        src="https://artinkhakpoor2026-lgtm.github.io/artingames/god-of-war.jpg"
-                        alt="God of War"
-                    >
+                </article>
 
-                </div>
 
+                <!-- METRO -->
 
-                <div class="game-info">
+                <article
+                    class="library-card"
+                    data-title="metro exodus"
+                    data-category="action shooter adventure">
 
-                    <span class="game-number">
-                        05
-                    </span>
+                    <div class="library-image">
 
-                    <h2>
-                        God of War
-                    </h2>
+                        <img
+                            src="Metro-Exodus-PC-Enhanced-Edition-pc-cover-large.jpg"
+                            alt="Metro Exodus">
 
-                    <h3>
-                        2018
-                    </h3>
+                        <span class="game-tag">
+                            ADVENTURE
+                        </span>
 
-                    <p>
-                        ماجراجویی کریتوس و آترئوس
-                        در دنیای اساطیر نورس.
-                    </p>
+                    </div>
 
-                    <button class="game-button">
-                        مشاهده بازی
-                    </button>
+                    <div class="library-info">
 
-                </div>
+                        <span class="game-number">
+                            04
+                        </span>
 
-            </article>
+                        <h2>
+                            Metro Exodus
+                        </h2>
 
+                        <h3>
+                            Gold Edition
+                        </h3>
+
+                        <p>
+                            اکشن • شوتر • ماجراجویی
+                        </p>
+
+                        <button class="view-game">
+                            مشاهده بازی
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- GOD OF WAR -->
+
+                <article
+                    class="library-card"
+                    data-title="god of war 2018"
+                    data-category="action adventure">
+
+                    <div class="library-image">
+
+                        <img
+                            src="god-of-war.jpg"
+                            alt="God of War">
+
+                        <span class="game-tag">
+                            ADVENTURE
+                        </span>
+
+                    </div>
+
+                    <div class="library-info">
+
+                        <span class="game-number">
+                            05
+                        </span>
+
+                        <h2>
+                            God of War
+                        </h2>
+
+                        <h3>
+                            2018
+                        </h3>
+
+                        <p>
+                            اکشن • ماجراجویی • داستانی
+                        </p>
+
+                        <button class="view-game">
+                            مشاهده بازی
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- GTA V -->
+
+                <article
+                    class="library-card"
+                    data-title="gta v grand theft auto 5"
+                    data-category="action openworld">
+
+                    <div class="library-image no-image">
+                        <span>GTA V</span>
+                        <small>IMAGE SOON</small>
+                    </div>
+
+                    <div class="library-info">
+
+                        <span class="game-number">
+                            06
+                        </span>
+
+                        <h2>
+                            GTA V
+                        </h2>
+
+                        <h3>
+                            Grand Theft Auto V
+                        </h3>
+
+                        <p>
+                            اکشن • جهان‌باز • جنایی
+                        </p>
+
+                        <button class="view-game">
+                            مشاهده بازی
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DAYS GONE -->
+
+                <article
+                    class="library-card"
+                    data-title="days gone"
+                    data-category="action adventure">
+
+                    <div class="library-image no-image">
+                        <span>DAYS GONE</span>
+                        <small>IMAGE SOON</small>
+                    </div>
+
+                    <div class="library-info">
+
+                        <span class="game-number">
+                            07
+                        </span>
+
+                        <h2>
+                            Days Gone
+                        </h2>
+
+                        <h3>
+                            Survival
+                        </h3>
+
+                        <p>
+                            اکشن • بقا • ماجراجویی
+                        </p>
+
+                        <button class="view-game">
+                            مشاهده بازی
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PES -->
+
+                <article
+                    class="library-card"
+                    data-title="pes efootball football"
+                    data-category="action">
+
+                    <div class="library-image no-image">
+                        <span>PES</span>
+                        <small>IMAGE SOON</small>
+                    </div>
+
+                    <div class="library-info">
+
+                        <span class="game-number">
+                            08
+                        </span>
+
+                        <h2>
+                            PES
+                        </h2>
+
+                        <h3>
+                            eFootball
+                        </h3>
+
+                        <p>
+                            فوتبال • ورزشی
+                        </p>
+
+                        <button class="view-game">
+                            مشاهده بازی
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COD MODERN WARFARE -->
+
+                <article
+                    class="library-card"
+                    data-title="call of duty modern warfare"
+                    data-category="action shooter">
+
+                    <div class="library-image no-image">
+                        <span>COD MW</span>
+                        <small>IMAGE SOON</small>
+                    </div>
+
+                    <div class="library-info">
+
+                        <span class="game-number">
+                            09
+                        </span>
+
+                        <h2>
+                            Call of Duty
+                        </h2>
+
+                        <h3>
+                            Modern Warfare
+                        </h3>
+
+                        <p>
+                            شوتر • اکشن • جنگی
+                        </p>
+
+                        <button class="view-game">
+                            مشاهده بازی
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- ASSASSIN'S CREED -->
+
+                <article
+                    class="library-card"
+                    data-title="assassins creed"
+                    data-category="action adventure openworld">
+
+                    <div class="library-image no-image">
+                        <span>ASSASSIN'S CREED</span>
+                        <small>IMAGE SOON</small>
+                    </div>
+
+                    <div class="library-info">
+
+                        <span class="game-number">
+                            10
+                        </span>
+
+                        <h2>
+                            Assassin's Creed
+                        </h2>
+
+                        <h3>
+                            Series
+                        </h3>
+
+                        <p>
+                            اکشن • ماجراجویی • جهان‌باز
+                        </p>
+
+                        <button class="view-game">
+                            مشاهده بازی
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- NO RESULT -->
+
+            <div
+                id="noResults"
+                class="no-results">
+
+                <strong>
+                    بازی پیدا نشد
+                </strong>
+
+                <span>
+                    نام بازی یا دسته‌بندی دیگری را امتحان کن.
+                </span>
+
+            </div>
 
         </main>
 
     </section>
 
 
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 
 </body>
-
 </html>
 ```
