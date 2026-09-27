@@ -1,372 +1,338 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>ARTIN GAMES</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- ================= HOME ================= -->
+<header class="top-bar">
+    <div class="logo">
+        <span class="logo-icon">A</span>
+        <span>ARTIN GAMES</span>
+    </div>
 
-    <main id="homePage">
-
-        <header class="top-bar">
-
-            <div class="logo">
-                ARTIN <span>GAMES</span>
-            </div>
-
-            <nav>
-                <a href="#home">خانه</a>
-                <a href="#news">اخبار گیم</a>
-                <a href="#gamesPreview">بازی‌ها</a>
-            </nav>
-
-        </header>
+    <nav>
+        <a href="#home">خانه</a>
+        <a href="#news">اخبار</a>
+        <a href="#games">بازی‌ها</a>
+    </nav>
+</header>
 
 
-        <!-- HERO -->
+<main id="homePage">
 
-        <section class="hero">
+    <section class="hero" id="home">
+        <div class="hero-box">
 
-            <div class="hero-box">
+            <div class="hero-content">
 
-                <div class="hero-content">
-
-                    <span class="small-title">
-                        دنیای گیمینگ ARTIN
-                    </span>
-
-                    <h1>
-                        به دنیای
-                        <strong>بازی‌ها</strong>
-                        خوش آمدید
-                    </h1>
-
-                    <p>
-                        جدیدترین بازی‌ها، اخبار گیم و یک آرشیو بزرگ
-                        از بازی‌های محبوب در یکجا
-                    </p>
-
-                    <button id="artinButton" class="main-button">
-                        ورود به دنیای بازی‌ها
-                        <span>←</span>
-                    </button>
-
+                <div class="hero-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8.5 6h7a5.5 5.5 0 0 1 5.3 7l-1.2 4.1a2.8 2.8 0 0 1-5 1l-1.1-1.7a1.8 1.8 0 0 0-3 0l-1.1 1.7a2.8 2.8 0 0 1-5-1L3.2 13A5.5 5.5 0 0 1 8.5 6Z"/>
+                        <path d="M7 11v4M5 13h4"/>
+                        <circle cx="16.5" cy="12" r=".8"/>
+                        <circle cx="18.5" cy="14" r=".8"/>
+                    </svg>
                 </div>
 
-                <div class="hero-decoration">
-                    <div class="circle"></div>
-                    <div class="circle circle2"></div>
-                    <span>ARTIN</span>
-                </div>
+                <h1>ARTIN GAMES</h1>
+
+                <p>
+                    دنیای بازی‌ها، اخبار و سرگرمی‌های گیمینگ
+                </p>
+
+                <button id="artinButton" class="main-button">
+                    <span>ورود به دنیای بازی‌ها</span>
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14"/>
+                        <path d="m13 6 6 6-6 6"/>
+                    </svg>
+                </button>
 
             </div>
 
-        </section>
-
-
-        <!-- NEWS -->
-
-        <section id="news" class="section">
-
-            <div class="section-title-box">
-
-                <span>01</span>
-
-                <div>
-                    <h2>آخرین اخبار گیم</h2>
-                    <p>
-                        جدیدترین اتفاقات دنیای بازی
-                    </p>
-                </div>
-
+            <div class="hero-decoration">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
             </div>
 
-
-            <div class="news-grid">
-
-                <article class="news-card">
-
-                    <div class="news-number">
-                        01
-                    </div>
-
-                    <h3>
-                        جدیدترین بازی‌های سال
-                    </h3>
-
-                    <p>
-                        اخبار و معرفی بازی‌های جدید در این بخش قرار می‌گیرد.
-                    </p>
-
-                    <button>
-                        ادامه مطلب
-                    </button>
-
-                </article>
+        </div>
+    </section>
 
 
-                <article class="news-card">
+    <section class="section" id="news">
 
-                    <div class="news-number">
-                        02
-                    </div>
-
-                    <h3>
-                        اخبار دنیای گیم
-                    </h3>
-
-                    <p>
-                        جدیدترین اخبار شرکت‌ها و بازی‌های محبوب.
-                    </p>
-
-                    <button>
-                        ادامه مطلب
-                    </button>
-
-                </article>
-
-
-                <article class="news-card">
-
-                    <div class="news-number">
-                        03
-                    </div>
-
-                    <h3>
-                        آپدیت‌های جدید
-                    </h3>
-
-                    <p>
-                        مهم‌ترین آپدیت‌ها و اتفاقات بازی‌ها.
-                    </p>
-
-                    <button>
-                        ادامه مطلب
-                    </button>
-
-                </article>
-
+        <div class="section-title-box">
+            <div class="section-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 5h16v14H4z"/>
+                    <path d="M7 9h10M7 13h7"/>
+                </svg>
             </div>
-
-        </section>
-
-
-        <!-- GAME PREVIEW -->
-
-        <section id="gamesPreview" class="section">
-
-            <div class="section-title-box">
-
-                <span>02</span>
-
-                <div>
-                    <h2>دنیای بازی‌ها</h2>
-                    <p>
-                        مجموعه‌ای از بازی‌های محبوب
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="preview-box">
-
-                <div class="preview-text">
-
-                    <h2>
-                        بیش از
-                        <strong>۵۰ بازی</strong>
-                    </h2>
-
-                    <p>
-                        بازی‌های اکشن، ترسناک، ماجراجویی،
-                        جهان‌باز و بسیاری سبک‌های دیگر.
-                    </p>
-
-                    <button id="artinButton2" class="main-button">
-                        مشاهده همه بازی‌ها
-                        <span>←</span>
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- FOOTER -->
-
-        <footer>
 
             <div>
-                <strong>ARTIN GAMES</strong>
+                <h2>آخرین اخبار گیم</h2>
+                <p>جدیدترین اتفاقات دنیای بازی</p>
+            </div>
+        </div>
+
+        <div class="news-grid">
+
+            <article class="news-card">
+                <div class="news-card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3v18M3 12h18"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <span>اخبار</span>
+                    <h3>جدیدترین اخبار دنیای بازی</h3>
+                    <p>
+                        اخبار، معرفی بازی‌ها و اتفاقات مهم صنعت گیم.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="news-card">
+                <div class="news-card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 5h16v14H4z"/>
+                        <path d="m9 9 6 3-6 3z"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <span>گیمینگ</span>
+                    <h3>بازی‌های جدید</h3>
+                    <p>
+                        بازی‌های جدید و مورد انتظار را دنبال کن.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="news-card">
+                <div class="news-card-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3 14.8 9l6.2.5-4.7 4 1.5 6.1L12 16.3 6.2 19.6l1.5-6.1-4.7-4L9.2 9z"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <span>ویژه</span>
+                    <h3>بازی‌های محبوب</h3>
+                    <p>
+                        محبوب‌ترین بازی‌های موجود در کتابخانه را ببین.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="section" id="games">
+
+        <div class="preview-box">
+
+            <div>
+                <div class="preview-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 5h14v14H5z"/>
+                        <path d="M8 9h8M8 12h8M8 15h5"/>
+                    </svg>
+                </div>
+
+                <h2>کتابخانه بازی‌ها</h2>
+
                 <p>
-                    دنیای بازی‌ها در یکجا
+                    بیش از ۵۰۰ بازی واقعی را جستجو و بررسی کن.
                 </p>
             </div>
 
-            <div>
-                © 2026 ARTIN GAMES
-            </div>
+            <button id="artinButton2" class="main-button">
+                <span>مشاهده همه بازی‌ها</span>
 
-        </footer>
-
-    </main>
-
-
-    <!-- ================= GAME LIBRARY ================= -->
-
-    <main id="libraryPage" class="library-page">
-
-        <header class="library-header">
-
-            <button id="backButton" class="back-button">
-                → بازگشت
+                <svg viewBox="0 0 24 24">
+                    <path d="M5 12h14"/>
+                    <path d="m13 6 6 6-6 6"/>
+                </svg>
             </button>
 
+        </div>
+
+    </section>
+
+
+    <footer>
+        <div class="footer-logo">ARTIN GAMES</div>
+        <p>ساخته شده با ❤️ برای علاقه‌مندان به بازی</p>
+    </footer>
+
+</main>
+
+
+
+<section id="libraryPage" class="library-page hidden">
+
+    <div class="library-header">
+
+        <button id="backButton" class="back-button">
+
+            <svg viewBox="0 0 24 24">
+                <path d="M19 12H5"/>
+                <path d="m11 18-6-6 6-6"/>
+            </svg>
+
+            <span>بازگشت</span>
+
+        </button>
+
+        <div class="library-title">
+
+            <div class="library-title-icon">
+                <svg viewBox="0 0 24 24">
+                    <path d="M5 4h14v16H5z"/>
+                    <path d="M8 8h8M8 12h8M8 16h5"/>
+                </svg>
+            </div>
+
             <div>
-
-                <span>
-                    ARTIN GAMES
-                </span>
-
-                <h1>
-                    کتابخانه بازی‌ها
-                </h1>
-
+                <h1>کتابخانه ARTIN GAMES</h1>
+                <p>بیش از ۵۰۰ بازی واقعی</p>
             </div>
 
-        </header>
+        </div>
+
+    </div>
 
 
-        <!-- SEARCH -->
+    <div class="library-controls">
 
-        <section class="library-controls">
+        <div class="search-box">
 
-            <div class="search-box">
+            <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7"/>
+                <path d="m20 20-4-4"/>
+            </svg>
 
-                <span>⌕</span>
-
-                <input
-                    type="text"
-                    id="gameSearch"
-                    placeholder="نام بازی را جستجو کنید..."
-                >
-
-            </div>
-
-
-            <div class="filter-buttons">
-
-                <button
-                    class="filter-button active"
-                    data-filter="all">
-                    همه
-                </button>
-
-                <button
-                    class="filter-button"
-                    data-filter="action">
-                    اکشن
-                </button>
-
-                <button
-                    class="filter-button"
-                    data-filter="shooter">
-                    شوتر
-                </button>
-
-                <button
-                    class="filter-button"
-                    data-filter="horror">
-                    ترسناک
-                </button>
-
-                <button
-                    class="filter-button"
-                    data-filter="adventure">
-                    ماجراجویی
-                </button>
-
-                <button
-                    class="filter-button"
-                    data-filter="openworld">
-                    جهان‌باز
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- GAME INFO -->
-
-        <div class="library-info">
-
-            <h2>
-                همه بازی‌ها
-            </h2>
-
-            <span id="gameCount">
-                50 بازی
-            </span>
+            <input
+                id="gameSearch"
+                type="text"
+                placeholder="نام بازی را جستجو کن..."
+            >
 
         </div>
 
 
-        <!-- GAMES -->
+        <div class="filter-buttons">
 
-        <section
-            id="gamesGrid"
-            class="games-grid">
-        </section>
+            <button class="filter-button active" data-filter="all">
+                همه
+            </button>
 
+            <button class="filter-button" data-filter="action">
+                اکشن
+            </button>
 
-        <!-- NO RESULTS -->
+            <button class="filter-button" data-filter="shooter">
+                شوتر
+            </button>
 
-        <div id="noResults" class="no-results">
+            <button class="filter-button" data-filter="horror">
+                ترسناک
+            </button>
 
-            <div>
-                🔍
-            </div>
+            <button class="filter-button" data-filter="adventure">
+                ماجراجویی
+            </button>
 
-            <h2>
-                بازی پیدا نشد
-            </h2>
+            <button class="filter-button" data-filter="rpg">
+                RPG
+            </button>
 
-            <p>
-                نام بازی یا دسته‌بندی دیگری را امتحان کنید.
-            </p>
+            <button class="filter-button" data-filter="sports">
+                ورزشی
+            </button>
+
+            <button class="filter-button" data-filter="racing">
+                مسابقه‌ای
+            </button>
 
         </div>
 
-
-        <footer class="library-footer">
-
-            <strong>
-                ARTIN GAMES
-            </strong>
-
-            <span>
-                Game Library
-            </span>
-
-        </footer>
-
-    </main>
+    </div>
 
 
-    <script src="script.js"></script>
+    <div class="library-info">
+
+        <div>
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 11v5"/>
+                <circle cx="12" cy="8" r=".6"/>
+            </svg>
+
+            <span id="gameCount">در حال دریافت بازی‌ها...</span>
+        </div>
+
+    </div>
+
+
+    <div id="loadingBox" class="loading-box">
+
+        <div class="loader"></div>
+
+        <h2>در حال بارگذاری بازی‌ها...</h2>
+
+        <p>
+            چند لحظه صبر کن تا کتابخانه بازی‌ها آماده شود.
+        </p>
+
+    </div>
+
+
+    <div id="gamesGrid" class="games-grid"></div>
+
+
+    <div id="noResults" class="no-results hidden">
+
+        <div class="no-results-icon">
+            <svg viewBox="0 0 24 24">
+                <circle cx="11" cy="11" r="7"/>
+                <path d="m20 20-4-4"/>
+                <path d="M8.5 8.5 13.5 13.5"/>
+                <path d="M13.5 8.5 8.5 13.5"/>
+            </svg>
+        </div>
+
+        <h2>بازی پیدا نشد</h2>
+
+        <p>
+            عبارت جستجو یا فیلتر دیگری را امتحان کن.
+        </p>
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
