@@ -1,779 +1,504 @@
-// ==========================================
-// ARTIN GAMES
-// GAME DATABASE
-// ==========================================
+const homePage = document.getElementById("homePage");
+const libraryPage = document.getElementById("libraryPage");
 
-const games = [
+const artinButton = document.getElementById("artinButton");
+const artinButton2 = document.getElementById("artinButton2");
+const backButton = document.getElementById("backButton");
 
-    {
-        title: "Grand Theft Auto V",
-        year: "2013",
-        genre: "action openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/271590/library_600x900_2x.jpg"
-    },
+const gameSearch = document.getElementById("gameSearch");
+const gamesGrid = document.getElementById("gamesGrid");
+const gameCount = document.getElementById("gameCount");
+const noResults = document.getElementById("noResults");
+const loadingBox = document.getElementById("loadingBox");
 
-    {
-        title: "Red Dead Redemption 2",
-        year: "2018",
-        genre: "action openworld adventure",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1174180/library_600x900_2x.jpg"
-    },
+const filterButtons = document.querySelectorAll(".filter-button");
 
-    {
-        title: "God of War",
-        year: "2018",
-        genre: "action adventure",
-        category: "اکشن • ماجراجویی",
-        image: "god-of-war.jpg"
-    },
 
-    {
-        title: "God of War Ragnarök",
-        year: "2022",
-        genre: "action adventure",
-        category: "اکشن • ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2322010/library_600x900_2x.jpg"
-    },
+let games = [];
+let currentFilter = "all";
 
-    {
-        title: "Resident Evil 4 Remake",
-        year: "2023",
-        genre: "horror action",
-        category: "ترسناک • اکشن",
-        image: "Resident_Evil_4_remake_cover_art.jpg"
-    },
 
-    {
-        title: "Resident Evil 2",
-        year: "2019",
-        genre: "horror action",
-        category: "ترسناک • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/883710/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Resident Evil 3",
-        year: "2020",
-        genre: "horror action",
-        category: "ترسناک • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/952060/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Resident Evil 7",
-        year: "2017",
-        genre: "horror",
-        category: "ترسناک",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/418370/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Resident Evil Village",
-        year: "2021",
-        genre: "horror action",
-        category: "ترسناک • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1196590/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Hitman 3",
-        year: "2021",
-        genre: "action adventure",
-        category: "اکشن • ماجراجویی",
-        image: "Hitman_3_Packart.jpg"
-    },
-
-    {
-        title: "Metro Exodus",
-        year: "2019",
-        genre: "shooter horror adventure",
-        category: "شوتر • ترسناک",
-        image: "Metro-Exodus-PC-Enhanced-Edition-pc-cover-large.jpg"
-    },
-
-    {
-        title: "Metro 2033 Redux",
-        year: "2014",
-        genre: "shooter horror",
-        category: "شوتر • ترسناک",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/286690/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Metro Last Light Redux",
-        year: "2014",
-        genre: "shooter horror",
-        category: "شوتر • ترسناک",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/287390/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Call of Duty Modern Warfare 2",
-        year: "2022",
-        genre: "shooter action",
-        category: "شوتر • اکشن",
-        image: "Call-of-Duty-Modern-Warfare-2-PC-Game.jpg"
-    },
-
-    {
-        title: "Call of Duty Modern Warfare",
-        year: "2019",
-        genre: "shooter action",
-        category: "شوتر • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2000950/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Call of Duty Black Ops III",
-        year: "2015",
-        genre: "shooter action",
-        category: "شوتر • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/311210/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Call of Duty Black Ops Cold War",
-        year: "2020",
-        genre: "shooter action",
-        category: "شوتر • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1985810/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "DOOM Eternal",
-        year: "2020",
-        genre: "shooter action",
-        category: "شوتر • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/782330/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Far Cry 5",
-        year: "2018",
-        genre: "action shooter openworld",
-        category: "شوتر • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/552520/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Far Cry 6",
-        year: "2021",
-        genre: "action shooter openworld",
-        category: "شوتر • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2369390/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Battlefield 1",
-        year: "2016",
-        genre: "shooter action",
-        category: "شوتر • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1238840/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Battlefield V",
-        year: "2018",
-        genre: "shooter action",
-        category: "شوتر • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1238810/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Cyberpunk 2077",
-        year: "2020",
-        genre: "action openworld adventure",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1091500/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "The Witcher 3",
-        year: "2015",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/292030/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Elden Ring",
-        year: "2022",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1245620/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Hogwarts Legacy",
-        year: "2023",
-        genre: "action adventure openworld",
-        category: "ماجراجویی • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/990080/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Marvel's Spider-Man Remastered",
-        year: "2022",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1817070/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Marvel's Spider-Man 2",
-        year: "2025",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2651280/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Days Gone",
-        year: "2019",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1259420/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Ghost of Tsushima",
-        year: "2024",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2215430/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Horizon Zero Dawn",
-        year: "2017",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1151640/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Horizon Forbidden West",
-        year: "2024",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2420110/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Death Stranding",
-        year: "2019",
-        genre: "adventure action",
-        category: "ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1190460/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Uncharted Legacy of Thieves",
-        year: "2022",
-        genre: "action adventure",
-        category: "اکشن • ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1659420/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "The Last of Us Part I",
-        year: "2023",
-        genre: "action adventure",
-        category: "اکشن • ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1888930/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Dead Space",
-        year: "2023",
-        genre: "horror action",
-        category: "ترسناک • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1693980/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Outlast",
-        year: "2013",
-        genre: "horror",
-        category: "ترسناک",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/238320/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Outlast 2",
-        year: "2017",
-        genre: "horror",
-        category: "ترسناک",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/414700/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Silent Hill 2",
-        year: "2024",
-        genre: "horror adventure",
-        category: "ترسناک • ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2124490/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Alan Wake 2",
-        year: "2023",
-        genre: "horror adventure",
-        category: "ترسناک • ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1087100/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Control",
-        year: "2019",
-        genre: "action adventure",
-        category: "اکشن • ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/870780/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Tomb Raider",
-        year: "2013",
-        genre: "action adventure",
-        category: "اکشن • ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/203160/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Rise of the Tomb Raider",
-        year: "2015",
-        genre: "action adventure",
-        category: "اکشن • ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/391220/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Shadow of the Tomb Raider",
-        year: "2018",
-        genre: "action adventure",
-        category: "اکشن • ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/750920/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Assassin's Creed Origins",
-        year: "2017",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/582160/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Assassin's Creed Odyssey",
-        year: "2018",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/812140/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Assassin's Creed Valhalla",
-        year: "2020",
-        genre: "action adventure openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2208920/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Dying Light",
-        year: "2015",
-        genre: "action horror openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/239140/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Dying Light 2",
-        year: "2022",
-        genre: "action horror openworld",
-        category: "اکشن • جهان‌باز",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/534380/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "A Plague Tale Requiem",
-        year: "2022",
-        genre: "adventure action",
-        category: "ماجراجویی • اکشن",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1182900/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Detroit Become Human",
-        year: "2019",
-        genre: "adventure",
-        category: "ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1222140/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "Life is Strange",
-        year: "2015",
-        genre: "adventure",
-        category: "ماجراجویی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/319630/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "PES 2021",
-        year: "2020",
-        genre: "sports",
-        category: "ورزشی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/1259970/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "EA SPORTS FC 24",
-        year: "2023",
-        genre: "sports",
-        category: "ورزشی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2195250/library_600x900_2x.jpg"
-    },
-
-    {
-        title: "EA SPORTS FC 25",
-        year: "2024",
-        genre: "sports",
-        category: "ورزشی",
-        image: "https://cdn.akamai.steamstatic.com/steam/apps/2669320/library_600x900_2x.jpg"
-    }
-
-];
-
-
-// ==========================================
-// ELEMENTS
-// ==========================================
-
-const homePage =
-    document.getElementById("homePage");
-
-const libraryPage =
-    document.getElementById("libraryPage");
-
-const artinButton =
-    document.getElementById("artinButton");
-
-const artinButton2 =
-    document.getElementById("artinButton2");
-
-const backButton =
-    document.getElementById("backButton");
-
-const gamesGrid =
-    document.getElementById("gamesGrid");
-
-const searchBox =
-    document.getElementById("gameSearch");
-
-const gameCount =
-    document.getElementById("gameCount");
-
-const noResults =
-    document.getElementById("noResults");
-
-
-// ==========================================
-// OPEN LIBRARY
-// ==========================================
+/* ================= NAVIGATION ================= */
 
 function openLibrary() {
 
-    homePage.style.display = "none";
-
-    libraryPage.style.display = "block";
+    homePage.classList.add("hidden");
+    libraryPage.classList.remove("hidden");
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
 
+    if (games.length === 0) {
+        loadGames();
+    }
 }
 
-
-// ==========================================
-// GO HOME
-// ==========================================
 
 function goHome() {
 
-    libraryPage.style.display = "none";
-
-    homePage.style.display = "block";
+    libraryPage.classList.add("hidden");
+    homePage.classList.remove("hidden");
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
-
 }
 
 
-// ==========================================
-// BUTTONS
-// ==========================================
+artinButton.addEventListener("click", openLibrary);
+artinButton2.addEventListener("click", openLibrary);
+backButton.addEventListener("click", goHome);
 
-if (artinButton) {
 
-    artinButton.addEventListener(
-        "click",
-        openLibrary
+/* ================= LOAD GAMES ================= */
+
+async function loadGames() {
+
+    loadingBox.classList.remove("hidden");
+
+    gamesGrid.innerHTML = "";
+
+    gameCount.textContent = "در حال دریافت بازی‌ها...";
+
+    try {
+
+        /*
+         * SteamSpy API
+         * صفحه اول شامل بازی‌های محبوب Steam است.
+         */
+
+        const response = await fetch(
+            "https://steamspy.com/api.php?request=all&page=0"
+        );
+
+        if (!response.ok) {
+            throw new Error("خطا در دریافت اطلاعات");
+        }
+
+        const data = await response.json();
+
+
+        games = Object.values(data)
+            .filter(game => game && game.appid && game.name)
+            .slice(0, 500)
+            .map(game => {
+
+                return {
+                    id: Number(game.appid),
+                    title: game.name,
+                    genre: game.genre || "Game",
+                    tags: game.tags || {}
+                };
+
+            });
+
+
+        if (games.length === 0) {
+            throw new Error("بازی پیدا نشد");
+        }
+
+
+        loadingBox.classList.add("hidden");
+
+        renderGames(games);
+
+    } catch (error) {
+
+        console.error(error);
+
+        loadingBox.classList.add("hidden");
+
+        gameCount.textContent =
+            "دریافت بازی‌ها انجام نشد.";
+
+        gamesGrid.innerHTML = `
+            <div style="
+                grid-column:1/-1;
+                padding:50px;
+                text-align:center;
+                border:1px solid #292929;
+                border-radius:20px;
+                background:#090909;
+            ">
+                <h2>مشکل در دریافت بازی‌ها</h2>
+
+                <p style="
+                    color:#777;
+                    margin-top:10px;
+                    font-size:13px;
+                ">
+                    اتصال اینترنت را بررسی کن و دوباره صفحه را باز کن.
+                </p>
+
+                <button
+                    onclick="location.reload()"
+                    style="
+                        margin-top:20px;
+                        padding:11px 20px;
+                        background:#151515;
+                        color:white;
+                        border:1px solid #444;
+                        border-radius:10px;
+                        cursor:pointer;
+                        font-family:inherit;
+                    "
+                >
+                    تلاش دوباره
+                </button>
+            </div>
+        `;
+
+    }
+}
+
+
+/* ================= IMAGE ================= */
+
+function getGameImage(appId) {
+
+    return `https://cdn.akamai.steamstatic.com/steam/apps/${appId}/library_600x900_2x.jpg`;
+}
+
+
+function getFallbackImage(title) {
+
+    const safeTitle = encodeURIComponent(title);
+
+    return `https://placehold.co/600x900/0b0b0b/ffffff?text=${safeTitle}`;
+}
+
+
+/* ================= CATEGORY ================= */
+
+function getCategory(game) {
+
+    const genre = String(game.genre || "").toLowerCase();
+
+    const tagText = Object.keys(game.tags || {})
+        .join(" ")
+        .toLowerCase();
+
+
+    const text = `${genre} ${tagText}`;
+
+
+    if (
+        text.includes("horror") ||
+        text.includes("survival horror")
+    ) {
+        return "horror";
+    }
+
+
+    if (
+        text.includes("shooter") ||
+        text.includes("fps") ||
+        text.includes("third-person shooter")
+    ) {
+        return "shooter";
+    }
+
+
+    if (
+        text.includes("sports") ||
+        text.includes("football") ||
+        text.includes("soccer")
+    ) {
+        return "sports";
+    }
+
+
+    if (
+        text.includes("racing") ||
+        text.includes("driving")
+    ) {
+        return "racing";
+    }
+
+
+    if (
+        text.includes("rpg") ||
+        text.includes("role-playing")
+    ) {
+        return "rpg";
+    }
+
+
+    if (
+        text.includes("adventure") ||
+        text.includes("exploration")
+    ) {
+        return "adventure";
+    }
+
+
+    if (
+        text.includes("action")
+    ) {
+        return "action";
+    }
+
+
+    return "action";
+}
+
+
+/* ================= CREATE CARD ================= */
+
+function createGameCard(game) {
+
+    const card = document.createElement("article");
+
+    card.className = "library-card";
+
+
+    const imageBox = document.createElement("div");
+
+    imageBox.className = "game-image-box";
+
+
+    const image = document.createElement("img");
+
+    image.className = "game-image";
+
+    image.loading = "lazy";
+
+    image.alt = game.title;
+
+    image.src = getGameImage(game.id);
+
+
+    image.onerror = function () {
+
+        if (!this.dataset.fallback) {
+
+            this.dataset.fallback = "true";
+
+            this.src = getFallbackImage(game.title);
+
+        }
+
+    };
+
+
+    const overlay = document.createElement("div");
+
+    overlay.className = "game-image-overlay";
+
+
+    imageBox.appendChild(image);
+    imageBox.appendChild(overlay);
+
+
+    const info = document.createElement("div");
+
+    info.className = "game-info";
+
+
+    const title = document.createElement("h2");
+
+    title.textContent = game.title;
+
+
+    const meta = document.createElement("div");
+
+    meta.className = "game-meta";
+
+
+    const category = document.createElement("span");
+
+    category.className = "game-tag";
+
+    category.textContent = translateCategory(
+        getCategory(game)
     );
 
+
+    const id = document.createElement("span");
+
+    id.textContent = `ID: ${game.id}`;
+
+
+    meta.appendChild(category);
+    meta.appendChild(id);
+
+
+    const button = document.createElement("button");
+
+    button.className = "game-button";
+
+    button.textContent = "مشاهده بازی";
+
+
+    button.addEventListener("click", function () {
+
+        const steamUrl =
+            `https://store.steampowered.com/app/${game.id}/`;
+
+        window.open(
+            steamUrl,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    });
+
+
+    info.appendChild(title);
+    info.appendChild(meta);
+    info.appendChild(button);
+
+
+    card.appendChild(imageBox);
+    card.appendChild(info);
+
+
+    return card;
 }
 
 
-if (artinButton2) {
+/* ================= TRANSLATE CATEGORY ================= */
 
-    artinButton2.addEventListener(
-        "click",
-        openLibrary
-    );
+function translateCategory(category) {
 
+    const categories = {
+
+        action: "اکشن",
+
+        shooter: "شوتر",
+
+        horror: "ترسناک",
+
+        adventure: "ماجراجویی",
+
+        rpg: "RPG",
+
+        sports: "ورزشی",
+
+        racing: "مسابقه‌ای"
+
+    };
+
+
+    return categories[category] || "بازی";
 }
 
 
-if (backButton) {
+/* ================= RENDER ================= */
 
-    backButton.addEventListener(
-        "click",
-        goHome
-    );
-
-}
-
-
-// ==========================================
-// CREATE GAME CARDS
-// ==========================================
-
-function createGameCards(list) {
+function renderGames(list) {
 
     gamesGrid.innerHTML = "";
 
 
-    list.forEach(function(game) {
+    if (list.length === 0) {
 
-        const card =
-            document.createElement("article");
+        noResults.classList.remove("hidden");
+
+        gameCount.textContent =
+            "هیچ بازی پیدا نشد.";
+
+        return;
+    }
 
 
-        card.className =
-            "library-card";
+    noResults.classList.add("hidden");
 
 
-        card.setAttribute(
-            "data-title",
-            game.title.toLowerCase()
+    const fragment = document.createDocumentFragment();
+
+
+    list.forEach(game => {
+
+        fragment.appendChild(
+            createGameCard(game)
         );
-
-
-        card.setAttribute(
-            "data-category",
-            game.genre.toLowerCase()
-        );
-
-
-        card.innerHTML = `
-
-            <div class="game-image">
-
-                <img
-                    src="${game.image}"
-                    alt="${game.title}"
-                    loading="lazy"
-                    onerror="this.style.display='none'"
-                >
-
-            </div>
-
-
-            <div class="game-info">
-
-                <h2>
-                    ${game.title}
-                </h2>
-
-
-                <div class="game-meta">
-
-                    ${game.year}
-                    •
-                    ${game.category}
-
-                </div>
-
-
-                <button
-                    class="view-game"
-                    type="button">
-
-                    مشاهده بازی
-
-                </button>
-
-            </div>
-
-        `;
-
-
-        const viewButton =
-            card.querySelector(".view-game");
-
-
-        viewButton.addEventListener(
-            "click",
-            function() {
-
-                alert(
-                    "صفحه اختصاصی «" +
-                    game.title +
-                    "» به‌زودی ساخته می‌شود."
-                );
-
-            }
-        );
-
-
-        gamesGrid.appendChild(card);
 
     });
 
 
-    gameCount.textContent =
-        list.length + " بازی";
+    gamesGrid.appendChild(fragment);
 
+
+    gameCount.textContent =
+        `${list.length} بازی نمایش داده می‌شود`;
 }
 
 
-// ==========================================
-// FILTER
-// ==========================================
-
-let currentFilter = "all";
-
+/* ================= FILTER ================= */
 
 function filterGames() {
 
-    const text =
-        searchBox.value
-            .toLowerCase()
-            .trim();
+    const searchText =
+        gameSearch.value
+            .trim()
+            .toLowerCase();
 
 
-    const filtered =
-        games.filter(function(game) {
+    const filtered = games.filter(game => {
 
-            const title =
-                game.title.toLowerCase();
-
-
-            const genre =
-                game.genre.toLowerCase();
+        const title =
+            String(game.title || "").toLowerCase();
 
 
-            const matchesSearch =
-                title.includes(text);
+        const matchesSearch =
+            title.includes(searchText);
 
 
-            const matchesFilter =
-                currentFilter === "all" ||
-                genre.includes(currentFilter);
+        const category =
+            getCategory(game);
 
 
-            return (
-                matchesSearch &&
-                matchesFilter
-            );
+        const matchesCategory =
+            currentFilter === "all" ||
+            category === currentFilter;
+
+
+        return (
+            matchesSearch &&
+            matchesCategory
+        );
+
+    });
+
+
+    renderGames(filtered);
+}
+
+
+/* ================= SEARCH ================= */
+
+gameSearch.addEventListener(
+    "input",
+    filterGames
+);
+
+
+/* ================= FILTER BUTTONS ================= */
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        filterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
 
         });
 
 
-    createGameCards(filtered);
+        this.classList.add("active");
 
 
-    if (filtered.length === 0) {
-
-        noResults.classList.add("show");
-
-    } else {
-
-        noResults.classList.remove("show");
-
-    }
-
-}
+        currentFilter =
+            this.dataset.filter;
 
 
-// ==========================================
-// SEARCH
-// ==========================================
+        filterGames();
 
-if (searchBox) {
-
-    searchBox.addEventListener(
-        "input",
-        filterGames
-    );
-
-}
-
-
-// ==========================================
-// FILTER BUTTONS
-// ==========================================
-
-const filterButtons =
-    document.querySelectorAll(
-        ".filter-button"
-    );
-
-
-filterButtons.forEach(function(button) {
-
-    button.addEventListener(
-        "click",
-        function() {
-
-            filterButtons.forEach(
-                function(btn) {
-
-                    btn.classList.remove(
-                        "active"
-                    );
-
-                }
-            );
-
-
-            button.classList.add(
-                "active"
-            );
-
-
-            currentFilter =
-                button.getAttribute(
-                    "data-filter"
-                );
-
-
-            filterGames();
-
-        }
-    );
+    });
 
 });
-
-
-// ==========================================
-// INITIAL LOAD
-// ==========================================
-
-createGameCards(games);
