@@ -1,4 +1,3 @@
-```javascript
 const homePage = document.getElementById("homePage");
 const libraryPage = document.getElementById("libraryPage");
 
@@ -7,46 +6,85 @@ const artinButton2 = document.getElementById("artinButton2");
 const backButton = document.getElementById("backButton");
 
 
-// رفتن به صفحه بازی‌ها
+// ===============================
+// رفتن به صفحه دنیای بازی‌ها
+// ===============================
+
 function openLibrary() {
-    homePage.style.display = "none";
-    libraryPage.style.display = "block";
 
-    window.scrollTo(0, 0);
+    if (homePage) {
+        homePage.style.display = "none";
+    }
+
+    if (libraryPage) {
+        libraryPage.style.display = "block";
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
 
+// ===============================
 // برگشت به صفحه اصلی
+// ===============================
+
 function goHome() {
-    libraryPage.style.display = "none";
-    homePage.style.display = "block";
 
-    window.scrollTo(0, 0);
+    if (libraryPage) {
+        libraryPage.style.display = "none";
+    }
+
+    if (homePage) {
+        homePage.style.display = "block";
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 }
 
 
+// ===============================
 // دکمه ورود به دنیای بازی‌ها
+// ===============================
+
 if (artinButton) {
-    artinButton.onclick = openLibrary;
+    artinButton.addEventListener("click", openLibrary);
 }
 
 
+// ===============================
 // دکمه مشاهده همه بازی‌ها
+// ===============================
+
 if (artinButton2) {
-    artinButton2.onclick = openLibrary;
+    artinButton2.addEventListener("click", openLibrary);
 }
 
 
+// ===============================
 // دکمه برگشت
+// ===============================
+
 if (backButton) {
-    backButton.onclick = goHome;
+    backButton.addEventListener("click", goHome);
 }
 
 
+// ===============================
 // جستجوی بازی‌ها
+// ===============================
+
 const searchBox = document.getElementById("gameSearch");
+
 const gameCards = document.querySelectorAll(".library-card");
+
 const gameCount = document.getElementById("gameCount");
+
 const noResults = document.getElementById("noResults");
 
 let currentFilter = "all";
@@ -54,7 +92,12 @@ let currentFilter = "all";
 
 function filterGames() {
 
-    const searchText = searchBox.value.toLowerCase().trim();
+    if (!searchBox) {
+        return;
+    }
+
+    const searchText =
+        searchBox.value.toLowerCase().trim();
 
     let count = 0;
 
@@ -62,14 +105,17 @@ function filterGames() {
     gameCards.forEach(function(card) {
 
         const title =
-            card.getAttribute("data-title").toLowerCase();
+            (card.getAttribute("data-title") || "")
+            .toLowerCase();
 
         const category =
-            card.getAttribute("data-category").toLowerCase();
+            (card.getAttribute("data-category") || "")
+            .toLowerCase();
 
 
         const searchMatch =
             title.includes(searchText);
+
 
         const filterMatch =
             currentFilter === "all" ||
@@ -79,6 +125,7 @@ function filterGames() {
         if (searchMatch && filterMatch) {
 
             card.classList.remove("hidden");
+
             count++;
 
         } else {
@@ -90,23 +137,35 @@ function filterGames() {
     });
 
 
-    gameCount.textContent = count + " بازی";
+    if (gameCount) {
+
+        gameCount.textContent =
+            count + " بازی";
+
+    }
 
 
-    if (count === 0) {
+    if (noResults) {
 
-        noResults.classList.add("show");
+        if (count === 0) {
 
-    } else {
+            noResults.classList.add("show");
 
-        noResults.classList.remove("show");
+        } else {
+
+            noResults.classList.remove("show");
+
+        }
 
     }
 
 }
 
 
-// جستجو
+// ===============================
+// فعال کردن جستجو
+// ===============================
+
 if (searchBox) {
 
     searchBox.addEventListener(
@@ -117,58 +176,95 @@ if (searchBox) {
 }
 
 
-// فیلترها
+// ===============================
+// فیلتر دسته‌بندی بازی‌ها
+// ===============================
+
 const filterButtons =
     document.querySelectorAll(".filter-button");
 
 
 filterButtons.forEach(function(button) {
 
-    button.onclick = function() {
+    button.addEventListener(
+        "click",
+        function() {
 
-        filterButtons.forEach(function(btn) {
+            filterButtons.forEach(
+                function(btn) {
 
-            btn.classList.remove("active");
+                    btn.classList.remove(
+                        "active"
+                    );
 
-        });
-
-
-        button.classList.add("active");
-
-
-        currentFilter =
-            button.getAttribute("data-filter");
+                }
+            );
 
 
-        filterGames();
+            button.classList.add("active");
 
-    };
+
+            currentFilter =
+                button.getAttribute(
+                    "data-filter"
+                ) || "all";
+
+
+            filterGames();
+
+        }
+    );
 
 });
 
 
-// دکمه‌های مشاهده بازی
+// ===============================
+// دکمه صفحه هر بازی
+// ===============================
+
 const viewButtons =
     document.querySelectorAll(".view-game");
 
 
 viewButtons.forEach(function(button) {
 
-    button.onclick = function() {
+    button.addEventListener(
+        "click",
+        function() {
 
-        const card =
-            button.closest(".library-card");
+            const card =
+                button.closest(".library-card");
 
-        const title =
-            card.querySelector("h2").textContent;
 
-        alert(
-            "صفحه اختصاصی " +
-            title.trim() +
-            " به‌زودی ساخته می‌شود."
-        );
+            if (!card) {
+                return;
+            }
 
-    };
+
+            const titleElement =
+                card.querySelector("h2");
+
+
+            const title =
+                titleElement
+                    ? titleElement.textContent.trim()
+                    : "این بازی";
+
+
+            alert(
+                "صفحه اختصاصی «" +
+                title +
+                "» به‌زودی ساخته می‌شود."
+            );
+
+        }
+    );
 
 });
-```
+
+
+// ===============================
+// اجرای اولیه فیلتر
+// ===============================
+
+filterGames();
