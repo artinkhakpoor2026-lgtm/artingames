@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ARTIN GAMES | دنیای بازی</title>
+    <title>ARTIN GAMES | دنیای گیم</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,173 +14,241 @@
 <body>
 
     <div class="background">
-        <div class="glow glow1"></div>
-        <div class="glow glow2"></div>
+        <div class="grid-lines"></div>
+        <div class="glow glow-red"></div>
+        <div class="glow glow-blue"></div>
     </div>
 
 
-    <!-- ==================== HOME ==================== -->
+    <!-- ================= HEADER ================= -->
 
-    <section id="home" class="screen active">
+    <header class="top-header">
 
-        <header class="main-header">
+        <div class="header-box">
 
-            <div class="site-logo">
-                <span>ARTIN</span>
-                <small>GAMES</small>
+            <div class="logo-box">
+                <span class="logo-main">ARTIN</span>
+                <span class="logo-sub">GAMES</span>
             </div>
 
-            <nav class="main-nav">
+
+            <nav class="navigation">
+
                 <a href="#home">خانه</a>
-                <a href="#news">آخرین اخبار</a>
+
+                <a href="#news">اخبار گیم</a>
+
                 <a href="#games">بازی‌های من</a>
+
             </nav>
 
-        </header>
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= HOME ================= -->
+
+    <main id="home" class="home-page">
 
 
         <!-- HERO -->
 
-        <div class="hero">
+        <section class="hero-frame">
 
-            <div class="hero-content">
+            <div class="hero-inner">
 
-                <div class="hero-badge">
-                    🎮 دنیای گیمینگ آرتین
+
+                <div class="hero-text-box">
+
+                    <div class="small-title">
+                        ARTIN GAMES
+                    </div>
+
+
+                    <h1>
+                        دنیای بازی
+                        <span>از نگاه آرتین</span>
+                    </h1>
+
+
+                    <p>
+                        اخبار بازی‌ها، معرفی بازی‌های جذاب
+                        و تجربه‌های گیمینگ در یک فضای متفاوت.
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <button
+                            id="artinButton"
+                            class="main-button">
+                            ورود به بازی‌ها
+                        </button>
+
+
+                        <a
+                            href="#news"
+                            class="outline-button">
+                            مشاهده اخبار
+                        </a>
+
+                    </div>
+
                 </div>
 
-                <h1>
-                    به <span>ARTIN GAMES</span>
-                    خوش آمدید
-                </h1>
 
-                <p>
-                    جدیدترین اخبار دنیای بازی، بازی‌های مورد علاقه
-                    و تجربه‌های گیمینگ من در یک جا.
-                </p>
 
-                <div class="hero-buttons">
+                <div class="hero-logo-frame">
 
-                    <button id="artinButton" class="primary-button">
-                        ورود به دنیای بازی‌ها
-                    </button>
+                    <div class="hero-logo">
 
-                    <a href="#news" class="secondary-button">
-                        آخرین اخبار
-                    </a>
+                        <span>ARTIN</span>
 
+                        <small>
+                            GAMING
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= NEWS ================= -->
+
+        <section
+            id="news"
+            class="content-frame">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        NEWS
+                    </span>
+
+                    <h2>
+                        آخرین اخبار گیم
+                    </h2>
+
+                </div>
+
+
+                <div class="section-number">
+                    01
                 </div>
 
             </div>
 
-
-            <div class="hero-logo">
-
-                <div class="hero-circle">
-                    <strong>ARTIN</strong>
-                    <span>GAMES</span>
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- NEWS -->
-
-        <section id="news" class="news-section">
-
-            <div class="section-title">
-
-                <span>NEWS</span>
-
-                <h2>
-                    آخرین اخبار گیم
-                </h2>
-
-                <p>
-                    اخبار و اتفاقات جدید دنیای بازی
-                </p>
-
-            </div>
 
 
             <div class="news-grid">
 
+
                 <article class="news-card">
 
-                    <div class="news-icon">
-                        🎮
-                    </div>
+                    <div class="news-card-top">
 
-                    <div class="news-content">
-
-                        <span class="news-tag">
+                        <span class="news-category">
                             اخبار بازی
                         </span>
 
+                        <span class="news-icon">
+                            🎮
+                        </span>
+
+                    </div>
+
+
+                    <div class="news-card-body">
+
                         <h3>
-                            جدیدترین اتفاقات دنیای گیم
+                            جدیدترین اتفاقات دنیای بازی
                         </h3>
 
                         <p>
-                            به‌زودی جدیدترین اخبار بازی‌ها
-                            در این بخش نمایش داده می‌شوند.
+                            اخبار مهم و اتفاقات جدید صنعت
+                            بازی‌های ویدیویی در این قسمت قرار می‌گیرد.
                         </p>
 
-                        <span class="news-date">
-                            به‌زودی
-                        </span>
+                    </div>
 
+
+                    <div class="news-card-bottom">
+                        <span>به‌زودی</span>
+                        <span>←</span>
                     </div>
 
                 </article>
 
 
+
                 <article class="news-card">
 
-                    <div class="news-icon">
-                        🔥
-                    </div>
+                    <div class="news-card-top">
 
-                    <div class="news-content">
-
-                        <span class="news-tag">
+                        <span class="news-category">
                             بازی‌های جدید
                         </span>
+
+                        <span class="news-icon">
+                            🔥
+                        </span>
+
+                    </div>
+
+
+                    <div class="news-card-body">
 
                         <h3>
                             معرفی بازی‌های جدید
                         </h3>
 
                         <p>
-                            اخبار مربوط به بازی‌های جدید،
-                            معرفی‌ها و اتفاقات مهم.
+                            معرفی بازی‌های جدید، تریلرها،
+                            آپدیت‌ها و اخبار مهم بازی‌ها.
                         </p>
 
-                        <span class="news-date">
-                            به‌زودی
-                        </span>
+                    </div>
 
+
+                    <div class="news-card-bottom">
+                        <span>به‌زودی</span>
+                        <span>←</span>
                     </div>
 
                 </article>
 
 
+
                 <article class="news-card">
 
-                    <div class="news-icon">
-                        📰
-                    </div>
+                    <div class="news-card-top">
 
-                    <div class="news-content">
-
-                        <span class="news-tag">
+                        <span class="news-category">
                             اخبار روز
                         </span>
 
+                        <span class="news-icon">
+                            📰
+                        </span>
+
+                    </div>
+
+
+                    <div class="news-card-body">
+
                         <h3>
-                            اخبار روز دنیای بازی
+                            اخبار روز دنیای گیم
                         </h3>
 
                         <p>
@@ -187,76 +256,129 @@
                             اخبار روز و خودکار متصل خواهد شد.
                         </p>
 
-                        <span class="news-date">
-                            در حال آماده‌سازی
-                        </span>
+                    </div>
 
+
+                    <div class="news-card-bottom">
+                        <span>در حال آماده‌سازی</span>
+                        <span>←</span>
                     </div>
 
                 </article>
 
-            </div>
-
-        </section>
-
-
-        <!-- QUICK SECTION -->
-
-        <section class="quick-section">
-
-            <div class="quick-box">
-
-                <span>ARTIN GAMES</span>
-
-                <h2>
-                    بازی‌های تمام‌شده من
-                </h2>
-
-                <p>
-                    لیست بازی‌هایی که تجربه و تمام کرده‌ام.
-                </p>
-
-                <button id="artinButton2" class="primary-button">
-                    مشاهده بازی‌ها
-                </button>
 
             </div>
 
         </section>
 
 
-        <footer class="footer">
 
-            <div class="site-logo footer-logo">
-                <span>ARTIN</span>
-                <small>GAMES</small>
+        <!-- ================= MY GAMES ================= -->
+
+        <section class="content-frame games-preview">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        MY GAMES
+                    </span>
+
+                    <h2>
+                        بازی‌های من
+                    </h2>
+
+                </div>
+
+
+                <div class="section-number">
+                    02
+                </div>
+
             </div>
+
+
+            <div class="games-preview-box">
+
+
+                <div class="games-preview-text">
+
+                    <h3>
+                        مجموعه بازی‌های تمام‌شده
+                    </h3>
+
+                    <p>
+                        بازی‌هایی که تجربه کرده‌ام را
+                        اینجا می‌توانید مشاهده کنید.
+                    </p>
+
+                    <button
+                        id="artinButton2"
+                        class="main-button">
+                        مشاهده بازی‌ها
+                    </button>
+
+                </div>
+
+
+                <div class="games-preview-number">
+
+                    <strong>
+                        05
+                    </strong>
+
+                    <span>
+                        بازی
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FOOTER ================= -->
+
+        <footer class="footer-frame">
+
+            <div class="footer-logo">
+                ARTIN GAMES
+            </div>
+
 
             <p>
-                ساخته شده برای علاقه‌مندان به دنیای گیم 🎮
+                دنیای گیمینگ آرتین
             </p>
 
-            <span class="copyright">
-                © 2026 ARTIN GAMES
+
+            <span>
+                © 2026
             </span>
 
         </footer>
 
-    </section>
+
+    </main>
 
 
 
-    <!-- ==================== GAMES ==================== -->
+    <!-- ================= GAMES PAGE ================= -->
 
     <section id="games" class="screen">
 
-        <header class="header">
+
+        <header class="games-header">
 
             <div>
 
-                <div class="page-label">
+                <span class="section-label">
                     MY GAMES
-                </div>
+                </span>
 
                 <h1>
                     بازی‌های من
@@ -268,11 +390,15 @@
 
             </div>
 
-            <button id="backButton" class="back-button">
-                ← بازگشت
+
+            <button
+                id="backButton"
+                class="back-button">
+                بازگشت
             </button>
 
         </header>
+
 
 
         <main class="games-container">
@@ -291,7 +417,12 @@
 
                 </div>
 
+
                 <div class="game-info">
+
+                    <span class="game-number">
+                        01
+                    </span>
 
                     <h2>
                         Call of Duty
@@ -302,8 +433,8 @@
                     </h3>
 
                     <p>
-                        یک بازی اکشن نظامی و سینمایی
-                        با داستانی هیجان‌انگیز.
+                        یک بازی اکشن نظامی با داستانی
+                        سینمایی و هیجان‌انگیز.
                     </p>
 
                     <button class="game-button">
@@ -329,7 +460,12 @@
 
                 </div>
 
+
                 <div class="game-info">
+
+                    <span class="game-number">
+                        02
+                    </span>
 
                     <h2>
                         Resident Evil 4
@@ -367,7 +503,12 @@
 
                 </div>
 
+
                 <div class="game-info">
+
+                    <span class="game-number">
+                        03
+                    </span>
 
                     <h2>
                         Hitman 3
@@ -405,7 +546,12 @@
 
                 </div>
 
+
                 <div class="game-info">
+
+                    <span class="game-number">
+                        04
+                    </span>
 
                     <h2>
                         Metro Exodus
@@ -443,7 +589,12 @@
 
                 </div>
 
+
                 <div class="game-info">
+
+                    <span class="game-number">
+                        05
+                    </span>
 
                     <h2>
                         God of War
@@ -477,3 +628,4 @@
 </body>
 
 </html>
+```
