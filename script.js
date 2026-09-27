@@ -2,12 +2,13 @@ const home = document.getElementById("home");
 const games = document.getElementById("games");
 
 const artinButton = document.getElementById("artinButton");
+const artinButton2 = document.getElementById("artinButton2");
 const backButton = document.getElementById("backButton");
 
 
-// OPEN GAMES PAGE
+// OPEN GAMES
 
-artinButton.addEventListener("click", function () {
+function openGames() {
 
     home.classList.remove("active");
 
@@ -18,10 +19,20 @@ artinButton.addEventListener("click", function () {
         behavior: "smooth"
     });
 
-});
+}
 
 
-// BACK TO HOME
+// ARTIN BUTTON
+
+artinButton.addEventListener("click", openGames);
+
+
+// SECOND GAMES BUTTON
+
+artinButton2.addEventListener("click", openGames);
+
+
+// BACK BUTTON
 
 backButton.addEventListener("click", function () {
 
@@ -45,7 +56,7 @@ gameButtons.forEach(function (button) {
 
     button.addEventListener("click", function () {
 
-        alert("GAME PAGE COMING SOON!");
+        alert("صفحه اختصاصی این بازی به‌زودی اضافه می‌شود!");
 
     });
 
