@@ -834,3 +834,43 @@ body {
     }
 
 }
+.load-more-button {
+    display: block;
+
+    margin: 35px auto 5px;
+
+    padding: 13px 28px;
+
+    border: 1px solid rgba(255, 0, 0, 0.35);
+
+    border-radius: 9px;
+
+    background: rgba(255, 0, 0, 0.08);
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.load-more-button:hover {
+    background: #d90000;
+
+    border-color: #ff2929;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px rgba(255, 0, 0, 0.15);
+}
+
+.load-more-button:active {
+    transform: translateY(0);
+}
