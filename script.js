@@ -1,3 +1,4 @@
+```javascript
 /* =========================================================
    ARTIN GAMES
    GAME LIBRARY
@@ -59,6 +60,7 @@ const games = [
     { name: "Stardew Valley", id: 413150, category: "action", type: "اکشن" },
     { name: "Valheim", id: 892970, category: "action", type: "اکشن" },
 
+
     /* ================= RPG ================= */
 
     { name: "Cyberpunk 2077", id: 1091500, category: "rpg", type: "نقش‌آفرینی" },
@@ -91,6 +93,7 @@ const games = [
     { name: "Like a Dragon: Infinite Wealth", id: 2072450, category: "rpg", type: "نقش‌آفرینی" },
     { name: "Path of Exile", id: 238960, category: "rpg", type: "نقش‌آفرینی" },
     { name: "Path of Exile 2", id: 2694490, category: "rpg", type: "نقش‌آفرینی" },
+
 
     /* ================= SHOOTER ================= */
 
@@ -140,6 +143,7 @@ const games = [
     { name: "RAGE", id: 9200, category: "shooter", type: "شوتر" },
     { name: "Quake", id: 2310, category: "shooter", type: "شوتر" },
 
+
     /* ================= HORROR ================= */
 
     { name: "Resident Evil 2", id: 883710, category: "horror", type: "ترسناک" },
@@ -172,6 +176,7 @@ const games = [
     { name: "Alan Wake 2", id: 1088850, category: "horror", type: "ترسناک" },
     { name: "Visage", id: 594330, category: "horror", type: "ترسناک" },
     { name: "Layers of Fear", id: 391720, category: "horror", type: "ترسناک" },
+
 
     /* ================= ADVENTURE ================= */
 
@@ -206,6 +211,7 @@ const games = [
     { name: "Subnautica", id: 264710, category: "adventure", type: "ماجراجویی" },
     { name: "Hades", id: 1145360, category: "adventure", type: "ماجراجویی" },
 
+
     /* ================= RACING ================= */
 
     { name: "Forza Horizon 4", id: 1293830, category: "racing", type: "مسابقه‌ای" },
@@ -218,6 +224,7 @@ const games = [
     { name: "Euro Truck Simulator 2", id: 227300, category: "racing", type: "مسابقه‌ای" },
     { name: "American Truck Simulator", id: 270880, category: "racing", type: "مسابقه‌ای" },
     { name: "CarX Drift Racing Online", id: 635260, category: "racing", type: "مسابقه‌ای" },
+
 
     /* ================= SPORTS ================= */
 
@@ -248,27 +255,21 @@ const uniqueIds = new Set(
 );
 
 if (games.length !== 200) {
-
     console.error(
         `ARTIN GAMES ERROR: Expected 200 games, but found ${games.length}.`
     );
-
 }
 
 if (uniqueNames.size !== games.length) {
-
     console.error(
         "ARTIN GAMES ERROR: Duplicate game names detected."
     );
-
 }
 
 if (uniqueIds.size !== games.length) {
-
     console.error(
         "ARTIN GAMES ERROR: Duplicate Steam App IDs detected."
     );
-
 }
 
 
@@ -301,9 +302,7 @@ const filters = document.querySelectorAll(".filter");
    ========================================================= */
 
 function getGameImage(id) {
-
     return `https://cdn.akamai.steamstatic.com/steam/apps/${id}/library_600x900_2x.jpg`;
-
 }
 
 
@@ -312,9 +311,7 @@ function getGameImage(id) {
    ========================================================= */
 
 function getSteamLink(id) {
-
     return `https://store.steampowered.com/app/${id}/`;
-
 }
 
 
@@ -393,9 +390,7 @@ function createGameCard(game) {
 
 
     button.addEventListener("click", () => {
-
         openGame(game);
-
     });
 
 
@@ -413,23 +408,17 @@ function openGame(game) {
     const steamLink =
         getSteamLink(game.id);
 
-
     const message =
-
         `🎮 ${game.name}\n\n` +
-
         `دسته‌بندی: ${game.type}\n\n` +
-
         `برای مشاهده اطلاعات کامل و صفحه رسمی بازی، ` +
         `صفحه Steam آن را باز کنید.`;
-
 
     const shouldOpen =
         confirm(
             message +
             "\n\nباز کردن صفحه رسمی بازی؟"
         );
-
 
     if (shouldOpen) {
 
@@ -454,6 +443,11 @@ function renderGames(reset = true) {
         getFilteredGames();
 
 
+    /*
+       وقتی فیلتر یا جستجو عوض می‌شود،
+       صفحه از اول ساخته می‌شود.
+    */
+
     if (reset) {
 
         visibleGames =
@@ -464,9 +458,25 @@ function renderGames(reset = true) {
     }
 
 
+    /*
+       تعداد بازی‌هایی که قبلاً نمایش داده شده‌اند.
+       این قسمت مشکل اصلی نسخه قبلی بود.
+    */
+
+    const previousVisibleCount =
+        reset
+            ? 0
+            : visibleGames - GAMES_PER_LOAD;
+
+
+    /*
+       فقط بازی‌های جدید را اضافه می‌کنیم.
+       بنابراین بازی‌های قبلی دوباره اضافه نمی‌شوند.
+    */
+
     const gamesToShow =
         filteredGames.slice(
-            0,
+            previousVisibleCount,
             visibleGames
         );
 
@@ -479,6 +489,8 @@ function renderGames(reset = true) {
 
     });
 
+
+    /* ================= NO RESULTS ================= */
 
     if (filteredGames.length === 0) {
 
@@ -498,6 +510,8 @@ function renderGames(reset = true) {
 
     }
 
+
+    /* ================= LOAD MORE ================= */
 
     if (
         filteredGames.length >
@@ -527,10 +541,55 @@ loadMoreButton.addEventListener(
     "click",
     () => {
 
-        visibleGames +=
-            GAMES_PER_LOAD;
+        const filteredGames =
+            getFilteredGames();
 
-        renderGames(false);
+        /*
+           مقدار قبلی را نگه می‌داریم
+           و فقط ۲۰ بازی جدید اضافه می‌کنیم.
+        */
+
+        const oldVisibleGames =
+            visibleGames;
+
+        visibleGames =
+            Math.min(
+                visibleGames + GAMES_PER_LOAD,
+                filteredGames.length
+            );
+
+
+        const newGames =
+            filteredGames.slice(
+                oldVisibleGames,
+                visibleGames
+            );
+
+
+        newGames.forEach(game => {
+
+            gamesGrid.appendChild(
+                createGameCard(game)
+            );
+
+        });
+
+
+        /*
+           اگر دیگر بازی‌ای باقی نمانده،
+           دکمه مخفی شود.
+        */
+
+        if (
+            visibleGames >=
+            filteredGames.length
+        ) {
+
+            loadMoreButton.classList.add(
+                "hidden"
+            );
+
+        }
 
     }
 );
@@ -626,3 +685,4 @@ function initGamesPage() {
    ========================================================= */
 
 initGamesPage();
+```
