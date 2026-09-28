@@ -4,203 +4,310 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>بازی | ARTIN GAMES</title>
+    <title>GAMEZONE | دنیای بازی</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            background:
-                radial-gradient(circle at top, #20232e 0%, #0b0c10 45%, #050608 100%);
-            color: #fff;
-            min-height: 100vh;
-        }
-
-        header {
-            background: rgba(10, 11, 15, .92);
-            border-bottom: 1px solid #292c36;
-            padding: 22px 6%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(15px);
-        }
-
-        header h1 {
-            font-size: 25px;
-        }
-
-        nav {
-            display: flex;
-            gap: 10px;
-        }
-
-        nav a {
-            color: #ddd;
-            text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 10px;
-            transition: .25s;
-        }
-
-        nav a:hover {
-            background: #ff3030;
-            color: white;
-        }
-
-        .container {
-            width: min(1100px, 92%);
-            margin: 45px auto;
-        }
-
-        .game-details {
-            background: linear-gradient(145deg, #171922, #0e0f14);
-            border: 1px solid #292c36;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0,0,0,.35);
-        }
-
-        .game-cover-wrapper {
-            width: 100%;
-            background: #08090d;
-            position: relative;
-        }
-
-        .game-cover {
-            width: 100%;
-            height: auto;
-            max-height: 520px;
-            display: block;
-            object-fit: cover;
-        }
-
-        .content {
-            padding: 35px;
-        }
-
-        .content h2 {
-            font-size: 34px;
-            margin-bottom: 15px;
-        }
-
-        .category {
-            display: inline-block;
-            background: #20232c;
-            border: 1px solid #383b48;
-            color: #ff6666;
-            padding: 7px 13px;
-            border-radius: 20px;
-            font-size: 13px;
-            margin-bottom: 20px;
-        }
-
-        .description {
-            color: #aaa;
-            line-height: 2;
-            font-size: 15px;
-            margin-bottom: 25px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .button {
-            display: inline-block;
-            text-decoration: none;
-            color: white;
-            background: #ff3030;
-            padding: 13px 23px;
-            border-radius: 11px;
-            font-weight: bold;
-            transition: .25s;
-        }
-
-        .button:hover {
-            background: #d91f1f;
-            transform: translateY(-2px);
-        }
-
-        .button.back {
-            background: #252832;
-        }
-
-        .button.back:hover {
-            background: #353946;
-        }
-
-        .not-found {
-            text-align: center;
-            padding: 100px 20px;
-            background: #12141a;
-            border: 1px solid #292c36;
-            border-radius: 20px;
-        }
-
-        .not-found h2 {
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
-
-        .not-found p {
-            color: #999;
-            margin-bottom: 25px;
-        }
-
-        @media (max-width: 700px) {
-            header {
-                flex-direction: column;
-            }
-
-            .content {
-                padding: 25px;
-            }
-
-            .content h2 {
-                font-size: 26px;
-            }
-
-            .game-cover {
-                max-height: 300px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
+    <!-- Header -->
+    <header class="header">
 
-    <h1>🎮 ARTIN GAMES</h1>
+        <div class="logo">
+            <span class="logo-icon">🎮</span>
+            <div>
+                <strong>GAMEZONE</strong>
+                <small>دنیای بازی‌های ویدیویی</small>
+            </div>
+        </div>
 
-    <nav>
-        <a href="index.html">خانه</a>
-        <a href="games.html">بازی‌ها</a>
-    </nav>
+        <nav class="nav">
+            <a href="#home">خانه</a>
+            <a href="#games">بازی‌ها</a>
+            <a href="#categories">دسته‌بندی‌ها</a>
+            <a href="#about">درباره ما</a>
+        </nav>
 
-</header>
+        <button class="menu-btn" id="menuBtn">☰</button>
 
-<main class="container">
+    </header>
 
-    <div id="gameDetails">
-        در حال بارگذاری بازی...
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-badge">🔥 جدیدترین دنیای گیم</span>
+
+            <h1>
+                دنیای بزرگ
+                <span>بازی‌ها</span>
+            </h1>
+
+            <p>
+                بهترین بازی‌های کامپیوتری را پیدا کن،
+                جستجو کن و با دنیای گیم همراه شو.
+            </p>
+
+            <a href="#games" class="hero-btn">
+                مشاهده بازی‌ها
+                <span>←</span>
+            </a>
+
+        </div>
+
+        <div class="hero-controller">
+            🎮
+        </div>
+
+    </section>
+
+
+    <!-- Search -->
+    <section class="search-section">
+
+        <div class="search-box">
+
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="نام بازی را جستجو کنید..."
+            >
+
+            <button id="clearSearch">×</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Categories -->
+    <section class="categories-section" id="categories">
+
+        <div class="section-title">
+
+            <div>
+                <span>دسته‌بندی</span>
+                <h2>بازی‌ها بر اساس سبک</h2>
+            </div>
+
+        </div>
+
+        <div class="categories" id="categoriesContainer">
+
+            <button class="category active" data-category="همه">
+                🎮 همه بازی‌ها
+            </button>
+
+            <button class="category" data-category="اکشن">
+                🔫 اکشن
+            </button>
+
+            <button class="category" data-category="ماجراجویی">
+                🗺️ ماجراجویی
+            </button>
+
+            <button class="category" data-category="ترسناک">
+                👻 ترسناک
+            </button>
+
+            <button class="category" data-category="RPG">
+                ⚔️ RPG
+            </button>
+
+            <button class="category" data-category="ورزشی">
+                ⚽ ورزشی
+            </button>
+
+            <button class="category" data-category="مسابقه‌ای">
+                🏎️ مسابقه‌ای
+            </button>
+
+            <button class="category" data-category="استراتژی">
+                🧠 استراتژی
+            </button>
+
+            <button class="category" data-category="شوتر">
+                🎯 شوتر
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Games -->
+    <main class="games-section" id="games">
+
+        <div class="section-title">
+
+            <div>
+                <span>GAME LIBRARY</span>
+                <h2>کتابخانه بازی‌ها</h2>
+            </div>
+
+            <div class="game-count">
+                <span id="gameCount">200</span>
+                بازی
+            </div>
+
+        </div>
+
+
+        <div class="sort-box">
+
+            <label for="sortSelect">مرتب‌سازی:</label>
+
+            <select id="sortSelect">
+
+                <option value="default">
+                    پیش‌فرض
+                </option>
+
+                <option value="name">
+                    نام بازی
+                </option>
+
+                <option value="year">
+                    سال انتشار
+                </option>
+
+                <option value="rating">
+                    امتیاز
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="games-grid" id="gamesGrid"></div>
+
+
+        <div class="no-result" id="noResult">
+
+            <div>😕</div>
+
+            <h3>بازی پیدا نشد</h3>
+
+            <p>
+                نام بازی یا دسته‌بندی دیگری را امتحان کنید.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- About -->
+    <section class="about-section" id="about">
+
+        <div class="about-card">
+
+            <div class="about-icon">
+                🎮
+            </div>
+
+            <div>
+
+                <span>درباره GAMEZONE</span>
+
+                <h2>
+                    دنیای بازی همیشه همراه توست
+                </h2>
+
+                <p>
+                    GAMEZONE یک سایت گیمینگ فارسی برای
+                    معرفی و جستجوی بازی‌های محبوب کامپیوتری است.
+                    در این سایت می‌توانی بازی‌های مختلف را بر اساس
+                    سبک، سال انتشار و امتیاز پیدا کنی.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-logo">
+            🎮 GAMEZONE
+        </div>
+
+        <p>
+            ساخته شده برای علاقه‌مندان دنیای بازی
+        </p>
+
+        <div class="footer-line"></div>
+
+        <small>
+            © 2026 GAMEZONE - تمامی حقوق محفوظ است
+        </small>
+
+    </footer>
+
+
+    <!-- Modal -->
+    <div class="modal" id="gameModal">
+
+        <div class="modal-content">
+
+            <button class="modal-close" id="modalClose">
+                ×
+            </button>
+
+            <div class="modal-image" id="modalImage">
+                🎮
+            </div>
+
+            <div class="modal-info">
+
+                <span id="modalCategory">
+                    اکشن
+                </span>
+
+                <h2 id="modalTitle">
+                    Game
+                </h2>
+
+                <div class="modal-details">
+
+                    <div>
+                        <small>سال انتشار</small>
+                        <strong id="modalYear">2020</strong>
+                    </div>
+
+                    <div>
+                        <small>امتیاز</small>
+                        <strong id="modalRating">9.0</strong>
+                    </div>
+
+                    <div>
+                        <small>پلتفرم</small>
+                        <strong>PC</strong>
+                    </div>
+
+                </div>
+
+                <p id="modalDescription">
+                    توضیحات بازی
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
 
-</main>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
