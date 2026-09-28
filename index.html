@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ARTIN GAMES | کتابخانه بازی‌ها</title>
+    <title>ARTIN GAMES | بازی‌ها</title>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="games.css">
@@ -12,155 +13,239 @@
 
 <body>
 
-<header class="topbar">
+<header class="games-header">
 
-    <div class="logo">
+    <a href="index.html" class="games-logo">
         <span>ARTIN</span>
         <b>GAMES</b>
-    </div>
+    </a>
 
-    <nav>
+    <nav class="games-nav">
         <a href="index.html">خانه</a>
         <a href="games.html" class="active">بازی‌ها</a>
-        <a href="index.html#news">آخرین اخبار</a>
+        <a href="index.html#news">اخبار</a>
     </nav>
+
+    <a href="index.html" class="back-home">
+        ← بازگشت
+    </a>
 
 </header>
 
 
 <main>
 
-<section class="games-hero">
+    <!-- HERO -->
 
-    <span>ARTIN GAMES LIBRARY</span>
+    <section class="games-hero">
 
-    <h1>
-        دنیای بازی‌ها
-    </h1>
+        <div class="hero-line"></div>
 
-    <p>
-        هزاران عنوان بازی را جستجو و کشف کن.
-    </p>
+        <span class="small-title">
+            ARTIN GAMES LIBRARY
+        </span>
 
-</section>
-
-
-<section class="library-section">
-
-    <div class="section-title">
-
-        <div>
-            <span>GAME LIBRARY</span>
-            <h2>کتابخانه بازی‌ها</h2>
-        </div>
-
-        <div class="game-count" id="gameCount">
-            ۰ بازی
-        </div>
-
-    </div>
-
-
-    <div class="tools">
-
-        <div class="search-box">
-
-            <span>⌕</span>
-
-            <input
-                id="gameSearch"
-                type="search"
-                placeholder="نام بازی را جستجو کنید..."
-            >
-
-        </div>
-
-
-        <div class="filters">
-
-            <button class="filter-button active" data-filter="all">
-                همه
-            </button>
-
-            <button class="filter-button" data-filter="action">
-                اکشن
-            </button>
-
-            <button class="filter-button" data-filter="shooter">
-                شوتر
-            </button>
-
-            <button class="filter-button" data-filter="rpg">
-                RPG
-            </button>
-
-            <button class="filter-button" data-filter="horror">
-                ترسناک
-            </button>
-
-            <button class="filter-button" data-filter="adventure">
-                ماجراجویی
-            </button>
-
-            <button class="filter-button" data-filter="racing">
-                مسابقه‌ای
-            </button>
-
-            <button class="filter-button" data-filter="sports">
-                ورزشی
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div
-        class="status-box"
-        id="loadingBox"
-    >
-        در حال دریافت بازی‌ها...
-    </div>
-
-
-    <div
-        class="games-grid"
-        id="gamesGrid"
-    ></div>
-
-
-    <div
-        class="no-results"
-        id="noResults"
-        hidden
-    >
-
-        <div>🎮</div>
-
-        <h3>
-            بازی پیدا نشد
-        </h3>
+        <h1>
+            دنیای <strong>بازی‌ها</strong>
+        </h1>
 
         <p>
-            نام دیگری را جستجو کنید.
+            بازی مورد علاقه‌ات را پیدا کن، جستجو کن و وارد دنیای آن شو.
         </p>
 
-    </div>
+        <div class="library-stats">
 
-</section>
+            <div class="stat">
+                <strong id="gameCount">۰</strong>
+                <span>بازی</span>
+            </div>
+
+            <div class="stat">
+                <strong>8</strong>
+                <span>دسته‌بندی</span>
+            </div>
+
+            <div class="stat">
+                <strong>∞</strong>
+                <span>سرگرمی</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LIBRARY -->
+
+    <section class="games-library">
+
+        <div class="library-heading">
+
+            <div>
+
+                <span>
+                    GAME COLLECTION
+                </span>
+
+                <h2>
+                    کتابخانه بازی‌ها
+                </h2>
+
+            </div>
+
+            <div class="heading-icon">
+                🎮
+            </div>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="game-tools">
+
+            <div class="game-search">
+
+                <span>⌕</span>
+
+                <input
+                    type="search"
+                    id="gameSearch"
+                    placeholder="جستجوی نام بازی..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="filters">
+
+                <button
+                    class="filter-button active"
+                    data-filter="all"
+                >
+                    همه
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="action"
+                >
+                    ⚔ اکشن
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="shooter"
+                >
+                    🔫 شوتر
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="rpg"
+                >
+                    🧙 RPG
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="horror"
+                >
+                    👻 ترسناک
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="adventure"
+                >
+                    🗺 ماجراجویی
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="racing"
+                >
+                    🏎 مسابقه‌ای
+                </button>
+
+                <button
+                    class="filter-button"
+                    data-filter="sports"
+                >
+                    ⚽ ورزشی
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOADING -->
+
+        <div
+            class="games-status"
+            id="loadingBox"
+        >
+
+            <div class="loading-circle"></div>
+
+            <span>
+                در حال بارگذاری بازی‌ها...
+            </span>
+
+        </div>
+
+
+        <!-- GAMES -->
+
+        <div
+            class="games-grid"
+            id="gamesGrid"
+        ></div>
+
+
+        <!-- EMPTY -->
+
+        <div
+            class="no-results"
+            id="noResults"
+            hidden
+        >
+
+            <div class="empty-icon">
+                🎮
+            </div>
+
+            <h3>
+                بازی پیدا نشد
+            </h3>
+
+            <p>
+                نام بازی یا دسته‌بندی دیگری را امتحان کن.
+            </p>
+
+        </div>
+
+    </section>
 
 </main>
 
 
-<footer>
+<footer class="games-footer">
 
-    <div class="footer-logo">
-        ARTIN GAMES
+    <div class="footer-brand">
+        <span>ARTIN</span>
+        <b>GAMES</b>
     </div>
 
     <p>
         دنیای بازی‌ها، در یکجا.
     </p>
+
+    <small>
+        © 2026 ARTIN GAMES
+    </small>
 
 </footer>
 
@@ -168,4 +253,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
