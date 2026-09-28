@@ -1,23 +1,194 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>ARTIN TEST</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بازی‌ها | ARTIN GAMES</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Tahoma, Arial, sans-serif;
+            background: #0b0b0f;
+            color: white;
+        }
+
+        header {
+            background: #111118;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #292932;
+        }
+
+        header h1 {
+            margin: 0 0 15px;
+            color: #ff3b3b;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1400px;
+            margin: 30px auto;
+        }
+
+        .tools {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        input,
+        select {
+            background: #181820;
+            color: white;
+            border: 1px solid #33333d;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .game-card {
+            background: #15151d;
+            border: 1px solid #282832;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: .2s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff3b3b;
+        }
+
+        .game-image {
+            width: 100%;
+            height: 290px;
+            object-fit: cover;
+            display: block;
+            background: #222;
+        }
+
+        .game-info {
+            padding: 15px;
+        }
+
+        .game-info h3 {
+            margin: 0 0 10px;
+            font-size: 17px;
+        }
+
+        .category {
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .view-button {
+            display: block;
+            text-align: center;
+            background: #e32626;
+            color: white;
+            padding: 10px;
+            border-radius: 7px;
+            text-decoration: none;
+        }
+
+        .view-button:hover {
+            background: #ff3b3b;
+        }
+
+        #loadMore {
+            display: block;
+            margin: 30px auto;
+            padding: 13px 30px;
+            background: #e32626;
+            color: white;
+            border: 0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #loadMore:hover {
+            background: #ff3b3b;
+        }
+
+        #count {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 60px;
+            color: #aaa;
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>ARTIN GAMES TEST</h1>
+<header>
+    <h1>🎮 ARTIN GAMES</h1>
 
-<div id="test"></div>
+    <nav>
+        <a href="index.html">خانه</a>
+        <a href="games.html">بازی‌ها</a>
+    </nav>
+</header>
 
-<script>
-document.getElementById("test").innerHTML =
-    "<h2 style='color:green'>GAME.HTML درست اجرا می‌شود ✅</h2>" +
-    "<p>ID دریافت شده: " +
-    new URLSearchParams(window.location.search).get("id") +
-    "</p>";
-</script>
+<main class="container">
+
+    <div class="tools">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="جستجوی بازی..."
+        >
+
+        <select id="categoryFilter">
+            <option value="all">همه دسته‌ها</option>
+            <option value="action">اکشن</option>
+            <option value="rpg">RPG</option>
+            <option value="shooter">شوتر</option>
+            <option value="horror">ترسناک</option>
+            <option value="adventure">ماجراجویی</option>
+            <option value="racing">مسابقه‌ای</option>
+            <option value="sports">ورزشی</option>
+        </select>
+    </div>
+
+    <div id="count"></div>
+
+    <div id="gamesGrid" class="games-grid"></div>
+
+    <button id="loadMore">نمایش بازی‌های بیشتر</button>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
 </html>
