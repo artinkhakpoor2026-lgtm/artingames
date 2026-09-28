@@ -1,246 +1,111 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ARTIN GAMES</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>ARTIN GAMES | دنیای بازی</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="top-bar">
+<header class="topbar">
+
     <div class="logo">
-        <span class="logo-icon">A</span>
-        <span>ARTIN GAMES</span>
+        <span>ARTIN</span>
+        <b>GAMES</b>
     </div>
 
     <nav>
         <a href="#home">خانه</a>
-        <a href="#news">اخبار</a>
-        <a href="#games">بازی‌ها</a>
+        <a href="#library">بازی‌ها</a>
+        <a href="#news">آخرین اخبار</a>
     </nav>
+
+    <button class="menu-btn" id="menuBtn">
+        ☰
+    </button>
+
 </header>
 
 
-<main id="homePage">
+<main>
 
-    <section class="hero" id="home">
-        <div class="hero-box">
+<section class="hero" id="home">
 
-            <div class="hero-content">
+    <div class="hero-content">
 
-                <div class="hero-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M8.5 6h7a5.5 5.5 0 0 1 5.3 7l-1.2 4.1a2.8 2.8 0 0 1-5 1l-1.1-1.7a1.8 1.8 0 0 0-3 0l-1.1 1.7a2.8 2.8 0 0 1-5-1L3.2 13A5.5 5.5 0 0 1 8.5 6Z"/>
-                        <path d="M7 11v4M5 13h4"/>
-                        <circle cx="16.5" cy="12" r=".8"/>
-                        <circle cx="18.5" cy="14" r=".8"/>
-                    </svg>
-                </div>
+        <span class="hero-label">
+            🎮 دنیای بازی در ARTIN GAMES
+        </span>
 
-                <h1>ARTIN GAMES</h1>
+        <h1>
+            وارد دنیای
+            <strong>بازی‌ها</strong>
+            شو
+        </h1>
 
-                <p>
-                    دنیای بازی‌ها، اخبار و سرگرمی‌های گیمینگ
-                </p>
+        <p>
+            جدیدترین بازی‌ها، اخبار گیم و یک کتابخانه بزرگ
+            از بازی‌های محبوب دنیا.
+        </p>
 
-                <button id="artinButton" class="main-button">
-                    <span>ورود به دنیای بازی‌ها</span>
+        <div class="hero-buttons">
 
-                    <svg viewBox="0 0 24 24">
-                        <path d="M5 12h14"/>
-                        <path d="m13 6 6 6-6 6"/>
-                    </svg>
-                </button>
-
-            </div>
-
-            <div class="hero-decoration">
-                <div class="circle circle-1"></div>
-                <div class="circle circle-2"></div>
-                <div class="circle circle-3"></div>
-            </div>
-
-        </div>
-    </section>
-
-
-    <section class="section" id="news">
-
-        <div class="section-title-box">
-            <div class="section-icon">
-                <svg viewBox="0 0 24 24">
-                    <path d="M4 5h16v14H4z"/>
-                    <path d="M7 9h10M7 13h7"/>
-                </svg>
-            </div>
-
-            <div>
-                <h2>آخرین اخبار گیم</h2>
-                <p>جدیدترین اتفاقات دنیای بازی</p>
-            </div>
-        </div>
-
-        <div class="news-grid">
-
-            <article class="news-card">
-                <div class="news-card-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 3v18M3 12h18"/>
-                    </svg>
-                </div>
-
-                <div>
-                    <span>اخبار</span>
-                    <h3>جدیدترین اخبار دنیای بازی</h3>
-                    <p>
-                        اخبار، معرفی بازی‌ها و اتفاقات مهم صنعت گیم.
-                    </p>
-                </div>
-            </article>
-
-
-            <article class="news-card">
-                <div class="news-card-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M4 5h16v14H4z"/>
-                        <path d="m9 9 6 3-6 3z"/>
-                    </svg>
-                </div>
-
-                <div>
-                    <span>گیمینگ</span>
-                    <h3>بازی‌های جدید</h3>
-                    <p>
-                        بازی‌های جدید و مورد انتظار را دنبال کن.
-                    </p>
-                </div>
-            </article>
-
-
-            <article class="news-card">
-                <div class="news-card-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 3 14.8 9l6.2.5-4.7 4 1.5 6.1L12 16.3 6.2 19.6l1.5-6.1-4.7-4L9.2 9z"/>
-                    </svg>
-                </div>
-
-                <div>
-                    <span>ویژه</span>
-                    <h3>بازی‌های محبوب</h3>
-                    <p>
-                        محبوب‌ترین بازی‌های موجود در کتابخانه را ببین.
-                    </p>
-                </div>
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <section class="section" id="games">
-
-        <div class="preview-box">
-
-            <div>
-                <div class="preview-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M5 5h14v14H5z"/>
-                        <path d="M8 9h8M8 12h8M8 15h5"/>
-                    </svg>
-                </div>
-
-                <h2>کتابخانه بازی‌ها</h2>
-
-                <p>
-                    بیش از ۵۰۰ بازی واقعی را جستجو و بررسی کن.
-                </p>
-            </div>
-
-            <button id="artinButton2" class="main-button">
-                <span>مشاهده همه بازی‌ها</span>
-
-                <svg viewBox="0 0 24 24">
-                    <path d="M5 12h14"/>
-                    <path d="m13 6 6 6-6 6"/>
-                </svg>
+            <button class="primary-btn" id="enterGames">
+                ورود به دنیای بازی‌ها
+                <span>←</span>
             </button>
 
-        </div>
-
-    </section>
-
-
-    <footer>
-        <div class="footer-logo">ARTIN GAMES</div>
-        <p>ساخته شده با ❤️ برای علاقه‌مندان به بازی</p>
-    </footer>
-
-</main>
-
-
-
-<section id="libraryPage" class="library-page hidden">
-
-    <div class="library-header">
-
-        <button id="backButton" class="back-button">
-
-            <svg viewBox="0 0 24 24">
-                <path d="M19 12H5"/>
-                <path d="m11 18-6-6 6-6"/>
-            </svg>
-
-            <span>بازگشت</span>
-
-        </button>
-
-        <div class="library-title">
-
-            <div class="library-title-icon">
-                <svg viewBox="0 0 24 24">
-                    <path d="M5 4h14v16H5z"/>
-                    <path d="M8 8h8M8 12h8M8 16h5"/>
-                </svg>
-            </div>
-
-            <div>
-                <h1>کتابخانه ARTIN GAMES</h1>
-                <p>بیش از ۵۰۰ بازی واقعی</p>
-            </div>
+            <button class="secondary-btn" id="latestBtn">
+                آخرین بازی‌ها
+            </button>
 
         </div>
 
     </div>
 
+    <div class="hero-glow"></div>
 
-    <div class="library-controls">
+</section>
+
+
+<section class="library-section" id="library">
+
+    <div class="section-title">
+
+        <div>
+            <span>LIBRARY</span>
+            <h2>کتابخانه بازی‌ها</h2>
+        </div>
+
+        <div class="game-count" id="gameCount">
+            ۰ بازی
+        </div>
+
+    </div>
+
+
+    <div class="tools">
 
         <div class="search-box">
 
-            <svg viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="7"/>
-                <path d="m20 20-4-4"/>
-            </svg>
+            <span>⌕</span>
 
             <input
                 id="gameSearch"
-                type="text"
-                placeholder="نام بازی را جستجو کن..."
+                type="search"
+                placeholder="نام بازی را جستجو کنید..."
+                autocomplete="off"
             >
 
         </div>
 
 
-        <div class="filter-buttons">
+        <div class="filters">
 
             <button class="filter-button active" data-filter="all">
                 همه
@@ -254,6 +119,10 @@
                 شوتر
             </button>
 
+            <button class="filter-button" data-filter="rpg">
+                RPG
+            </button>
+
             <button class="filter-button" data-filter="horror">
                 ترسناک
             </button>
@@ -262,77 +131,86 @@
                 ماجراجویی
             </button>
 
-            <button class="filter-button" data-filter="rpg">
-                RPG
+            <button class="filter-button" data-filter="racing">
+                مسابقه‌ای
             </button>
 
             <button class="filter-button" data-filter="sports">
                 ورزشی
             </button>
 
-            <button class="filter-button" data-filter="racing">
-                مسابقه‌ای
-            </button>
-
         </div>
 
     </div>
 
 
-    <div class="library-info">
+    <div class="status-box" id="loadingBox">
+        در حال آماده‌سازی کتابخانه بازی‌ها...
+    </div>
+
+
+    <div class="games-grid" id="gamesGrid"></div>
+
+
+    <div class="no-results" id="noResults" hidden>
+        <div>🎮</div>
+        <h3>بازی پیدا نشد</h3>
+        <p>نام بازی یا فیلتر دیگری را امتحان کنید.</p>
+    </div>
+
+</section>
+
+
+<section class="news-section" id="news">
+
+    <div class="section-title">
 
         <div>
-            <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="9"/>
-                <path d="M12 11v5"/>
-                <circle cx="12" cy="8" r=".6"/>
-            </svg>
-
-            <span id="gameCount">در حال دریافت بازی‌ها...</span>
+            <span>NEWS</span>
+            <h2>آخرین اخبار گیم</h2>
         </div>
 
     </div>
 
+    <div class="news-placeholder">
 
-    <div id="loadingBox" class="loading-box">
+        <div class="news-icon">📰</div>
 
-        <div class="loader"></div>
-
-        <h2>در حال بارگذاری بازی‌ها...</h2>
-
-        <p>
-            چند لحظه صبر کن تا کتابخانه بازی‌ها آماده شود.
-        </p>
-
-    </div>
-
-
-    <div id="gamesGrid" class="games-grid"></div>
-
-
-    <div id="noResults" class="no-results hidden">
-
-        <div class="no-results-icon">
-            <svg viewBox="0 0 24 24">
-                <circle cx="11" cy="11" r="7"/>
-                <path d="m20 20-4-4"/>
-                <path d="M8.5 8.5 13.5 13.5"/>
-                <path d="M13.5 8.5 8.5 13.5"/>
-            </svg>
-        </div>
-
-        <h2>بازی پیدا نشد</h2>
+        <h3>
+            بخش اخبار در حال آماده‌سازی است
+        </h3>
 
         <p>
-            عبارت جستجو یا فیلتر دیگری را امتحان کن.
+            در مرحله بعد این بخش را به سیستم اخبار روز و خودکار
+            ARTIN GAMES وصل می‌کنیم.
         </p>
 
     </div>
 
 </section>
 
+</main>
+
+
+<footer>
+
+    <div class="footer-logo">
+        ARTIN GAMES
+    </div>
+
+    <p>
+        دنیای بازی‌ها، در یکجا.
+    </p>
+
+    <span>
+        © 2026 ARTIN GAMES
+    </span>
+
+</footer>
+
 
 <script src="script.js"></script>
 
 </body>
 </html>
+```
