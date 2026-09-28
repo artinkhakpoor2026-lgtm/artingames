@@ -228,21 +228,25 @@ const categoryNames = {
 
 
 /* =========================
-   GAME HELPERS
+   HELPERS
 ========================= */
 
 function getGameById(id) {
-    return games.find(game => String(game.id) === String(id));
+    if (!id) return null;
+
+    return games.find(function(game) {
+        return String(game.id) === String(id);
+    }) || null;
 }
 
 
 function getSteamImage(id) {
-    return `https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`;
+    return "https://cdn.cloudflare.steamstatic.com/steam/apps/" + id + "/header.jpg";
 }
 
 
 function getSteamLink(id) {
-    return `https://store.steampowered.com/app/${id}/`;
+    return "https://store.steampowered.com/app/" + id + "/";
 }
 
 
@@ -250,21 +254,21 @@ function getSteamLink(id) {
    GAMES PAGE
 ========================= */
 
-let filteredGames = [...games];
+let filteredGames = games.slice();
 let visibleGames = 20;
 
 
 function createGameCard(game) {
 
     return `
-        <div class="game-card">
+        <article class="game-card">
 
             <img
                 class="game-image"
                 src="${getSteamImage(game.id)}"
                 alt="${game.name}"
                 loading="lazy"
-                onerror="this.src='https://placehold.co/600x900/15151d/ffffff?text=ARTIN+GAMES'"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x338/11131a/ffffff?text=ARTIN+GAMES';"
             >
 
             <div class="game-info">
@@ -277,14 +281,14 @@ function createGameCard(game) {
 
                 <a
                     class="view-button"
-                    href="game.html?id=${encodeURIComponent(game.id)}"
+                    href="./game.html?id=${game.id}"
                 >
                     مشاهده بازی
                 </a>
 
             </div>
 
-        </div>
+        </article>
     `;
 }
 
@@ -297,32 +301,47 @@ function renderGames() {
 
     grid.innerHTML = "";
 
-    const gamesToShow = filteredGames.slice(0, visibleGames);
+    const gamesToShow =
+        filteredGames.slice(0, visibleGames);
 
-    gamesToShow.forEach(game => {
+    gamesToShow.forEach(function(game) {
+
         grid.insertAdjacentHTML(
             "beforeend",
             createGameCard(game)
         );
+
     });
+
 
     updateCount();
 
-    const loadMore = document.getElementById("loadMore");
+
+    const loadMore =
+        document.getElementById("loadMore");
 
     if (loadMore) {
-        loadMore.style.display =
-            visibleGames < filteredGames.length
-                ? "block"
-                : "none";
+
+        if (visibleGames < filteredGames.length) {
+            loadMore.style.display = "block";
+        } else {
+            loadMore.style.display = "none";
+        }
+
     }
+
 
     if (filteredGames.length === 0) {
 
         grid.innerHTML = `
             <div class="empty">
-                <h2>بازی پیدا نشد</h2>
-                <p>بازی موردنظر پیدا نشد.</p>
+
+                <h2>🎮 بازی پیدا نشد</h2>
+
+                <p>
+                    بازی موردنظر در کتابخانه پیدا نشد.
+                </p>
+
             </div>
         `;
     }
@@ -331,12 +350,23 @@ function renderGames() {
 
 function updateCount() {
 
-    const count = document.getElementById("count");
+    const count =
+        document.getElementById("count");
 
     if (!count) return;
 
+    const shown =
+        Math.min(
+            visibleGames,
+            filteredGames.length
+        );
+
     count.textContent =
-        `نمایش ${Math.min(visibleGames, filteredGames.length)} بازی از ${filteredGames.length} بازی`;
+        "نمایش " +
+        shown +
+        " بازی از " +
+        filteredGames.length +
+        " بازی";
 }
 
 
@@ -356,10 +386,12 @@ function filterGames() {
     const categoryFilter =
         document.getElementById("categoryFilter");
 
+
     const search =
         searchInput
             ? searchInput.value.trim().toLowerCase()
             : "";
+
 
     const category =
         categoryFilter
@@ -367,17 +399,25 @@ function filterGames() {
             : "all";
 
 
-    filteredGames = games.filter(game => {
+    filteredGames =
+        games.filter(function(game) {
 
-        const matchesSearch =
-            game.name.toLowerCase().includes(search);
+            const gameName =
+                game.name.toLowerCase();
 
-        const matchesCategory =
-            category === "all" ||
-            game.category === category;
+            const matchesSearch =
+                gameName.includes(search);
 
-        return matchesSearch && matchesCategory;
-    });
+            const matchesCategory =
+                category === "all" ||
+                game.category === category;
+
+
+            return (
+                matchesSearch &&
+                matchesCategory
+            );
+        });
 
 
     visibleGames = 20;
@@ -387,7 +427,7 @@ function filterGames() {
 
 
 /* =========================
-   GAME DETAILS PAGE
+   GAME DETAILS
 ========================= */
 
 function renderGameDetails() {
@@ -399,7 +439,10 @@ function renderGameDetails() {
 
 
     const params =
-        new URLSearchParams(window.location.search);
+        new URLSearchParams(
+            window.location.search
+        );
+
 
     const id =
         params.get("id");
@@ -417,13 +460,18 @@ function renderGameDetails() {
                 <h2>🎮 بازی پیدا نشد</h2>
 
                 <p>
-                    بازی موردنظر در کتابخانه ARTIN GAMES وجود ندارد.
+                    این بازی در کتابخانه ARTIN GAMES وجود ندارد.
                 </p>
 
                 <div class="buttons">
-                    <a class="button back" href="games.html">
+
+                    <a
+                        class="button back"
+                        href="./games.html"
+                    >
                         بازگشت به بازی‌ها
                     </a>
+
                 </div>
 
             </div>
@@ -433,31 +481,51 @@ function renderGameDetails() {
     }
 
 
+    document.title =
+        game.name + " | ARTIN GAMES";
+
+
     container.innerHTML = `
 
         <div class="game-details">
 
-            <img
-                class="game-cover"
-                src="${getSteamImage(game.id)}"
-                alt="${game.name}"
-                onerror="this.src='https://placehold.co/1200x500/15151d/ffffff?text=ARTIN+GAMES'"
-            >
+            <div class="game-cover-wrapper">
+
+                <img
+                    class="game-cover"
+                    src="${getSteamImage(game.id)}"
+                    alt="${game.name}"
+                    onerror="this.onerror=null;this.src='https://placehold.co/1200x675/11131a/ffffff?text=ARTIN+GAMES';"
+                >
+
+            </div>
+
 
             <div class="content">
 
                 <h2>${game.name}</h2>
 
+
                 <div class="category">
+
                     دسته‌بندی:
                     ${categoryNames[game.category] || game.category}
+
                 </div>
 
+
                 <p class="description">
-                    ${game.name} یکی از بازی‌های موجود در کتابخانه
-                    ARTIN GAMES است. برای مشاهده اطلاعات بیشتر و
-                    صفحه رسمی بازی می‌توانید از لینک زیر استفاده کنید.
+
+                    ${game.name}
+                    یکی از بازی‌های موجود در کتابخانه
+                    ARTIN GAMES است.
+
+                    در این صفحه می‌توانید تصویر بازی،
+                    دسته‌بندی و لینک صفحه رسمی آن در Steam
+                    را مشاهده کنید.
+
                 </p>
+
 
                 <div class="buttons">
 
@@ -470,11 +538,12 @@ function renderGameDetails() {
                         مشاهده در Steam
                     </a>
 
+
                     <a
                         class="button back"
-                        href="games.html"
+                        href="./games.html"
                     >
-                        بازگشت به بازی‌ها
+                        ← بازگشت به بازی‌ها
                     </a>
 
                 </div>
@@ -482,6 +551,7 @@ function renderGameDetails() {
             </div>
 
         </div>
+
     `;
 }
 
@@ -490,58 +560,76 @@ function renderGameDetails() {
    START
 ========================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-    const gamesGrid =
-        document.getElementById("gamesGrid");
-
-    const gameDetails =
-        document.getElementById("gameDetails");
-
-
-    // Games page
-    if (gamesGrid) {
-
-        renderGames();
+        const gamesGrid =
+            document.getElementById("gamesGrid");
 
 
-        const loadMore =
-            document.getElementById("loadMore");
+        const gameDetails =
+            document.getElementById("gameDetails");
 
-        if (loadMore) {
-            loadMore.addEventListener(
-                "click",
-                loadMoreGames
-            );
+
+        /* GAMES PAGE */
+
+        if (gamesGrid) {
+
+            renderGames();
+
+
+            const loadMore =
+                document.getElementById("loadMore");
+
+
+            if (loadMore) {
+
+                loadMore.addEventListener(
+                    "click",
+                    loadMoreGames
+                );
+
+            }
+
+
+            const searchInput =
+                document.getElementById("searchInput");
+
+
+            if (searchInput) {
+
+                searchInput.addEventListener(
+                    "input",
+                    filterGames
+                );
+
+            }
+
+
+            const categoryFilter =
+                document.getElementById("categoryFilter");
+
+
+            if (categoryFilter) {
+
+                categoryFilter.addEventListener(
+                    "change",
+                    filterGames
+                );
+
+            }
+
         }
 
 
-        const searchInput =
-            document.getElementById("searchInput");
+        /* GAME DETAILS PAGE */
 
-        if (searchInput) {
-            searchInput.addEventListener(
-                "input",
-                filterGames
-            );
+        if (gameDetails) {
+
+            renderGameDetails();
+
         }
 
-
-        const categoryFilter =
-            document.getElementById("categoryFilter");
-
-        if (categoryFilter) {
-            categoryFilter.addEventListener(
-                "change",
-                filterGames
-            );
-        }
     }
-
-
-    // Game details page
-    if (gameDetails) {
-        renderGameDetails();
-    }
-
-});
+);
