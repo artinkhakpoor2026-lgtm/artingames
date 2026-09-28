@@ -1,7 +1,7 @@
 /* =========================================================
    ARTIN GAMES
    GAME LIBRARY
-   200 GAMES
+   EXACTLY 200 UNIQUE GAMES
    ========================================================= */
 
 
@@ -53,6 +53,11 @@ const games = [
     { name: "God of War Ragnarök", id: 2322010, category: "action", type: "اکشن" },
     { name: "Marvel's Spider-Man Remastered", id: 1817070, category: "action", type: "اکشن" },
     { name: "Marvel's Spider-Man: Miles Morales", id: 1817190, category: "action", type: "اکشن" },
+    { name: "Black Myth: Wukong", id: 2358720, category: "action", type: "اکشن" },
+    { name: "Palworld", id: 1623730, category: "action", type: "اکشن" },
+    { name: "Terraria", id: 105600, category: "action", type: "اکشن" },
+    { name: "Stardew Valley", id: 413150, category: "action", type: "اکشن" },
+    { name: "Valheim", id: 892970, category: "action", type: "اکشن" },
 
     /* ================= RPG ================= */
 
@@ -130,7 +135,7 @@ const games = [
     { name: "Far Cry 2", id: 19900, category: "shooter", type: "شوتر" },
     { name: "Crysis", id: 17300, category: "shooter", type: "شوتر" },
     { name: "Crysis 2", id: 108800, category: "shooter", type: "شوتر" },
-    { name: "Crysis 3", id: 128340, category: "shooter", type: "شوتر" },
+    { name: "Crysis 3 Remastered", id: 2096610, category: "shooter", type: "شوتر" },
     { name: "DOOM 3", id: 9050, category: "shooter", type: "شوتر" },
     { name: "RAGE", id: 9200, category: "shooter", type: "شوتر" },
     { name: "Quake", id: 2310, category: "shooter", type: "شوتر" },
@@ -195,11 +200,11 @@ const games = [
     { name: "The Stanley Parable: Ultra Deluxe", id: 1703340, category: "adventure", type: "ماجراجویی" },
     { name: "Inside", id: 304430, category: "adventure", type: "ماجراجویی" },
     { name: "Limbo", id: 48000, category: "adventure", type: "ماجراجویی" },
-    { name: "Little Nightmares", id: 424840, category: "adventure", type: "ماجراجویی" },
     { name: "Ori and the Blind Forest", id: 261570, category: "adventure", type: "ماجراجویی" },
     { name: "Ori and the Will of the Wisps", id: 1057090, category: "adventure", type: "ماجراجویی" },
     { name: "Hollow Knight", id: 367520, category: "adventure", type: "ماجراجویی" },
     { name: "Subnautica", id: 264710, category: "adventure", type: "ماجراجویی" },
+    { name: "Hades", id: 1145360, category: "adventure", type: "ماجراجویی" },
 
     /* ================= RACING ================= */
 
@@ -228,6 +233,43 @@ const games = [
     { name: "Trackmania", id: 2225070, category: "sports", type: "ورزشی" }
 
 ];
+
+
+/* =========================================================
+   DATA VALIDATION
+   ========================================================= */
+
+const uniqueNames = new Set(
+    games.map(game => game.name.toLowerCase())
+);
+
+const uniqueIds = new Set(
+    games.map(game => game.id)
+);
+
+if (games.length !== 200) {
+
+    console.error(
+        `ARTIN GAMES ERROR: Expected 200 games, but found ${games.length}.`
+    );
+
+}
+
+if (uniqueNames.size !== games.length) {
+
+    console.error(
+        "ARTIN GAMES ERROR: Duplicate game names detected."
+    );
+
+}
+
+if (uniqueIds.size !== games.length) {
+
+    console.error(
+        "ARTIN GAMES ERROR: Duplicate Steam App IDs detected."
+    );
+
+}
 
 
 /* =========================================================
@@ -277,7 +319,7 @@ function getSteamLink(id) {
 
 
 /* =========================================================
-   FILTER GAMES
+   FILTER
    ========================================================= */
 
 function getFilteredGames() {
@@ -301,7 +343,7 @@ function getFilteredGames() {
 
 
 /* =========================================================
-   CREATE GAME CARD
+   CREATE CARD
    ========================================================= */
 
 function createGameCard(game) {
@@ -323,7 +365,6 @@ function createGameCard(game) {
             >
 
         </div>
-
 
         <div class="game-info">
 
@@ -347,7 +388,8 @@ function createGameCard(game) {
     `;
 
 
-    const button = card.querySelector(".view-game");
+    const button =
+        card.querySelector(".view-game");
 
 
     button.addEventListener("click", () => {
@@ -368,7 +410,9 @@ function createGameCard(game) {
 
 function openGame(game) {
 
-    const steamLink = getSteamLink(game.id);
+    const steamLink =
+        getSteamLink(game.id);
+
 
     const message =
 
@@ -376,11 +420,15 @@ function openGame(game) {
 
         `دسته‌بندی: ${game.type}\n\n` +
 
-        `برای مشاهده اطلاعات و صفحه رسمی بازی، ` +
+        `برای مشاهده اطلاعات کامل و صفحه رسمی بازی، ` +
         `صفحه Steam آن را باز کنید.`;
 
 
-    const shouldOpen = confirm(message + "\n\nباز کردن صفحه رسمی بازی؟");
+    const shouldOpen =
+        confirm(
+            message +
+            "\n\nباز کردن صفحه رسمی بازی؟"
+        );
 
 
     if (shouldOpen) {
@@ -397,17 +445,19 @@ function openGame(game) {
 
 
 /* =========================================================
-   RENDER GAMES
+   RENDER
    ========================================================= */
 
 function renderGames(reset = true) {
 
-    const filteredGames = getFilteredGames();
+    const filteredGames =
+        getFilteredGames();
 
 
     if (reset) {
 
-        visibleGames = GAMES_PER_LOAD;
+        visibleGames =
+            GAMES_PER_LOAD;
 
         gamesGrid.innerHTML = "";
 
@@ -415,7 +465,10 @@ function renderGames(reset = true) {
 
 
     const gamesToShow =
-        filteredGames.slice(0, visibleGames);
+        filteredGames.slice(
+            0,
+            visibleGames
+        );
 
 
     gamesToShow.forEach(game => {
@@ -427,27 +480,39 @@ function renderGames(reset = true) {
     });
 
 
-    noResults.style.display =
-        filteredGames.length === 0
-            ? "block"
-            : "none";
+    if (filteredGames.length === 0) {
 
+        noResults.style.display =
+            "block";
 
-    gamesGrid.style.display =
-        filteredGames.length === 0
-            ? "none"
-            : "grid";
-
-
-    if (
-        filteredGames.length > visibleGames
-    ) {
-
-        loadMoreButton.classList.remove("hidden");
+        gamesGrid.style.display =
+            "none";
 
     } else {
 
-        loadMoreButton.classList.add("hidden");
+        noResults.style.display =
+            "none";
+
+        gamesGrid.style.display =
+            "grid";
+
+    }
+
+
+    if (
+        filteredGames.length >
+        visibleGames
+    ) {
+
+        loadMoreButton.classList.remove(
+            "hidden"
+        );
+
+    } else {
+
+        loadMoreButton.classList.add(
+            "hidden"
+        );
 
     }
 
@@ -458,27 +523,34 @@ function renderGames(reset = true) {
    LOAD MORE
    ========================================================= */
 
-loadMoreButton.addEventListener("click", () => {
+loadMoreButton.addEventListener(
+    "click",
+    () => {
 
-    visibleGames += GAMES_PER_LOAD;
+        visibleGames +=
+            GAMES_PER_LOAD;
 
-    renderGames(false);
+        renderGames(false);
 
-});
+    }
+);
 
 
 /* =========================================================
    SEARCH
    ========================================================= */
 
-gameSearch.addEventListener("input", event => {
+gameSearch.addEventListener(
+    "input",
+    event => {
 
-    currentSearch =
-        event.target.value.trim();
+        currentSearch =
+            event.target.value.trim();
 
-    renderGames(true);
+        renderGames(true);
 
-});
+    }
+);
 
 
 /* =========================================================
@@ -487,25 +559,32 @@ gameSearch.addEventListener("input", event => {
 
 filters.forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener(
+        "click",
+        () => {
 
-        filters.forEach(item => {
+            filters.forEach(item => {
 
-            item.classList.remove("active");
+                item.classList.remove(
+                    "active"
+                );
 
-        });
-
-
-        button.classList.add("active");
-
-
-        currentCategory =
-            button.dataset.category;
+            });
 
 
-        renderGames(true);
+            button.classList.add(
+                "active"
+            );
 
-    });
+
+            currentCategory =
+                button.dataset.category;
+
+
+            renderGames(true);
+
+        }
+    );
 
 });
 
@@ -533,6 +612,11 @@ function initGamesPage() {
 
 
     renderGames(true);
+
+
+    console.log(
+        `ARTIN GAMES: ${games.length} unique games loaded.`
+    );
 
 }
 
