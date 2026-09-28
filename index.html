@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,8 +34,6 @@
 
 <main>
 
-    <!-- HERO -->
-
     <section class="games-hero">
 
         <div class="hero-line"></div>
@@ -56,7 +53,7 @@
         <div class="library-stats">
 
             <div class="stat">
-                <strong id="gameCount">۰</strong>
+                <strong id="gameCount">100</strong>
                 <span>بازی</span>
             </div>
 
@@ -75,22 +72,13 @@
     </section>
 
 
-    <!-- LIBRARY -->
-
     <section class="games-library">
 
         <div class="library-heading">
 
             <div>
-
-                <span>
-                    GAME COLLECTION
-                </span>
-
-                <h2>
-                    کتابخانه بازی‌ها
-                </h2>
-
+                <span>GAME COLLECTION</span>
+                <h2>کتابخانه بازی‌ها</h2>
             </div>
 
             <div class="heading-icon">
@@ -99,8 +87,6 @@
 
         </div>
 
-
-        <!-- SEARCH -->
 
         <div class="game-tools">
 
@@ -120,59 +106,35 @@
 
             <div class="filters">
 
-                <button
-                    class="filter-button active"
-                    data-filter="all"
-                >
+                <button class="filter-button active" data-filter="all">
                     همه
                 </button>
 
-                <button
-                    class="filter-button"
-                    data-filter="action"
-                >
+                <button class="filter-button" data-filter="action">
                     ⚔ اکشن
                 </button>
 
-                <button
-                    class="filter-button"
-                    data-filter="shooter"
-                >
+                <button class="filter-button" data-filter="shooter">
                     🔫 شوتر
                 </button>
 
-                <button
-                    class="filter-button"
-                    data-filter="rpg"
-                >
+                <button class="filter-button" data-filter="rpg">
                     🧙 RPG
                 </button>
 
-                <button
-                    class="filter-button"
-                    data-filter="horror"
-                >
+                <button class="filter-button" data-filter="horror">
                     👻 ترسناک
                 </button>
 
-                <button
-                    class="filter-button"
-                    data-filter="adventure"
-                >
+                <button class="filter-button" data-filter="adventure">
                     🗺 ماجراجویی
                 </button>
 
-                <button
-                    class="filter-button"
-                    data-filter="racing"
-                >
+                <button class="filter-button" data-filter="racing">
                     🏎 مسابقه‌ای
                 </button>
 
-                <button
-                    class="filter-button"
-                    data-filter="sports"
-                >
+                <button class="filter-button" data-filter="sports">
                     ⚽ ورزشی
                 </button>
 
@@ -181,37 +143,16 @@
         </div>
 
 
-        <!-- LOADING -->
-
-        <div
-            class="games-status"
-            id="loadingBox"
-        >
-
+        <div class="games-status" id="loadingBox">
             <div class="loading-circle"></div>
-
-            <span>
-                در حال بارگذاری بازی‌ها...
-            </span>
-
+            <span>در حال آماده‌سازی بازی‌ها...</span>
         </div>
 
 
-        <!-- GAMES -->
-
-        <div
-            class="games-grid"
-            id="gamesGrid"
-        ></div>
+        <div class="games-grid" id="gamesGrid"></div>
 
 
-        <!-- EMPTY -->
-
-        <div
-            class="no-results"
-            id="noResults"
-            hidden
-        >
+        <div class="no-results" id="noResults" hidden>
 
             <div class="empty-icon">
                 🎮
@@ -253,5 +194,4 @@
 <script src="script.js"></script>
 
 </body>
-
 </html>
