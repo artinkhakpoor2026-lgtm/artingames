@@ -1,6 +1,6 @@
 // ======================================================
-// GAMEZONE
-// 200 GAMES + STEAM COVERS
+// ZEUS GAMING - SCRIPT.JS
+// Steam Covers + 20 Games Pagination
 // ======================================================
 
 
@@ -9,265 +9,252 @@
 // ======================================================
 
 const games = [
+    { name: "Grand Theft Auto V", genre: "Action", year: 2013, rating: 9.5 },
+    { name: "Red Dead Redemption 2", genre: "Action", year: 2018, rating: 9.8 },
+    { name: "Cyberpunk 2077", genre: "RPG", year: 2020, rating: 9.0 },
+    { name: "The Witcher 3", genre: "RPG", year: 2015, rating: 9.7 },
+    { name: "Elden Ring", genre: "RPG", year: 2022, rating: 9.6 },
+    { name: "God of War", genre: "Action", year: 2018, rating: 9.5 },
+    { name: "God of War Ragnarök", genre: "Action", year: 2022, rating: 9.6 },
+    { name: "Hogwarts Legacy", genre: "RPG", year: 2023, rating: 8.8 },
+    { name: "Resident Evil 4", genre: "Horror", year: 2023, rating: 9.4 },
+    { name: "Resident Evil Village", genre: "Horror", year: 2021, rating: 9.0 },
+    { name: "Resident Evil 2", genre: "Horror", year: 2019, rating: 9.3 },
+    { name: "Resident Evil 3", genre: "Horror", year: 2020, rating: 8.4 },
+    { name: "Resident Evil 7", genre: "Horror", year: 2017, rating: 9.0 },
+    { name: "Resident Evil 5", genre: "Action", year: 2009, rating: 8.0 },
+    { name: "Resident Evil 6", genre: "Action", year: 2012, rating: 7.8 },
+    { name: "Silent Hill 2", genre: "Horror", year: 2024, rating: 9.1 },
+    { name: "Dead Space", genre: "Horror", year: 2023, rating: 9.0 },
+    { name: "The Last of Us Part I", genre: "Action", year: 2022, rating: 9.2 },
+    { name: "The Last of Us Part II", genre: "Action", year: 2020, rating: 9.3 },
+    { name: "Days Gone", genre: "Action", year: 2019, rating: 8.5 },
 
-    { name:"Grand Theft Auto V", genre:"اکشن", year:2013, rating:9.7 },
-    { name:"Red Dead Redemption 2", genre:"ماجراجویی", year:2018, rating:9.8 },
-    { name:"Cyberpunk 2077", genre:"RPG", year:2020, rating:9.0 },
-    { name:"The Witcher 3", genre:"RPG", year:2015, rating:9.8 },
-    { name:"Elden Ring", genre:"RPG", year:2022, rating:9.6 },
-    { name:"God of War", genre:"اکشن", year:2018, rating:9.5 },
-    { name:"God of War Ragnarök", genre:"اکشن", year:2022, rating:9.5 },
-    { name:"Hogwarts Legacy", genre:"ماجراجویی", year:2023, rating:8.8 },
-    { name:"Resident Evil 4", genre:"ترسناک", year:2023, rating:9.4 },
-    { name:"Resident Evil Village", genre:"ترسناک", year:2021, rating:9.1 },
+    { name: "Horizon Zero Dawn", genre: "Action", year: 2017, rating: 9.0 },
+    { name: "Horizon Forbidden West", genre: "Action", year: 2022, rating: 9.1 },
+    { name: "Ghost of Tsushima", genre: "Action", year: 2020, rating: 9.4 },
+    { name: "Death Stranding", genre: "Action", year: 2019, rating: 8.9 },
+    { name: "Death Stranding 2", genre: "Action", year: 2025, rating: 9.2 },
+    { name: "Uncharted 4", genre: "Action", year: 2016, rating: 9.3 },
+    { name: "Uncharted Legacy of Thieves", genre: "Action", year: 2022, rating: 9.0 },
+    { name: "Marvel's Spider-Man", genre: "Action", year: 2018, rating: 9.2 },
+    { name: "Spider-Man Miles Morales", genre: "Action", year: 2020, rating: 8.8 },
+    { name: "Spider-Man 2", genre: "Action", year: 2023, rating: 9.3 },
+    { name: "Batman Arkham Asylum", genre: "Action", year: 2009, rating: 9.0 },
+    { name: "Batman Arkham City", genre: "Action", year: 2011, rating: 9.4 },
+    { name: "Batman Arkham Knight", genre: "Action", year: 2015, rating: 9.2 },
+    { name: "Assassin's Creed II", genre: "Action", year: 2009, rating: 9.1 },
+    { name: "Assassin's Creed Brotherhood", genre: "Action", year: 2010, rating: 9.0 },
+    { name: "Assassin's Creed Revelations", genre: "Action", year: 2011, rating: 8.5 },
+    { name: "Assassin's Creed III", genre: "Action", year: 2012, rating: 8.4 },
+    { name: "Assassin's Creed IV Black Flag", genre: "Action", year: 2013, rating: 9.0 },
+    { name: "Assassin's Creed Origins", genre: "RPG", year: 2017, rating: 9.0 },
+    { name: "Assassin's Creed Odyssey", genre: "RPG", year: 2018, rating: 9.0 },
 
-    { name:"Resident Evil 2", genre:"ترسناک", year:2019, rating:9.3 },
-    { name:"Resident Evil 3", genre:"ترسناک", year:2020, rating:8.6 },
-    { name:"Resident Evil 7", genre:"ترسناک", year:2017, rating:9.0 },
-    { name:"Resident Evil 5", genre:"اکشن", year:2009, rating:8.5 },
-    { name:"Resident Evil 6", genre:"اکشن", year:2012, rating:7.9 },
-    { name:"Silent Hill 2", genre:"ترسناک", year:2024, rating:9.2 },
-    { name:"Dead Space", genre:"ترسناک", year:2023, rating:9.1 },
-    { name:"The Last of Us Part I", genre:"ماجراجویی", year:2022, rating:9.6 },
-    { name:"The Last of Us Part II", genre:"اکشن", year:2020, rating:9.4 },
-    { name:"Days Gone", genre:"اکشن", year:2019, rating:8.7 },
+    { name: "Assassin's Creed Valhalla", genre: "RPG", year: 2020, rating: 8.5 },
+    { name: "Far Cry 3", genre: "Action", year: 2012, rating: 9.0 },
+    { name: "Far Cry 4", genre: "Action", year: 2014, rating: 8.8 },
+    { name: "Far Cry 5", genre: "Action", year: 2018, rating: 8.6 },
+    { name: "Far Cry 6", genre: "Action", year: 2021, rating: 8.0 },
+    { name: "Far Cry New Dawn", genre: "Action", year: 2019, rating: 7.8 },
+    { name: "Crysis", genre: "FPS", year: 2007, rating: 8.8 },
+    { name: "Crysis 2", genre: "FPS", year: 2011, rating: 8.7 },
+    { name: "Crysis 3", genre: "FPS", year: 2013, rating: 8.5 },
+    { name: "Metro 2033 Redux", genre: "FPS", year: 2014, rating: 9.0 },
+    { name: "Metro Last Light Redux", genre: "FPS", year: 2014, rating: 8.8 },
+    { name: "Metro Exodus", genre: "FPS", year: 2019, rating: 9.0 },
+    { name: "Metro Exodus Enhanced Edition", genre: "FPS", year: 2021, rating: 9.0 },
+    { name: "Call of Duty 4 Modern Warfare", genre: "FPS", year: 2007, rating: 9.2 },
+    { name: "Call of Duty Modern Warfare 2", genre: "FPS", year: 2009, rating: 9.4 },
+    { name: "Call of Duty Black Ops", genre: "FPS", year: 2010, rating: 9.2 },
+    { name: "Call of Duty Modern Warfare 3", genre: "FPS", year: 2011, rating: 8.8 },
+    { name: "Call of Duty Black Ops II", genre: "FPS", year: 2012, rating: 9.0 },
+    { name: "Call of Duty Ghosts", genre: "FPS", year: 2013, rating: 7.8 },
+    { name: "Call of Duty Advanced Warfare", genre: "FPS", year: 2014, rating: 8.0 },
 
-    { name:"Horizon Zero Dawn", genre:"RPG", year:2017, rating:9.0 },
-    { name:"Horizon Forbidden West", genre:"RPG", year:2022, rating:9.1 },
-    { name:"Ghost of Tsushima", genre:"اکشن", year:2020, rating:9.5 },
-    { name:"Death Stranding", genre:"ماجراجویی", year:2019, rating:8.8 },
-    { name:"Death Stranding 2", genre:"ماجراجویی", year:2025, rating:9.0 },
-    { name:"Uncharted 4", genre:"ماجراجویی", year:2016, rating:9.4 },
-    { name:"Uncharted Legacy of Thieves", genre:"ماجراجویی", year:2022, rating:9.1 },
-    { name:"Marvel's Spider-Man", genre:"اکشن", year:2018, rating:9.2 },
-    { name:"Spider-Man Miles Morales", genre:"اکشن", year:2020, rating:9.0 },
-    { name:"Spider-Man 2", genre:"اکشن", year:2023, rating:9.4 },
+    { name: "Call of Duty Black Ops III", genre: "FPS", year: 2015, rating: 8.2 },
+    { name: "Call of Duty Infinite Warfare", genre: "FPS", year: 2016, rating: 7.8 },
+    { name: "Call of Duty WWII", genre: "FPS", year: 2017, rating: 8.2 },
+    { name: "Call of Duty Black Ops 4", genre: "FPS", year: 2018, rating: 8.0 },
+    { name: "Call of Duty Modern Warfare", genre: "FPS", year: 2019, rating: 8.7 },
+    { name: "Call of Duty Black Ops Cold War", genre: "FPS", year: 2020, rating: 8.2 },
+    { name: "Call of Duty Vanguard", genre: "FPS", year: 2021, rating: 7.5 },
+    { name: "Call of Duty Modern Warfare II", genre: "FPS", year: 2022, rating: 8.2 },
+    { name: "Call of Duty Modern Warfare III", genre: "FPS", year: 2023, rating: 7.8 },
+    { name: "DOOM", genre: "FPS", year: 2016, rating: 9.2 },
+    { name: "DOOM Eternal", genre: "FPS", year: 2020, rating: 9.4 },
+    { name: "Wolfenstein The New Order", genre: "FPS", year: 2014, rating: 8.8 },
+    { name: "Wolfenstein II The New Colossus", genre: "FPS", year: 2017, rating: 8.7 },
+    { name: "Titanfall 2", genre: "FPS", year: 2016, rating: 9.2 },
+    { name: "Battlefield 3", genre: "FPS", year: 2011, rating: 8.8 },
+    { name: "Battlefield 4", genre: "FPS", year: 2013, rating: 8.7 },
+    { name: "Battlefield 1", genre: "FPS", year: 2016, rating: 8.9 },
+    { name: "Battlefield V", genre: "FPS", year: 2018, rating: 8.0 },
+    { name: "Battlefield 2042", genre: "FPS", year: 2021, rating: 7.2 },
+    { name: "Counter-Strike 2", genre: "FPS", year: 2023, rating: 8.8 },
 
-    { name:"Batman Arkham Asylum", genre:"اکشن", year:2009, rating:9.2 },
-    { name:"Batman Arkham City", genre:"اکشن", year:2011, rating:9.5 },
-    { name:"Batman Arkham Knight", genre:"اکشن", year:2015, rating:9.3 },
-    { name:"Assassin's Creed II", genre:"اکشن", year:2009, rating:9.2 },
-    { name:"Assassin's Creed Brotherhood", genre:"اکشن", year:2010, rating:9.1 },
-    { name:"Assassin's Creed Revelations", genre:"اکشن", year:2011, rating:8.9 },
-    { name:"Assassin's Creed III", genre:"اکشن", year:2012, rating:8.8 },
-    { name:"Assassin's Creed IV Black Flag", genre:"ماجراجویی", year:2013, rating:9.3 },
-    { name:"Assassin's Creed Origins", genre:"RPG", year:2017, rating:9.0 },
-    { name:"Assassin's Creed Odyssey", genre:"RPG", year:2018, rating:9.1 },
+    { name: "Valorant", genre: "FPS", year: 2020, rating: 8.5 },
+    { name: "Apex Legends", genre: "FPS", year: 2019, rating: 8.8 },
+    { name: "Overwatch 2", genre: "FPS", year: 2022, rating: 8.0 },
+    { name: "Rainbow Six Siege", genre: "FPS", year: 2015, rating: 8.8 },
+    { name: "PUBG", genre: "Battle Royale", year: 2017, rating: 8.5 },
+    { name: "Fortnite", genre: "Battle Royale", year: 2017, rating: 8.7 },
+    { name: "Minecraft", genre: "Adventure", year: 2011, rating: 9.5 },
+    { name: "Terraria", genre: "Adventure", year: 2011, rating: 9.3 },
+    { name: "Valheim", genre: "Survival", year: 2021, rating: 8.8 },
+    { name: "Rust", genre: "Survival", year: 2018, rating: 8.5 },
+    { name: "Subnautica", genre: "Survival", year: 2018, rating: 9.2 },
+    { name: "Subnautica Below Zero", genre: "Survival", year: 2021, rating: 8.4 },
+    { name: "No Man's Sky", genre: "Adventure", year: 2016, rating: 8.5 },
+    { name: "Starfield", genre: "RPG", year: 2023, rating: 8.0 },
+    { name: "Fallout 4", genre: "RPG", year: 2015, rating: 8.8 },
+    { name: "Fallout New Vegas", genre: "RPG", year: 2010, rating: 9.2 },
+    { name: "Skyrim", genre: "RPG", year: 2011, rating: 9.5 },
+    { name: "Baldur's Gate 3", genre: "RPG", year: 2023, rating: 9.8 },
+    { name: "Dragon Age Inquisition", genre: "RPG", year: 2014, rating: 8.8 },
+    { name: "Mass Effect", genre: "RPG", year: 2007, rating: 9.0 },
 
-    { name:"Assassin's Creed Valhalla", genre:"RPG", year:2020, rating:8.8 },
-    { name:"Far Cry 3", genre:"شوتر", year:2012, rating:9.2 },
-    { name:"Far Cry 4", genre:"شوتر", year:2014, rating:8.8 },
-    { name:"Far Cry 5", genre:"شوتر", year:2018, rating:8.7 },
-    { name:"Far Cry 6", genre:"شوتر", year:2021, rating:8.4 },
-    { name:"Far Cry New Dawn", genre:"شوتر", year:2019, rating:7.9 },
-    { name:"Crysis", genre:"شوتر", year:2007, rating:8.8 },
-    { name:"Crysis 2", genre:"شوتر", year:2011, rating:8.7 },
-    { name:"Crysis 3", genre:"شوتر", year:2013, rating:8.5 },
-    { name:"Metro 2033 Redux", genre:"شوتر", year:2014, rating:8.9 },
+    { name: "Mass Effect 2", genre: "RPG", year: 2010, rating: 9.5 },
+    { name: "Mass Effect 3", genre: "RPG", year: 2012, rating: 9.0 },
+    { name: "Dark Souls", genre: "RPG", year: 2011, rating: 9.3 },
+    { name: "Dark Souls II", genre: "RPG", year: 2014, rating: 8.7 },
+    { name: "Dark Souls III", genre: "RPG", year: 2016, rating: 9.4 },
+    { name: "Sekiro Shadows Die Twice", genre: "Action", year: 2019, rating: 9.5 },
+    { name: "Lies of P", genre: "RPG", year: 2023, rating: 9.0 },
+    { name: "Monster Hunter World", genre: "RPG", year: 2018, rating: 9.0 },
+    { name: "Final Fantasy VII Remake", genre: "RPG", year: 2020, rating: 9.0 },
+    { name: "Final Fantasy XVI", genre: "RPG", year: 2023, rating: 8.8 },
+    { name: "Kingdom Hearts III", genre: "RPG", year: 2019, rating: 8.5 },
+    { name: "Persona 5 Royal", genre: "RPG", year: 2019, rating: 9.5 },
+    { name: "Yakuza 0", genre: "Action", year: 2015, rating: 9.2 },
+    { name: "Like a Dragon", genre: "RPG", year: 2020, rating: 9.0 },
+    { name: "Like a Dragon Infinite Wealth", genre: "RPG", year: 2024, rating: 9.1 },
+    { name: "Dying Light", genre: "Action", year: 2015, rating: 8.8 },
+    { name: "Dying Light 2", genre: "Action", year: 2022, rating: 8.0 },
+    { name: "Dead Island 2", genre: "Action", year: 2023, rating: 8.2 },
+    { name: "State of Decay 2", genre: "Survival", year: 2018, rating: 8.2 },
+    { name: "Left 4 Dead 2", genre: "FPS", year: 2009, rating: 9.4 },
 
-    { name:"Metro Last Light Redux", genre:"شوتر", year:2014, rating:9.0 },
-    { name:"Metro Exodus", genre:"شوتر", year:2019, rating:9.3 },
-    { name:"Metro Exodus Enhanced Edition", genre:"شوتر", year:2021, rating:9.4 },
-    { name:"Call of Duty 4 Modern Warfare", genre:"شوتر", year:2007, rating:9.4 },
-    { name:"Call of Duty Modern Warfare 2", genre:"شوتر", year:2009, rating:9.5 },
-    { name:"Call of Duty Black Ops", genre:"شوتر", year:2010, rating:9.3 },
-    { name:"Call of Duty Modern Warfare 3", genre:"شوتر", year:2011, rating:9.0 },
-    { name:"Call of Duty Black Ops II", genre:"شوتر", year:2012, rating:9.2 },
-    { name:"Call of Duty Ghosts", genre:"شوتر", year:2013, rating:8.0 },
-    { name:"Call of Duty Advanced Warfare", genre:"شوتر", year:2014, rating:8.2 },
+    { name: "Portal", genre: "Puzzle", year: 2007, rating: 9.5 },
+    { name: "Portal 2", genre: "Puzzle", year: 2011, rating: 9.8 },
+    { name: "Half-Life 2", genre: "FPS", year: 2004, rating: 9.7 },
+    { name: "Half-Life Alyx", genre: "VR", year: 2020, rating: 9.6 },
+    { name: "Dota 2", genre: "Strategy", year: 2013, rating: 8.8 },
+    { name: "League of Legends", genre: "MOBA", year: 2009, rating: 8.8 },
+    { name: "StarCraft II", genre: "Strategy", year: 2010, rating: 9.4 },
+    { name: "Age of Empires II", genre: "Strategy", year: 1999, rating: 9.4 },
+    { name: "Age of Empires IV", genre: "Strategy", year: 2021, rating: 8.8 },
+    { name: "Civilization VI", genre: "Strategy", year: 2016, rating: 9.0 },
+    { name: "Total War Warhammer III", genre: "Strategy", year: 2022, rating: 8.8 },
+    { name: "XCOM 2", genre: "Strategy", year: 2016, rating: 9.0 },
+    { name: "Frostpunk", genre: "Strategy", year: 2018, rating: 8.8 },
+    { name: "Cities Skylines", genre: "Simulation", year: 2015, rating: 9.0 },
+    { name: "The Sims 4", genre: "Simulation", year: 2014, rating: 8.5 },
+    { name: "Euro Truck Simulator 2", genre: "Simulation", year: 2012, rating: 9.3 },
+    { name: "American Truck Simulator", genre: "Simulation", year: 2016, rating: 9.2 },
+    { name: "Forza Horizon 4", genre: "Racing", year: 2018, rating: 9.2 },
+    { name: "Forza Horizon 5", genre: "Racing", year: 2021, rating: 9.4 },
+    { name: "Forza Motorsport", genre: "Racing", year: 2023, rating: 8.3 },
 
-    { name:"Call of Duty Black Ops III", genre:"شوتر", year:2015, rating:8.5 },
-    { name:"Call of Duty Infinite Warfare", genre:"شوتر", year:2016, rating:8.1 },
-    { name:"Call of Duty WWII", genre:"شوتر", year:2017, rating:8.4 },
-    { name:"Call of Duty Black Ops 4", genre:"شوتر", year:2018, rating:8.2 },
-    { name:"Call of Duty Modern Warfare", genre:"شوتر", year:2019, rating:8.9 },
-    { name:"Call of Duty Black Ops Cold War", genre:"شوتر", year:2020, rating:8.6 },
-    { name:"Call of Duty Vanguard", genre:"شوتر", year:2021, rating:7.9 },
-    { name:"Call of Duty Modern Warfare II", genre:"شوتر", year:2022, rating:8.5 },
-    { name:"Call of Duty Modern Warfare III", genre:"شوتر", year:2023, rating:8.0 },
-    { name:"DOOM", genre:"شوتر", year:2016, rating:9.0 },
+    { name: "Need for Speed Most Wanted", genre: "Racing", year: 2005, rating: 9.4 },
+    { name: "Need for Speed Carbon", genre: "Racing", year: 2006, rating: 8.8 },
+    { name: "Need for Speed Hot Pursuit", genre: "Racing", year: 2010, rating: 8.7 },
+    { name: "Need for Speed Rivals", genre: "Racing", year: 2013, rating: 8.2 },
+    { name: "Need for Speed Heat", genre: "Racing", year: 2019, rating: 8.5 },
+    { name: "Need for Speed Unbound", genre: "Racing", year: 2022, rating: 8.0 },
+    { name: "Dirt Rally", genre: "Racing", year: 2015, rating: 8.8 },
+    { name: "Dirt Rally 2.0", genre: "Racing", year: 2019, rating: 9.0 },
+    { name: "Assetto Corsa", genre: "Racing", year: 2014, rating: 9.0 },
+    { name: "F1 2023", genre: "Racing", year: 2023, rating: 8.0 },
+    { name: "EA Sports FC 24", genre: "Sports", year: 2023, rating: 8.0 },
+    { name: "EA Sports FC 25", genre: "Sports", year: 2024, rating: 8.0 },
+    { name: "eFootball 2024", genre: "Sports", year: 2023, rating: 7.5 },
+    { name: "PES 2021", genre: "Sports", year: 2020, rating: 8.8 },
+    { name: "NBA 2K24", genre: "Sports", year: 2023, rating: 7.8 },
+    { name: "WWE 2K24", genre: "Sports", year: 2024, rating: 8.5 },
+    { name: "Tony Hawk's Pro Skater 1 + 2", genre: "Sports", year: 2020, rating: 9.0 },
+    { name: "Rocket League", genre: "Sports", year: 2015, rating: 9.0 },
+    { name: "Tekken 8", genre: "Fighting", year: 2024, rating: 9.0 },
+    { name: "Street Fighter 6", genre: "Fighting", year: 2023, rating: 9.2 },
 
-    { name:"DOOM Eternal", genre:"شوتر", year:2020, rating:9.4 },
-    { name:"Wolfenstein The New Order", genre:"شوتر", year:2014, rating:8.9 },
-    { name:"Wolfenstein II The New Colossus", genre:"شوتر", year:2017, rating:8.7 },
-    { name:"Titanfall 2", genre:"شوتر", year:2016, rating:9.3 },
-    { name:"Battlefield 3", genre:"شوتر", year:2011, rating:9.0 },
-    { name:"Battlefield 4", genre:"شوتر", year:2013, rating:9.1 },
-    { name:"Battlefield 1", genre:"شوتر", year:2016, rating:9.2 },
-    { name:"Battlefield V", genre:"شوتر", year:2018, rating:8.5 },
-    { name:"Battlefield 2042", genre:"شوتر", year:2021, rating:7.4 },
-    { name:"Counter-Strike 2", genre:"شوتر", year:2023, rating:9.0 },
+    { name: "Mortal Kombat 11", genre: "Fighting", year: 2019, rating: 8.8 },
+    { name: "Mortal Kombat 1", genre: "Fighting", year: 2023, rating: 8.0 },
+    { name: "Devil May Cry 5", genre: "Action", year: 2019, rating: 9.3 },
+    { name: "Nioh", genre: "Action", year: 2017, rating: 8.8 },
+    { name: "Nioh 2", genre: "Action", year: 2020, rating: 9.0 },
+    { name: "Control", genre: "Action", year: 2019, rating: 9.0 },
+    { name: "Alan Wake", genre: "Action", year: 2010, rating: 8.8 },
+    { name: "Alan Wake 2", genre: "Horror", year: 2023, rating: 9.2 },
+    { name: "Quantum Break", genre: "Action", year: 2016, rating: 8.5 },
+    { name: "Watch Dogs", genre: "Action", year: 2014, rating: 8.0 },
+    { name: "Watch Dogs 2", genre: "Action", year: 2016, rating: 8.7 },
+    { name: "Watch Dogs Legion", genre: "Action", year: 2020, rating: 7.8 },
+    { name: "Sleeping Dogs", genre: "Action", year: 2012, rating: 9.0 },
+    { name: "Just Cause 3", genre: "Action", year: 2015, rating: 8.3 },
+    { name: "Just Cause 4", genre: "Action", year: 2018, rating: 7.8 },
+    { name: "Mafia Definitive Edition", genre: "Action", year: 2020, rating: 8.8 },
+    { name: "Mafia II", genre: "Action", year: 2010, rating: 9.0 },
+    { name: "Mafia III", genre: "Action", year: 2016, rating: 7.8 },
+    { name: "L.A. Noire", genre: "Action", year: 2011, rating: 8.8 },
+    { name: "Hitman", genre: "Action", year: 2016, rating: 9.0 },
 
-    { name:"Valorant", genre:"شوتر", year:2020, rating:8.8 },
-    { name:"Apex Legends", genre:"شوتر", year:2019, rating:8.9 },
-    { name:"Overwatch 2", genre:"شوتر", year:2022, rating:8.3 },
-    { name:"Rainbow Six Siege", genre:"شوتر", year:2015, rating:9.0 },
-    { name:"PUBG", genre:"شوتر", year:2017, rating:8.5 },
-    { name:"Fortnite", genre:"شوتر", year:2017, rating:8.8 },
-    { name:"Minecraft", genre:"ماجراجویی", year:2011, rating:9.5 },
-    { name:"Terraria", genre:"ماجراجویی", year:2011, rating:9.2 },
-    { name:"Valheim", genre:"RPG", year:2021, rating:8.8 },
-    { name:"Rust", genre:"اکشن", year:2018, rating:8.4 },
+    { name: "Hitman 2", genre: "Action", year: 2018, rating: 9.0 },
+    { name: "Hitman 3", genre: "Action", year: 2021, rating: 9.2 },
+    { name: "Deathloop", genre: "Action", year: 2021, rating: 8.5 },
+    { name: "Dishonored", genre: "Action", year: 2012, rating: 9.2 },
+    { name: "Dishonored 2", genre: "Action", year: 2016, rating: 9.0 },
+    { name: "Prey", genre: "Action", year: 2017, rating: 8.8 },
+    { name: "The Outer Worlds", genre: "RPG", year: 2019, rating: 8.3 },
+    { name: "Atomic Heart", genre: "Action", year: 2023, rating: 8.0 },
+    { name: "S.T.A.L.K.E.R. Shadow of Chernobyl", genre: "FPS", year: 2007, rating: 9.0 },
+    { name: "S.T.A.L.K.E.R. 2", genre: "FPS", year: 2024, rating: 8.5 },
+    { name: "Kingdom Come Deliverance", genre: "RPG", year: 2018, rating: 9.0 },
+    { name: "Kingdom Come Deliverance II", genre: "RPG", year: 2025, rating: 9.2 },
+    { name: "Mount & Blade Warband", genre: "RPG", year: 2010, rating: 9.0 },
+    { name: "Mount & Blade II Bannerlord", genre: "RPG", year: 2022, rating: 8.8 },
+    { name: "The Forest", genre: "Survival", year: 2018, rating: 9.0 },
+    { name: "Sons of the Forest", genre: "Survival", year: 2024, rating: 8.8 },
+    { name: "Amnesia The Dark Descent", genre: "Horror", year: 2010, rating: 9.0 },
+    { name: "Outlast", genre: "Horror", year: 2013, rating: 9.0 },
+    { name: "Outlast 2", genre: "Horror", year: 2017, rating: 8.2 },
+    { name: "Little Nightmares", genre: "Horror", year: 2017, rating: 8.8 },
 
-    { name:"Subnautica", genre:"ماجراجویی", year:2018, rating:9.1 },
-    { name:"Subnautica Below Zero", genre:"ماجراجویی", year:2021, rating:8.5 },
-    { name:"No Man's Sky", genre:"ماجراجویی", year:2016, rating:8.7 },
-    { name:"Starfield", genre:"RPG", year:2023, rating:8.2 },
-    { name:"Fallout 4", genre:"RPG", year:2015, rating:9.0 },
-    { name:"Fallout New Vegas", genre:"RPG", year:2010, rating:9.4 },
-    { name:"Skyrim", genre:"RPG", year:2011, rating:9.6 },
-    { name:"Baldur's Gate 3", genre:"RPG", year:2023, rating:9.8 },
-    { name:"Dragon Age Inquisition", genre:"RPG", year:2014, rating:8.8 },
-    { name:"Mass Effect", genre:"RPG", year:2007, rating:9.0 },
+    { name: "Little Nightmares II", genre: "Horror", year: 2021, rating: 9.0 },
+    { name: "Inside", genre: "Adventure", year: 2016, rating: 9.2 },
+    { name: "Limbo", genre: "Adventure", year: 2010, rating: 9.0 },
+    { name: "Ori and the Blind Forest", genre: "Adventure", year: 2015, rating: 9.3 },
+    { name: "Ori and the Will of the Wisps", genre: "Adventure", year: 2020, rating: 9.4 },
+    { name: "Hades", genre: "Action", year: 2020, rating: 9.5 },
+    { name: "Hollow Knight", genre: "Adventure", year: 2017, rating: 9.6 },
+    { name: "Cuphead", genre: "Action", year: 2017, rating: 9.2 },
+    { name: "Celeste", genre: "Adventure", year: 2018, rating: 9.4 },
+    { name: "It Takes Two", genre: "Adventure", year: 2021, rating: 9.5 },
+    { name: "A Way Out", genre: "Adventure", year: 2018, rating: 8.8 },
+    { name: "Detroit Become Human", genre: "Adventure", year: 2018, rating: 9.2 },
+    { name: "Heavy Rain", genre: "Adventure", year: 2010, rating: 8.8 },
+    { name: "Beyond Two Souls", genre: "Adventure", year: 2013, rating: 8.5 },
+    { name: "Life is Strange", genre: "Adventure", year: 2015, rating: 9.0 },
+    { name: "Life is Strange 2", genre: "Adventure", year: 2018, rating: 8.5 },
+    { name: "Stray", genre: "Adventure", year: 2022, rating: 9.0 },
+    { name: "Kena Bridge of Spirits", genre: "Adventure", year: 2021, rating: 8.8 },
+    { name: "Tomb Raider", genre: "Action", year: 2013, rating: 9.0 },
+    { name: "Rise of the Tomb Raider", genre: "Action", year: 2015, rating: 9.1 },
 
-    { name:"Mass Effect 2", genre:"RPG", year:2010, rating:9.6 },
-    { name:"Mass Effect 3", genre:"RPG", year:2012, rating:9.2 },
-    { name:"Dark Souls", genre:"RPG", year:2011, rating:9.2 },
-    { name:"Dark Souls II", genre:"RPG", year:2014, rating:8.7 },
-    { name:"Dark Souls III", genre:"RPG", year:2016, rating:9.4 },
-    { name:"Sekiro Shadows Die Twice", genre:"اکشن", year:2019, rating:9.6 },
-    { name:"Lies of P", genre:"RPG", year:2023, rating:9.0 },
-    { name:"Monster Hunter World", genre:"RPG", year:2018, rating:9.1 },
-    { name:"Final Fantasy VII Remake", genre:"RPG", year:2020, rating:9.3 },
-    { name:"Final Fantasy XVI", genre:"RPG", year:2023, rating:8.9 },
-
-    { name:"Kingdom Hearts III", genre:"RPG", year:2019, rating:8.5 },
-    { name:"Persona 5 Royal", genre:"RPG", year:2019, rating:9.6 },
-    { name:"Yakuza 0", genre:"اکشن", year:2015, rating:9.3 },
-    { name:"Like a Dragon", genre:"RPG", year:2020, rating:8.9 },
-    { name:"Like a Dragon Infinite Wealth", genre:"RPG", year:2024, rating:9.0 },
-    { name:"Dying Light", genre:"اکشن", year:2015, rating:9.0 },
-    { name:"Dying Light 2", genre:"اکشن", year:2022, rating:8.3 },
-    { name:"Dead Island 2", genre:"اکشن", year:2023, rating:8.6 },
-    { name:"State of Decay 2", genre:"اکشن", year:2018, rating:8.1 },
-    { name:"Left 4 Dead 2", genre:"شوتر", year:2009, rating:9.5 },
-
-    { name:"Portal", genre:"ماجراجویی", year:2007, rating:9.5 },
-    { name:"Portal 2", genre:"ماجراجویی", year:2011, rating:9.8 },
-    { name:"Half-Life 2", genre:"شوتر", year:2004, rating:9.8 },
-    { name:"Half-Life Alyx", genre:"شوتر", year:2020, rating:9.6 },
-    { name:"Dota 2", genre:"استراتژی", year:2013, rating:8.8 },
-    { name:"League of Legends", genre:"استراتژی", year:2009, rating:9.0 },
-    { name:"StarCraft II", genre:"استراتژی", year:2010, rating:9.5 },
-    { name:"Age of Empires II", genre:"استراتژی", year:1999, rating:9.7 },
-    { name:"Age of Empires IV", genre:"استراتژی", year:2021, rating:8.8 },
-    { name:"Civilization VI", genre:"استراتژی", year:2016, rating:9.1 },
-
-    { name:"Total War Warhammer III", genre:"استراتژی", year:2022, rating:8.8 },
-    { name:"XCOM 2", genre:"استراتژی", year:2016, rating:9.0 },
-    { name:"Frostpunk", genre:"استراتژی", year:2018, rating:9.0 },
-    { name:"Cities Skylines", genre:"استراتژی", year:2015, rating:9.2 },
-    { name:"The Sims 4", genre:"استراتژی", year:2014, rating:8.4 },
-    { name:"Euro Truck Simulator 2", genre:"مسابقه‌ای", year:2012, rating:9.3 },
-    { name:"American Truck Simulator", genre:"مسابقه‌ای", year:2016, rating:9.0 },
-    { name:"Forza Horizon 4", genre:"مسابقه‌ای", year:2018, rating:9.3 },
-    { name:"Forza Horizon 5", genre:"مسابقه‌ای", year:2021, rating:9.5 },
-    { name:"Forza Motorsport", genre:"مسابقه‌ای", year:2023, rating:8.5 },
-
-    { name:"Need for Speed Most Wanted", genre:"مسابقه‌ای", year:2005, rating:9.5 },
-    { name:"Need for Speed Carbon", genre:"مسابقه‌ای", year:2006, rating:9.0 },
-    { name:"Need for Speed Hot Pursuit", genre:"مسابقه‌ای", year:2010, rating:8.8 },
-    { name:"Need for Speed Rivals", genre:"مسابقه‌ای", year:2013, rating:8.4 },
-    { name:"Need for Speed Heat", genre:"مسابقه‌ای", year:2019, rating:8.7 },
-    { name:"Need for Speed Unbound", genre:"مسابقه‌ای", year:2022, rating:8.4 },
-    { name:"Dirt Rally", genre:"مسابقه‌ای", year:2015, rating:8.8 },
-    { name:"Dirt Rally 2.0", genre:"مسابقه‌ای", year:2019, rating:9.0 },
-    { name:"Assetto Corsa", genre:"مسابقه‌ای", year:2014, rating:9.0 },
-    { name:"F1 2023", genre:"مسابقه‌ای", year:2023, rating:8.5 },
-
-    { name:"EA Sports FC 24", genre:"ورزشی", year:2023, rating:8.0 },
-    { name:"EA Sports FC 25", genre:"ورزشی", year:2024, rating:8.1 },
-    { name:"eFootball 2024", genre:"ورزشی", year:2023, rating:7.8 },
-    { name:"PES 2021", genre:"ورزشی", year:2020, rating:9.0 },
-    { name:"NBA 2K24", genre:"ورزشی", year:2023, rating:8.1 },
-    { name:"WWE 2K24", genre:"ورزشی", year:2024, rating:8.3 },
-    { name:"Tony Hawk's Pro Skater 1 + 2", genre:"ورزشی", year:2020, rating:9.1 },
-    { name:"Rocket League", genre:"ورزشی", year:2015, rating:9.2 },
-    { name:"Tekken 8", genre:"اکشن", year:2024, rating:9.0 },
-    { name:"Street Fighter 6", genre:"اکشن", year:2023, rating:9.2 },
-
-    { name:"Mortal Kombat 11", genre:"اکشن", year:2019, rating:9.0 },
-    { name:"Mortal Kombat 1", genre:"اکشن", year:2023, rating:8.5 },
-    { name:"Devil May Cry 5", genre:"اکشن", year:2019, rating:9.4 },
-    { name:"Nioh", genre:"RPG", year:2017, rating:8.8 },
-    { name:"Nioh 2", genre:"RPG", year:2020, rating:9.0 },
-    { name:"Control", genre:"اکشن", year:2019, rating:9.0 },
-    { name:"Alan Wake", genre:"ترسناک", year:2010, rating:8.8 },
-    { name:"Alan Wake 2", genre:"ترسناک", year:2023, rating:9.5 },
-    { name:"Quantum Break", genre:"اکشن", year:2016, rating:8.5 },
-    { name:"Watch Dogs", genre:"اکشن", year:2014, rating:8.3 },
-
-    { name:"Watch Dogs 2", genre:"اکشن", year:2016, rating:8.8 },
-    { name:"Watch Dogs Legion", genre:"اکشن", year:2020, rating:8.0 },
-    { name:"Sleeping Dogs", genre:"اکشن", year:2012, rating:9.0 },
-    { name:"Just Cause 3", genre:"اکشن", year:2015, rating:8.4 },
-    { name:"Just Cause 4", genre:"اکشن", year:2018, rating:8.0 },
-    { name:"Mafia Definitive Edition", genre:"اکشن", year:2020, rating:8.9 },
-    { name:"Mafia II", genre:"اکشن", year:2010, rating:9.1 },
-    { name:"Mafia III", genre:"اکشن", year:2016, rating:8.1 },
-    { name:"L.A. Noire", genre:"ماجراجویی", year:2011, rating:8.9 },
-    { name:"Hitman", genre:"اکشن", year:2016, rating:9.0 },
-
-    { name:"Hitman 2", genre:"اکشن", year:2018, rating:9.1 },
-    { name:"Hitman 3", genre:"اکشن", year:2021, rating:9.2 },
-    { name:"Deathloop", genre:"شوتر", year:2021, rating:8.8 },
-    { name:"Dishonored", genre:"اکشن", year:2012, rating:9.2 },
-    { name:"Dishonored 2", genre:"اکشن", year:2016, rating:9.0 },
-    { name:"Prey", genre:"شوتر", year:2017, rating:8.9 },
-    { name:"The Outer Worlds", genre:"RPG", year:2019, rating:8.6 },
-    { name:"Atomic Heart", genre:"شوتر", year:2023, rating:8.3 },
-    { name:"S.T.A.L.K.E.R. Shadow of Chernobyl", genre:"شوتر", year:2007, rating:9.0 },
-    { name:"S.T.A.L.K.E.R. 2", genre:"شوتر", year:2024, rating:8.8 },
-
-    { name:"Kingdom Come Deliverance", genre:"RPG", year:2018, rating:8.8 },
-    { name:"Kingdom Come Deliverance II", genre:"RPG", year:2025, rating:9.2 },
-    { name:"Mount & Blade Warband", genre:"RPG", year:2010, rating:9.0 },
-    { name:"Mount & Blade II Bannerlord", genre:"RPG", year:2022, rating:9.0 },
-    { name:"The Forest", genre:"ترسناک", year:2018, rating:8.9 },
-    { name:"Sons of the Forest", genre:"ترسناک", year:2024, rating:8.7 },
-    { name:"Amnesia The Dark Descent", genre:"ترسناک", year:2010, rating:8.8 },
-    { name:"Outlast", genre:"ترسناک", year:2013, rating:8.9 },
-    { name:"Outlast 2", genre:"ترسناک", year:2017, rating:8.4 },
-    { name:"Little Nightmares", genre:"ترسناک", year:2017, rating:8.9 },
-
-    { name:"Little Nightmares II", genre:"ترسناک", year:2021, rating:9.0 },
-    { name:"Inside", genre:"ماجراجویی", year:2016, rating:9.0 },
-    { name:"Limbo", genre:"ماجراجویی", year:2010, rating:8.8 },
-    { name:"Ori and the Blind Forest", genre:"ماجراجویی", year:2015, rating:9.3 },
-    { name:"Ori and the Will of the Wisps", genre:"ماجراجویی", year:2020, rating:9.4 },
-    { name:"Hades", genre:"RPG", year:2020, rating:9.5 },
-    { name:"Hollow Knight", genre:"ماجراجویی", year:2017, rating:9.5 },
-    { name:"Cuphead", genre:"اکشن", year:2017, rating:9.0 },
-    { name:"Celeste", genre:"ماجراجویی", year:2018, rating:9.3 },
-    { name:"It Takes Two", genre:"ماجراجویی", year:2021, rating:9.5 },
-
-    { name:"A Way Out", genre:"ماجراجویی", year:2018, rating:8.8 },
-    { name:"Detroit Become Human", genre:"ماجراجویی", year:2018, rating:9.4 },
-    { name:"Heavy Rain", genre:"ماجراجویی", year:2010, rating:8.7 },
-    { name:"Beyond Two Souls", genre:"ماجراجویی", year:2013, rating:8.4 },
-    { name:"Life is Strange", genre:"ماجراجویی", year:2015, rating:9.0 },
-    { name:"Life is Strange 2", genre:"ماجراجویی", year:2018, rating:8.5 },
-    { name:"Stray", genre:"ماجراجویی", year:2022, rating:8.8 },
-    { name:"Kena Bridge of Spirits", genre:"ماجراجویی", year:2021, rating:8.7 },
-    { name:"Tomb Raider", genre:"ماجراجویی", year:2013, rating:9.0 },
-    { name:"Rise of the Tomb Raider", genre:"ماجراجویی", year:2015, rating:9.2 },
-
-    { name:"Shadow of the Tomb Raider", genre:"ماجراجویی", year:2018, rating:9.0 },
-    { name:"Just Dance 2024", genre:"ورزشی", year:2023, rating:7.8 },
-    { name:"Golf With Your Friends", genre:"ورزشی", year:2020, rating:8.0 },
-    { name:"Wreckfest", genre:"مسابقه‌ای", year:2018, rating:8.8 },
-    { name:"GRID Legends", genre:"مسابقه‌ای", year:2022, rating:8.1 },
-    { name:"Trackmania", genre:"مسابقه‌ای", year:2020, rating:8.7 },
-    { name:"SnowRunner", genre:"مسابقه‌ای", year:2020, rating:8.8 },
-    { name:"F1 2024", genre:"مسابقه‌ای", year:2024, rating:8.4 },
-    { name:"TEKKEN 7", genre:"اکشن", year:2015, rating:9.0 },
-    { name:"Dragon Ball FighterZ", genre:"اکشن", year:2018, rating:8.9 }
-
+    { name: "Shadow of the Tomb Raider", genre: "Action", year: 2018, rating: 8.8 },
+    { name: "Just Dance 2024", genre: "Sports", year: 2023, rating: 7.5 },
+    { name: "Golf With Your Friends", genre: "Sports", year: 2020, rating: 8.0 },
+    { name: "Wreckfest", genre: "Racing", year: 2018, rating: 8.7 },
+    { name: "GRID Legends", genre: "Racing", year: 2022, rating: 8.0 },
+    { name: "Trackmania", genre: "Racing", year: 2020, rating: 8.5 },
+    { name: "SnowRunner", genre: "Simulation", year: 2020, rating: 9.0 },
+    { name: "F1 2024", genre: "Racing", year: 2024, rating: 8.0 },
+    { name: "TEKKEN 7", genre: "Fighting", year: 2017, rating: 8.8 },
+    { name: "Dragon Ball FighterZ", genre: "Fighting", year: 2018, rating: 9.0 }
 ];
 
 
 // ======================================================
-// ELEMENTS
+// DOM ELEMENTS
 // ======================================================
 
 const gamesGrid = document.getElementById("gamesGrid");
@@ -277,9 +264,8 @@ const gameCount = document.getElementById("gameCount");
 const noResult = document.getElementById("noResult");
 const sortSelect = document.getElementById("sortSelect");
 
-const modal = document.getElementById("gameModal");
+const gameModal = document.getElementById("gameModal");
 const modalClose = document.getElementById("modalClose");
-
 const modalTitle = document.getElementById("modalTitle");
 const modalCategory = document.getElementById("modalCategory");
 const modalYear = document.getElementById("modalYear");
@@ -287,14 +273,22 @@ const modalRating = document.getElementById("modalRating");
 const modalImage = document.getElementById("modalImage");
 const modalDescription = document.getElementById("modalDescription");
 
-const menuBtn = document.getElementById("menuBtn");
-const nav = document.querySelector(".nav");
+
+// ======================================================
+// PAGINATION
+// ======================================================
+
+const GAMES_PER_PAGE = 20;
+
+let currentPage = 1;
 
 let selectedCategory = "همه";
 
+const loadMoreBtn = document.getElementById("loadMoreBtn");
+
 
 // ======================================================
-// STEAM COVER CACHE
+// STEAM CACHE
 // ======================================================
 
 const coverCache = new Map();
@@ -302,20 +296,20 @@ const coverLoading = new Map();
 
 
 // ======================================================
-// STEAM TITLE ALIASES
+// STEAM ALIASES
 // ======================================================
 
 const titleAliases = {
 
-    "The Witcher 3": "The Witcher 3: Wild Hunt",
+    "Grand Theft Auto V": "Grand Theft Auto V",
 
     "God of War Ragnarök": "God of War Ragnarök",
 
-    "Metro 2033 Redux": "Metro 2033 Redux",
+    "The Witcher 3": "The Witcher 3: Wild Hunt",
 
-    "Metro Last Light Redux": "Metro: Last Light Redux",
-
-    "Metro Exodus Enhanced Edition": "Metro Exodus Enhanced Edition",
+    "Metro 2033 Redux": "Metro 2033",
+    "Metro Last Light Redux": "Metro: Last Light",
+    "Metro Exodus Enhanced Edition": "Metro Exodus",
 
     "Call of Duty 4 Modern Warfare":
         "Call of Duty 4: Modern Warfare",
@@ -338,8 +332,11 @@ const titleAliases = {
     "Call of Duty WWII":
         "Call of Duty: WWII",
 
+    "Resident Evil 7":
+        "Resident Evil 7: Biohazard",
+
     "Marvel's Spider-Man":
-        "Marvel's Spider-Man Remastered",
+        "Marvel's Spider-Man",
 
     "Spider-Man Miles Morales":
         "Marvel's Spider-Man: Miles Morales",
@@ -347,17 +344,14 @@ const titleAliases = {
     "Spider-Man 2":
         "Marvel's Spider-Man 2",
 
-    "Batman Arkham Asylum":
-        "Batman: Arkham Asylum GOTY Edition",
+    "S.T.A.L.K.E.R. Shadow of Chernobyl":
+        "S.T.A.L.K.E.R.: Shadow of Chernobyl",
 
-    "Batman Arkham City":
-        "Batman: Arkham City - Game of the Year Edition",
-
-    "Batman Arkham Knight":
-        "Batman: Arkham Knight",
+    "S.T.A.L.K.E.R. 2":
+        "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
 
     "Assassin's Creed IV Black Flag":
-        "Assassin's Creed IV Black Flag",
+        "Assassin's Creed IV: Black Flag",
 
     "Dying Light 2":
         "Dying Light 2 Stay Human",
@@ -366,16 +360,16 @@ const titleAliases = {
         "Mafia: Definitive Edition",
 
     "PES 2021":
-        "eFootball PES 2021 SEASON UPDATE",
+        "eFootball PES 2021",
 
     "eFootball 2024":
         "eFootball",
 
     "F1 2023":
-        "EA SPORTS F1 23",
+        "F1 23",
 
     "F1 2024":
-        "EA SPORTS F1 24",
+        "F1 24",
 
     "Need for Speed Most Wanted":
         "Need for Speed: Most Wanted",
@@ -383,17 +377,29 @@ const titleAliases = {
     "Need for Speed Hot Pursuit":
         "Need for Speed: Hot Pursuit",
 
+    "The Last of Us Part I":
+        "The Last of Us Part I",
+
+    "The Last of Us Part II":
+        "The Last of Us Part II",
+
     "Uncharted 4":
-        "UNCHARTED: Legacy of Thieves Collection",
+        "Uncharted 4: A Thief's End",
 
     "Uncharted Legacy of Thieves":
-        "UNCHARTED: Legacy of Thieves Collection",
+        "Uncharted: Legacy of Thieves Collection",
+
+    "Batman Arkham Asylum":
+        "Batman: Arkham Asylum",
+
+    "Batman Arkham City":
+        "Batman: Arkham City",
+
+    "Batman Arkham Knight":
+        "Batman: Arkham Knight",
 
     "Half-Life Alyx":
         "Half-Life: Alyx",
-
-    "Age of Empires II":
-        "Age of Empires II: Definitive Edition",
 
     "Cities Skylines":
         "Cities: Skylines",
@@ -410,38 +416,17 @@ const titleAliases = {
     "Kingdom Come Deliverance II":
         "Kingdom Come: Deliverance II",
 
-    "Devil May Cry 5":
-        "Devil May Cry 5",
-
     "Watch Dogs Legion":
         "Watch Dogs: Legion",
 
     "L.A. Noire":
         "L.A. Noire",
 
-    "Little Nightmares II":
-        "Little Nightmares II",
-
-    "Ori and the Blind Forest":
-        "Ori and the Blind Forest: Definitive Edition",
-
-    "Ori and the Will of the Wisps":
-        "Ori and the Will of the Wisps",
-
-    "It Takes Two":
-        "It Takes Two",
-
-    "A Way Out":
-        "A Way Out",
-
     "Detroit Become Human":
         "Detroit: Become Human",
 
     "Life is Strange":
-        "Life is Strange",
-
-    "Life is Strange 2":
-        "Life is Strange 2",
+        "Life Is Strange",
 
     "Kena Bridge of Spirits":
         "Kena: Bridge of Spirits",
@@ -457,12 +442,11 @@ const titleAliases = {
 
     "Dragon Ball FighterZ":
         "DRAGON BALL FighterZ"
-
 };
 
 
 // ======================================================
-// POSSIBLE STEAM SEARCH TITLES
+// POSSIBLE STEAM TITLES
 // ======================================================
 
 function getPossibleTitles(gameName) {
@@ -475,26 +459,7 @@ function getPossibleTitles(gameName) {
 
     titles.push(gameName);
 
-    titles.push(
-        gameName
-            .replace(/:/g, "")
-            .replace(/\./g, "")
-            .replace(/'/g, "")
-    );
-
-    if (gameName.includes("Enhanced Edition")) {
-
-        titles.push(
-            gameName.replace(
-                " Enhanced Edition",
-                ""
-            )
-        );
-
-    }
-
     return [...new Set(titles)];
-
 }
 
 
@@ -506,10 +471,11 @@ function normalizeTitle(title) {
 
     return title
         .toLowerCase()
-        .replace(/[:.'’!+\-&]/g, "")
+        .replace(/[™®©]/g, "")
+        .replace(/[:\-–—]/g, " ")
+        .replace(/[^\w\s\u0600-\u06FF]/g, "")
         .replace(/\s+/g, " ")
         .trim();
-
 }
 
 
@@ -529,11 +495,11 @@ async function getSteamCover(gameName) {
 
     const promise = (async () => {
 
-        try {
+        const possibleTitles = getPossibleTitles(gameName);
 
-            const titles = getPossibleTitles(gameName);
+        for (const title of possibleTitles) {
 
-            for (const title of titles) {
+            try {
 
                 const url =
                     "https://store.steampowered.com/api/storesearch/" +
@@ -541,15 +507,13 @@ async function getSteamCover(gameName) {
                     encodeURIComponent(title) +
                     "&cc=us&l=en";
 
-                const response =
-                    await fetch(url);
+                const response = await fetch(url);
 
                 if (!response.ok) {
                     continue;
                 }
 
-                const data =
-                    await response.json();
+                const data = await response.json();
 
                 if (
                     !data ||
@@ -559,85 +523,83 @@ async function getSteamCover(gameName) {
                     continue;
                 }
 
-                const wanted =
+
+                const normalizedSearch =
                     normalizeTitle(title);
 
-                let result =
-                    data.items.find(item => {
 
-                        if (!item.name) {
-                            return false;
-                        }
+                // اول دنبال تطابق دقیق بگرد
+                let result = data.items.find(item => {
 
-                        const found =
+                    return normalizeTitle(item.name) === normalizedSearch;
+
+                });
+
+
+                // اگر دقیق نبود، دنبال تطابق نزدیک بگرد
+                if (!result) {
+
+                    result = data.items.find(item => {
+
+                        const steamName =
                             normalizeTitle(item.name);
 
                         return (
-                            found === wanted ||
-                            found.includes(wanted) ||
-                            wanted.includes(found)
+                            steamName.includes(normalizedSearch) ||
+                            normalizedSearch.includes(steamName)
                         );
 
                     });
 
+                }
+
+
+                // در نهایت اولین نتیجه
                 if (!result) {
                     result = data.items[0];
                 }
 
-                if (!result || !result.id) {
-                    continue;
+
+                if (result && result.id) {
+
+                    const appId = result.id;
+
+                    const cover =
+                        `https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/${appId}/library_600x900_2x.jpg`;
+
+
+                    coverCache.set(gameName, cover);
+
+                    return cover;
                 }
 
-                const appId =
-                    result.id;
+            } catch (error) {
 
-                const cover =
-                    `https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/${appId}/library_600x900_2x.jpg`;
-
-                coverCache.set(
+                console.warn(
+                    "Steam cover error:",
                     gameName,
-                    cover
+                    error
                 );
 
-                return cover;
-
             }
-
         }
 
-        catch (error) {
 
-            console.warn(
-                "Steam cover error:",
-                gameName,
-                error
-            );
-
-        }
-
-        coverCache.set(
-            gameName,
-            null
-        );
+        // اگر کاور پیدا نشد
+        coverCache.set(gameName, null);
 
         return null;
 
     })();
 
-    coverLoading.set(
-        gameName,
-        promise
-    );
 
-    const result =
-        await promise;
+    coverLoading.set(gameName, promise);
 
-    coverLoading.delete(
-        gameName
-    );
+    const result = await promise;
+
+    coverLoading.delete(gameName);
 
     return result;
-
 }
 
 
@@ -645,95 +607,73 @@ async function getSteamCover(gameName) {
 // COVER PLACEHOLDER
 // ======================================================
 
-function createPlaceholder(game) {
+function createPlaceholder() {
 
     return `
-
-        <div class="game-cover">
-
-            <div class="cover-loading">
-                در حال دریافت کاور...
-            </div>
-
-            <div class="game-number">
-                ${games.indexOf(game) + 1}
-            </div>
-
+        <div class="cover-placeholder">
+            <span>کاور Steam موجود نیست</span>
         </div>
-
     `;
-
 }
 
 
 // ======================================================
-// COVER HTML
+// CREATE COVER
 // ======================================================
 
-function createCover(game) {
+function createCover(game, container) {
 
-    const cover =
-        coverCache.get(game.name);
+    if (!container) return;
+
+    const cover = coverCache.get(game.name);
+
 
     if (!cover) {
 
-        return `
+        container.innerHTML = createPlaceholder();
 
-            <div class="game-cover">
-
-                <div class="cover-not-found">
-                    کاور Steam موجود نیست
-                </div>
-
-                <div class="game-number">
-                    ${games.indexOf(game) + 1}
-                </div>
-
-            </div>
-
-        `;
-
+        return;
     }
 
-    return `
 
-        <div class="game-cover">
-
-            <img
-                src="${cover}"
-                alt="کاور ${game.name}"
-                loading="lazy"
-                onerror="
-                    this.style.display='none';
-                    this.nextElementSibling.style.display='flex';
-                "
-            >
-
-            <div
-                class="cover-fallback"
-                style="display:none;"
-            >
-                کاور Steam موجود نیست
-            </div>
-
-            <div class="game-number">
-                ${games.indexOf(game) + 1}
-            </div>
-
-        </div>
-
+    container.innerHTML = `
+        <img
+            src="${cover}"
+            alt="${game.name}"
+            loading="lazy"
+            draggable="false"
+        >
     `;
+
+
+    const img = container.querySelector("img");
+
+
+    img.addEventListener("error", () => {
+
+        coverCache.set(game.name, null);
+
+        container.innerHTML =
+            createPlaceholder();
+
+    });
 
 }
 
 
 // ======================================================
-// LOAD STEAM COVERS
+// LOAD COVERS
 // ======================================================
 
 async function loadCovers(list) {
 
+    /*
+        فقط بازی‌های موجود در صفحه فعلی
+        کاور می‌گیرند.
+    */
+
     const batchSize = 5;
+
 
     for (
         let i = 0;
@@ -742,74 +682,152 @@ async function loadCovers(list) {
     ) {
 
         const batch =
-            list.slice(
-                i,
-                i + batchSize
-            );
+            list.slice(i, i + batchSize);
+
 
         await Promise.all(
-            batch.map(
-                game =>
-                    getSteamCover(game.name)
-            )
+
+            batch.map(async game => {
+
+                const cover =
+                    await getSteamCover(game.name);
+
+
+                const containers =
+                    document.querySelectorAll(
+                        `[data-game-name="${CSS.escape(game.name)}"]`
+                    );
+
+
+                containers.forEach(container => {
+
+                    if (cover) {
+
+                        container.innerHTML = `
+                            <img
+                                src="${cover}"
+                                alt="${game.name}"
+                                loading="lazy"
+                                draggable="false"
+                            >
+                        `;
+
+                    } else {
+
+                        container.innerHTML =
+                            createPlaceholder();
+
+                    }
+
+                });
+
+            })
+
         );
 
-        batch.forEach(game => {
 
-            const cards =
-                document.querySelectorAll(
-                    ".game-card"
-                );
+        /*
+            بعد از هر 5 بازی کمی مکث می‌کنیم
+            تا مرورگر تحت فشار قرار نگیرد.
+        */
 
-            let card = null;
+        await new Promise(resolve =>
+            setTimeout(resolve, 100)
+        );
+    }
+}
 
-            cards.forEach(currentCard => {
 
-                if (
-                    currentCard.dataset.game ===
-                    game.name
-                ) {
+// ======================================================
+// GET FILTERED GAMES
+// ======================================================
 
-                    card = currentCard;
+function getFilteredGames() {
 
-                }
+    let list = [...games];
 
-            });
 
-            if (!card) {
-                return;
-            }
+    // CATEGORY
+    if (
+        selectedCategory &&
+        selectedCategory !== "همه"
+    ) {
 
-            const oldCover =
-                card.querySelector(
-                    ".game-cover"
-                );
-
-            if (!oldCover) {
-                return;
-            }
-
-            const temporary =
-                document.createElement("div");
-
-            temporary.innerHTML =
-                createCover(game).trim();
-
-            const newCover =
-                temporary.firstElementChild;
-
-            if (newCover) {
-
-                oldCover.replaceWith(
-                    newCover
-                );
-
-            }
-
-        });
+        list = list.filter(game =>
+            game.genre === selectedCategory
+        );
 
     }
 
+
+    // SEARCH
+    const search =
+        searchInput?.value
+            ?.trim()
+            .toLowerCase();
+
+
+    if (search) {
+
+        list = list.filter(game =>
+
+            game.name
+                .toLowerCase()
+                .includes(search)
+
+            ||
+
+            game.genre
+                .toLowerCase()
+                .includes(search)
+
+        );
+
+    }
+
+
+    // SORT
+    if (sortSelect) {
+
+        const sort =
+            sortSelect.value;
+
+
+        if (sort === "name") {
+
+            list.sort((a, b) =>
+                a.name.localeCompare(
+                    b.name,
+                    "en"
+                )
+            );
+
+        }
+
+
+        else if (sort === "rating") {
+
+            list.sort((a, b) =>
+                Number(b.rating) -
+                Number(a.rating)
+            );
+
+        }
+
+
+        else if (sort === "year") {
+
+            list.sort((a, b) =>
+                Number(b.year) -
+                Number(a.year)
+            );
+
+        }
+
+    }
+
+
+    return list;
 }
 
 
@@ -819,324 +837,418 @@ async function loadCovers(list) {
 
 function renderGames(list) {
 
+    if (!gamesGrid) return;
+
+
     gamesGrid.innerHTML = "";
 
-    gameCount.textContent =
-        list.length;
 
-    if (list.length === 0) {
+    const visibleGames =
+        list.slice(
+            0,
+            currentPage * GAMES_PER_PAGE
+        );
 
-        noResult.style.display =
-            "block";
+
+    // NO RESULT
+    if (
+        visibleGames.length === 0
+    ) {
+
+        if (noResult) {
+            noResult.style.display =
+                "block";
+        }
+
+        if (loadMoreBtn) {
+            loadMoreBtn.style.display =
+                "none";
+        }
+
+        if (gameCount) {
+            gameCount.textContent =
+                "0 بازی";
+        }
 
         return;
-
     }
 
-    noResult.style.display =
-        "none";
 
-    list.forEach(game => {
+    if (noResult) {
+        noResult.style.display =
+            "none";
+    }
+
+
+    // CREATE CARDS
+    visibleGames.forEach(game => {
 
         const card =
-            document.createElement("article");
+            document.createElement("div");
+
 
         card.className =
             "game-card";
 
-        card.dataset.game =
-            game.name;
 
         card.innerHTML = `
 
-            ${createPlaceholder(game)}
+            <div
+                class="game-cover"
+                data-game-name="${escapeHtmlAttribute(game.name)}"
+            >
+                <div class="cover-loading">
+                    در حال بارگذاری کاور...
+                </div>
+            </div>
+
 
             <div class="game-info">
 
-                <h3 title="${game.name}">
-                    ${game.name}
+                <h3>
+                    ${escapeHtml(game.name)}
                 </h3>
+
 
                 <div class="game-meta">
 
-                    <span class="game-genre">
-                        ${game.genre}
+                    <span>
+                        ${escapeHtml(game.genre)}
                     </span>
 
-                    <span class="game-rating">
-                        ⭐ ${game.rating}
+                    <span>
+                        ${game.year}
                     </span>
 
                 </div>
 
-                <div class="game-year">
-                    ${game.year}
+
+                <div class="game-rating">
+                    ⭐ ${game.rating}
                 </div>
 
             </div>
-
         `;
+
 
         card.addEventListener(
             "click",
             () => openGame(game)
         );
 
+
         gamesGrid.appendChild(card);
 
     });
 
-    loadCovers(list);
 
-}
+    // COUNT
+    if (gameCount) {
 
-
-// ======================================================
-// FILTER
-// ======================================================
-
-function filterGames() {
-
-    const searchValue =
-        searchInput.value
-            .trim()
-            .toLowerCase();
-
-    let result =
-        games.filter(game => {
-
-            const matchesSearch =
-                game.name
-                    .toLowerCase()
-                    .includes(searchValue);
-
-            const matchesCategory =
-                selectedCategory === "همه" ||
-                game.genre === selectedCategory;
-
-            return (
-                matchesSearch &&
-                matchesCategory
-            );
-
-        });
-
-    result =
-        sortGames(result);
-
-    renderGames(result);
-
-}
-
-
-// ======================================================
-// SORT
-// ======================================================
-
-function sortGames(list) {
-
-    const result =
-        [...list];
-
-    switch (sortSelect.value) {
-
-        case "name":
-
-            result.sort(
-                (a, b) =>
-                    a.name.localeCompare(
-                        b.name,
-                        "en"
-                    )
-            );
-
-            break;
-
-        case "year":
-
-            result.sort(
-                (a, b) =>
-                    b.year - a.year
-            );
-
-            break;
-
-        case "rating":
-
-            result.sort(
-                (a, b) =>
-                    b.rating - a.rating
-            );
-
-            break;
+        gameCount.textContent =
+            `${visibleGames.length} بازی از ${list.length}`;
 
     }
 
-    return result;
+
+    // LOAD COVERS
+    loadCovers(visibleGames);
+
+
+    // LOAD MORE BUTTON
+    if (loadMoreBtn) {
+
+        if (
+            visibleGames.length <
+            list.length
+        ) {
+
+            loadMoreBtn.style.display =
+                "block";
+
+            loadMoreBtn.textContent =
+                "ادامه";
+
+        } else {
+
+            loadMoreBtn.style.display =
+                "none";
+
+        }
+
+    }
 
 }
 
 
 // ======================================================
-// CATEGORY BUTTONS
+// ESCAPE HTML
 // ======================================================
 
-document
-    .querySelectorAll(".category")
-    .forEach(button => {
+function escapeHtml(text) {
 
-        button.addEventListener(
-            "click",
-            () => {
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
-                document
-                    .querySelectorAll(".category")
-                    .forEach(btn =>
-                        btn.classList.remove(
-                            "active"
-                        )
+
+function escapeHtmlAttribute(text) {
+
+    return escapeHtml(text);
+
+}
+
+
+// ======================================================
+// LOAD MORE BUTTON
+// ======================================================
+
+if (loadMoreBtn) {
+
+    loadMoreBtn.addEventListener(
+        "click",
+        () => {
+
+            currentPage++;
+
+
+            const list =
+                getFilteredGames();
+
+
+            renderGames(list);
+
+
+            /*
+                بعد از کلیک، صفحه کمی پایین
+                می‌رود تا بازی‌های جدید دیده شوند.
+            */
+
+            setTimeout(() => {
+
+                const cards =
+                    gamesGrid.querySelectorAll(
+                        ".game-card"
                     );
 
-                button.classList.add(
-                    "active"
-                );
 
-                selectedCategory =
-                    button.dataset.category;
+                if (cards.length > 20) {
 
-                filterGames();
+                    const target =
+                        cards[
+                            cards.length - 20
+                        ];
 
-            }
-        );
 
-    });
+                    if (target) {
+
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+
+                    }
+
+                }
+
+            }, 150);
+
+        }
+    );
+
+}
 
 
 // ======================================================
 // SEARCH
 // ======================================================
 
-searchInput.addEventListener(
-    "input",
-    filterGames
-);
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        () => {
+
+            currentPage = 1;
+
+            renderGames(
+                getFilteredGames()
+            );
+
+        }
+    );
+
+}
 
 
-clearSearch.addEventListener(
-    "click",
-    () => {
+// ======================================================
+// CLEAR SEARCH
+// ======================================================
 
-        searchInput.value = "";
+if (clearSearch) {
 
-        filterGames();
+    clearSearch.addEventListener(
+        "click",
+        () => {
 
-        searchInput.focus();
+            if (searchInput) {
+                searchInput.value = "";
+            }
 
-    }
-);
+            currentPage = 1;
+
+            renderGames(
+                getFilteredGames()
+            );
+
+        }
+    );
+
+}
 
 
 // ======================================================
 // SORT
 // ======================================================
 
-sortSelect.addEventListener(
-    "change",
-    filterGames
+if (sortSelect) {
+
+    sortSelect.addEventListener(
+        "change",
+        () => {
+
+            currentPage = 1;
+
+            renderGames(
+                getFilteredGames()
+            );
+
+        }
+    );
+
+}
+
+
+// ======================================================
+// CATEGORY
+// ======================================================
+
+document.addEventListener(
+    "click",
+    event => {
+
+        const category =
+            event.target.closest(
+                "[data-category]"
+            );
+
+
+        if (!category) return;
+
+
+        selectedCategory =
+            category.dataset.category;
+
+
+        currentPage = 1;
+
+
+        renderGames(
+            getFilteredGames()
+        );
+
+    }
 );
 
 
 // ======================================================
-// OPEN GAME
+// OPEN GAME MODAL
 // ======================================================
 
 async function openGame(game) {
 
-    modalTitle.textContent =
-        game.name;
+    if (!gameModal) return;
 
-    modalCategory.textContent =
-        game.genre;
 
-    modalYear.textContent =
-        game.year;
+    if (modalTitle) {
+        modalTitle.textContent =
+            game.name;
+    }
 
-    modalRating.textContent =
-        game.rating;
 
-    let cover =
-        coverCache.get(game.name);
+    if (modalCategory) {
+        modalCategory.textContent =
+            game.genre;
+    }
 
-    if (cover) {
 
-        modalImage.innerHTML = `
+    if (modalYear) {
+        modalYear.textContent =
+            game.year;
+    }
 
-            <img
-                src="${cover}"
-                alt="کاور ${game.name}"
-                style="
-                    width:100%;
-                    height:100%;
-                    object-fit:cover;
-                "
-            >
 
-        `;
+    if (modalRating) {
+        modalRating.textContent =
+            game.rating;
+    }
+
+
+    if (modalDescription) {
+
+        modalDescription.textContent =
+            `${game.name} یک بازی ${game.genre} است که در سال ${game.year} منتشر شده است.`;
 
     }
-    else {
+
+
+    if (modalImage) {
 
         modalImage.innerHTML = `
-
-            <div class="modal-cover-loading">
-                در حال دریافت کاور Steam...
+            <div class="cover-loading">
+                در حال بارگذاری کاور...
             </div>
-
         `;
 
-        cover =
-            await getSteamCover(game.name);
+
+        const cover =
+            await getSteamCover(
+                game.name
+            );
+
 
         if (cover) {
 
             modalImage.innerHTML = `
-
                 <img
                     src="${cover}"
-                    alt="کاور ${game.name}"
-                    style="
-                        width:100%;
-                        height:100%;
-                        object-fit:cover;
-                    "
+                    alt="${escapeHtml(game.name)}"
+                    draggable="false"
                 >
-
             `;
 
-        }
-        else {
+        } else {
 
-            modalImage.innerHTML = `
-
-                <div class="modal-cover-loading">
-                    کاور Steam موجود نیست
-                </div>
-
-            `;
+            modalImage.innerHTML =
+                createPlaceholder();
 
         }
 
     }
 
-    modalDescription.textContent =
-        `${game.name} یکی از بازی‌های سبک ${game.genre} است که در سال ${game.year} منتشر شده است و امتیاز ${game.rating} را در اطلاعات این سایت دارد.`;
 
-    modal.classList.add(
-        "show"
+    gameModal.classList.add(
+        "active"
     );
 
-    document.body.style.overflow =
-        "hidden";
+
+    document.body.classList.add(
+        "modal-open"
+    );
 
 }
 
@@ -1145,38 +1257,52 @@ async function openGame(game) {
 // CLOSE MODAL
 // ======================================================
 
-function closeModal() {
+function closeGameModal() {
 
-    modal.classList.remove(
-        "show"
+    if (!gameModal) return;
+
+
+    gameModal.classList.remove(
+        "active"
     );
 
-    document.body.style.overflow =
-        "";
+
+    document.body.classList.remove(
+        "modal-open"
+    );
 
 }
 
 
-modalClose.addEventListener(
-    "click",
-    closeModal
-);
+if (modalClose) {
+
+    modalClose.addEventListener(
+        "click",
+        closeGameModal
+    );
+
+}
 
 
-modal.addEventListener(
-    "click",
-    event => {
+if (gameModal) {
 
-        if (
-            event.target === modal
-        ) {
+    gameModal.addEventListener(
+        "click",
+        event => {
 
-            closeModal();
+            if (
+                event.target ===
+                gameModal
+            ) {
+
+                closeGameModal();
+
+            }
 
         }
+    );
 
-    }
-);
+}
 
 
 document.addEventListener(
@@ -1187,7 +1313,7 @@ document.addEventListener(
             event.key === "Escape"
         ) {
 
-            closeModal();
+            closeGameModal();
 
         }
 
@@ -1199,67 +1325,64 @@ document.addEventListener(
 // MOBILE MENU
 // ======================================================
 
-menuBtn.addEventListener(
-    "click",
-    () => {
+const menuToggle =
+    document.querySelector(
+        ".menu-toggle"
+    );
 
-        if (
-            nav.style.display === "flex"
-        ) {
+const navMenu =
+    document.querySelector(
+        ".nav-menu"
+    );
 
-            nav.style.display =
-                "";
 
-            return;
+if (
+    menuToggle &&
+    navMenu
+) {
+
+    menuToggle.addEventListener(
+        "click",
+        () => {
+
+            navMenu.classList.toggle(
+                "active"
+            );
 
         }
+    );
 
-        nav.style.display =
-            "flex";
+}
 
-        nav.style.position =
-            "absolute";
 
-        nav.style.top =
-            "80px";
+// ======================================================
+// INITIAL LOAD
+// ======================================================
 
-        nav.style.right =
-            "0";
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
 
-        nav.style.left =
-            "0";
+        currentPage = 1;
 
-        nav.style.padding =
-            "25px";
-
-        nav.style.background =
-            "#0c0d11";
-
-        nav.style.flexDirection =
-            "column";
-
-        nav.style.gap =
-            "20px";
-
-        nav.style.borderBottom =
-            "1px solid #22252d";
+        renderGames(
+            getFilteredGames()
+        );
 
     }
 );
 
 
-// ======================================================
-// CHECK
-// ======================================================
+// اگر DOM قبلاً لود شده باشد
+if (
+    document.readyState !==
+    "loading"
+) {
 
-console.log(
-    "GAMEZONE games:",
-    games.length
-);
+    currentPage = 1;
 
+    renderGames(
+        getFilteredGames()
+    );
 
-// ======================================================
-// START WEBSITE
-// ======================================================
-
-renderGames(games);
+}
