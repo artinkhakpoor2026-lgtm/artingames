@@ -1,13 +1,13 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ARTIN GAMES | دنیای بازی</title>
+    <title>ARTIN GAMES | کتابخانه بازی‌ها</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="games.css">
 </head>
 
 <body>
@@ -20,65 +20,37 @@
     </div>
 
     <nav>
-        <a href="#home">خانه</a>
-        <a href="#library">بازی‌ها</a>
-        <a href="#news">آخرین اخبار</a>
+        <a href="index.html">خانه</a>
+        <a href="games.html" class="active">بازی‌ها</a>
+        <a href="index.html#news">آخرین اخبار</a>
     </nav>
-
-    <button class="menu-btn" id="menuBtn">
-        ☰
-    </button>
 
 </header>
 
 
 <main>
 
-<section class="hero" id="home">
+<section class="games-hero">
 
-    <div class="hero-content">
+    <span>ARTIN GAMES LIBRARY</span>
 
-        <span class="hero-label">
-            🎮 دنیای بازی در ARTIN GAMES
-        </span>
+    <h1>
+        دنیای بازی‌ها
+    </h1>
 
-        <h1>
-            وارد دنیای
-            <strong>بازی‌ها</strong>
-            شو
-        </h1>
-
-        <p>
-            جدیدترین بازی‌ها، اخبار گیم و یک کتابخانه بزرگ
-            از بازی‌های محبوب دنیا.
-        </p>
-
-        <div class="hero-buttons">
-
-            <button class="primary-btn" id="enterGames">
-                ورود به دنیای بازی‌ها
-                <span>←</span>
-            </button>
-
-            <button class="secondary-btn" id="latestBtn">
-                آخرین بازی‌ها
-            </button>
-
-        </div>
-
-    </div>
-
-    <div class="hero-glow"></div>
+    <p>
+        هزاران عنوان بازی را جستجو و کشف کن.
+    </p>
 
 </section>
 
 
-<section class="library-section" id="library">
+<section class="library-section">
 
     <div class="section-title">
 
         <div>
-            <span>LIBRARY</span>
+            <span>GAME LIBRARY</span>
             <h2>کتابخانه بازی‌ها</h2>
         </div>
 
@@ -99,7 +71,6 @@
                 id="gameSearch"
                 type="search"
                 placeholder="نام بازی را جستجو کنید..."
-                autocomplete="off"
             >
 
         </div>
@@ -144,45 +115,34 @@
     </div>
 
 
-    <div class="status-box" id="loadingBox">
-        در حال آماده‌سازی کتابخانه بازی‌ها...
+    <div
+        class="status-box"
+        id="loadingBox"
+    >
+        در حال دریافت بازی‌ها...
     </div>
 
 
-    <div class="games-grid" id="gamesGrid"></div>
+    <div
+        class="games-grid"
+        id="gamesGrid"
+    ></div>
 
 
-    <div class="no-results" id="noResults" hidden>
+    <div
+        class="no-results"
+        id="noResults"
+        hidden
+    >
+
         <div>🎮</div>
-        <h3>بازی پیدا نشد</h3>
-        <p>نام بازی یا فیلتر دیگری را امتحان کنید.</p>
-    </div>
-
-</section>
-
-
-<section class="news-section" id="news">
-
-    <div class="section-title">
-
-        <div>
-            <span>NEWS</span>
-            <h2>آخرین اخبار گیم</h2>
-        </div>
-
-    </div>
-
-    <div class="news-placeholder">
-
-        <div class="news-icon">📰</div>
 
         <h3>
-            بخش اخبار در حال آماده‌سازی است
+            بازی پیدا نشد
         </h3>
 
         <p>
-            در مرحله بعد این بخش را به سیستم اخبار روز و خودکار
-            ARTIN GAMES وصل می‌کنیم.
+            نام دیگری را جستجو کنید.
         </p>
 
     </div>
@@ -202,10 +162,6 @@
         دنیای بازی‌ها، در یکجا.
     </p>
 
-    <span>
-        © 2026 ARTIN GAMES
-    </span>
-
 </footer>
 
 
@@ -213,4 +169,3 @@
 
 </body>
 </html>
-```
