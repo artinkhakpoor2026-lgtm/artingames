@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARTIN GAMES | بازی‌ها</title>
+
+    <title>ARTIN GAMES | اطلاعات بازی</title>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="games.css">
 </head>
@@ -11,6 +14,7 @@
 <body>
 
 <header class="games-header">
+
     <div class="header-inner">
 
         <a href="index.html" class="logo">
@@ -19,130 +23,31 @@
 
         <nav>
             <a href="index.html">خانه</a>
-            <a href="games.html" class="active">بازی‌ها</a>
+            <a href="games.html">بازی‌ها</a>
             <a href="index.html#news">اخبار</a>
         </nav>
 
-        <a href="index.html" class="back-home">← بازگشت</a>
+        <a href="games.html" class="back-home">
+            → بازگشت به بازی‌ها
+        </a>
 
     </div>
+
 </header>
+
 
 <main>
 
-    <section class="games-hero">
-        <div class="hero-content">
-            <span class="hero-label">ARTIN GAMES LIBRARY</span>
+    <section id="gameDetails" class="game-details-page">
 
-            <h1>دنیای بازی‌ها</h1>
+        <div class="game-details-loading">
 
-            <p>
-                مجموعه‌ای بزرگ از بازی‌های محبوب PC
-                همراه با جستجو، دسته‌بندی و اطلاعات کامل بازی‌ها
-            </p>
-
-            <div class="stats">
-
-                <div class="stat-box">
-                    <strong id="gameCount">200</strong>
-                    <span>بازی</span>
-                </div>
-
-                <div class="stat-box">
-                    <strong>8</strong>
-                    <span>دسته‌بندی</span>
-                </div>
-
-                <div class="stat-box">
-                    <strong>∞</strong>
-                    <span>دنیای گیم</span>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <section class="library-section">
-
-        <div class="section-title">
-            <span>GAME LIBRARY</span>
-            <h2>کتابخانه بازی‌ها</h2>
-        </div>
-
-
-        <div class="library-tools">
-
-            <div class="search-box">
-                <span>⌕</span>
-                <input
-                    type="text"
-                    id="gameSearch"
-                    placeholder="نام بازی را جستجو کنید..."
-                    autocomplete="off"
-                >
-            </div>
-
-
-            <div class="filters">
-
-                <button class="filter active" data-category="all">
-                    همه
-                </button>
-
-                <button class="filter" data-category="action">
-                    اکشن
-                </button>
-
-                <button class="filter" data-category="shooter">
-                    شوتر
-                </button>
-
-                <button class="filter" data-category="rpg">
-                    نقش‌آفرینی
-                </button>
-
-                <button class="filter" data-category="horror">
-                    ترسناک
-                </button>
-
-                <button class="filter" data-category="adventure">
-                    ماجراجویی
-                </button>
-
-                <button class="filter" data-category="racing">
-                    مسابقه‌ای
-                </button>
-
-                <button class="filter" data-category="sports">
-                    ورزشی
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div id="loadingBox" class="loading-box">
             <div class="loader"></div>
-            <span>در حال آماده‌سازی بازی‌ها...</span>
-        </div>
 
+            <span>
+                در حال دریافت اطلاعات بازی...
+            </span>
 
-        <div id="gamesGrid" class="games-grid"></div>
-
-
-        <div id="noResults" class="no-results">
-            <div>🎮</div>
-            <h3>بازی پیدا نشد</h3>
-            <p>نام بازی یا دسته‌بندی دیگری را امتحان کنید.</p>
-        </div>
-
-
-        <div class="load-more-container">
-            <button id="loadMoreButton" class="load-more-button">
-                نمایش ۲۰ بازی دیگر
-            </button>
         </div>
 
     </section>
@@ -151,12 +56,21 @@
 
 
 <footer class="games-footer">
+
     <div>
+
         <strong>ARTIN GAMES</strong>
-        <span>دنیای گیم در یکجا</span>
+
+        <span>
+            دنیای گیم در یکجا
+        </span>
+
     </div>
 
-    <span>© 2026 ARTIN GAMES</span>
+    <span>
+        © 2026 ARTIN GAMES
+    </span>
+
 </footer>
 
 
