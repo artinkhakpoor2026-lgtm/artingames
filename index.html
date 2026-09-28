@@ -10,106 +10,129 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>ARTIN GAMES | اطلاعات بازی</title>
+    <title>ARTIN GAMES | بازی</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="games.css">
+    <meta
+        name="description"
+        content="صفحه اطلاعات بازی در ARTIN GAMES"
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="games.css"
+    >
 
 </head>
 
 
 <body>
 
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
 
-<header class="games-header">
+    <header class="games-header">
 
-    <div class="header-inner">
+        <div class="header-inner">
 
-        <a
-            href="index.html"
-            class="logo"
-        >
-            ARTIN <span>GAMES</span>
-        </a>
-
-
-        <nav>
-
-            <a href="index.html">
-                خانه
+            <a
+                href="index.html"
+                class="logo"
+            >
+                ARTIN GAMES
             </a>
+
+
+            <nav class="main-nav">
+
+                <a href="index.html">
+                    خانه
+                </a>
+
+                <a
+                    href="games.html"
+                    class="active"
+                >
+                    بازی‌ها
+                </a>
+
+                <a href="index.html#news">
+                    اخبار
+                </a>
+
+            </nav>
+
 
             <a
                 href="games.html"
-                class="active"
+                class="back-home"
             >
-                بازی‌ها
+                ← بازگشت به بازی‌ها
             </a>
-
-            <a href="index.html#news">
-                اخبار
-            </a>
-
-        </nav>
-
-
-        <a
-            href="games.html"
-            class="back-home"
-        >
-            ← بازگشت به بازی‌ها
-        </a>
-
-    </div>
-
-</header>
-
-
-<main>
-
-    <section
-        id="gameDetails"
-        class="game-details-page"
-    >
-
-        <div class="game-details-loading">
-
-            <div class="loader"></div>
-
-            <span>
-                در حال آماده‌سازی اطلاعات بازی...
-            </span>
 
         </div>
 
-    </section>
-
-</main>
+    </header>
 
 
-<footer class="games-footer">
+    <!-- =====================================================
+         GAME DETAILS
+         ===================================================== -->
 
-    <div>
+    <main>
 
-        <strong>
-            ARTIN GAMES
-        </strong>
+        <section
+            id="gameDetails"
+            class="game-details-page"
+        >
 
-        <span>
-            دنیای گیم در یکجا
-        </span>
+            <div class="game-loading">
 
-    </div>
+                <div class="loading-spinner"></div>
+
+                <p>
+                    در حال بارگذاری اطلاعات بازی...
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
 
 
-    <span>
-        © 2026 ARTIN GAMES
-    </span>
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
 
-</footer>
+    <footer class="games-footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+                <strong>ARTIN GAMES</strong>
+                <span>دنیای گیم در یکجا</span>
+            </div>
+
+            <div class="footer-copy">
+                © 2026 ARTIN GAMES
+            </div>
+
+        </div>
+
+    </footer>
 
 
-<script src="script.js"></script>
+    <!-- =====================================================
+         SCRIPT
+         ===================================================== -->
+
+    <script src="script.js"></script>
 
 </body>
 
