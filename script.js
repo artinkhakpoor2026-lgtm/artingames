@@ -1,4 +1,4 @@
-alert("NEW ARTIN GAMES SCRIPT LOADED");
+const games = [
 
 /* =========================================================
    ARTIN GAMES
