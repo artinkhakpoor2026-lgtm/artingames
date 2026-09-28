@@ -4,310 +4,194 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GAMEZONE | دنیای بازی</title>
+    <title>ARTIN GAMES | بازی‌ها</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="games.css">
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header class="header">
+<header class="games-header">
 
-        <div class="logo">
-            <span class="logo-icon">🎮</span>
-            <div>
-                <strong>GAMEZONE</strong>
-                <small>دنیای بازی‌های ویدیویی</small>
+    <a href="index.html" class="games-logo">
+        <span>ARTIN</span>
+        <b>GAMES</b>
+    </a>
+
+    <nav class="games-nav">
+        <a href="index.html">خانه</a>
+        <a href="games.html" class="active">بازی‌ها</a>
+        <a href="index.html#news">اخبار</a>
+    </nav>
+
+    <a href="index.html" class="back-home">
+        ← بازگشت
+    </a>
+
+</header>
+
+
+<main>
+
+    <section class="games-hero">
+
+        <div class="hero-line"></div>
+
+        <span class="small-title">
+            ARTIN GAMES LIBRARY
+        </span>
+
+        <h1>
+            دنیای <strong>بازی‌ها</strong>
+        </h1>
+
+        <p>
+            بازی مورد علاقه‌ات را پیدا کن، جستجو کن و وارد دنیای آن شو.
+        </p>
+
+        <div class="library-stats">
+
+            <div class="stat">
+                <strong id="gameCount">100</strong>
+                <span>بازی</span>
             </div>
-        </div>
 
-        <nav class="nav">
-            <a href="#home">خانه</a>
-            <a href="#games">بازی‌ها</a>
-            <a href="#categories">دسته‌بندی‌ها</a>
-            <a href="#about">درباره ما</a>
-        </nav>
-
-        <button class="menu-btn" id="menuBtn">☰</button>
-
-    </header>
-
-
-    <!-- Hero -->
-    <section class="hero" id="home">
-
-        <div class="hero-content">
-
-            <span class="hero-badge">🔥 جدیدترین دنیای گیم</span>
-
-            <h1>
-                دنیای بزرگ
-                <span>بازی‌ها</span>
-            </h1>
-
-            <p>
-                بهترین بازی‌های کامپیوتری را پیدا کن،
-                جستجو کن و با دنیای گیم همراه شو.
-            </p>
-
-            <a href="#games" class="hero-btn">
-                مشاهده بازی‌ها
-                <span>←</span>
-            </a>
-
-        </div>
-
-        <div class="hero-controller">
-            🎮
-        </div>
-
-    </section>
-
-
-    <!-- Search -->
-    <section class="search-section">
-
-        <div class="search-box">
-
-            <span>🔍</span>
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="نام بازی را جستجو کنید..."
-            >
-
-            <button id="clearSearch">×</button>
-
-        </div>
-
-    </section>
-
-
-    <!-- Categories -->
-    <section class="categories-section" id="categories">
-
-        <div class="section-title">
-
-            <div>
+            <div class="stat">
+                <strong>8</strong>
                 <span>دسته‌بندی</span>
-                <h2>بازی‌ها بر اساس سبک</h2>
             </div>
 
-        </div>
-
-        <div class="categories" id="categoriesContainer">
-
-            <button class="category active" data-category="همه">
-                🎮 همه بازی‌ها
-            </button>
-
-            <button class="category" data-category="اکشن">
-                🔫 اکشن
-            </button>
-
-            <button class="category" data-category="ماجراجویی">
-                🗺️ ماجراجویی
-            </button>
-
-            <button class="category" data-category="ترسناک">
-                👻 ترسناک
-            </button>
-
-            <button class="category" data-category="RPG">
-                ⚔️ RPG
-            </button>
-
-            <button class="category" data-category="ورزشی">
-                ⚽ ورزشی
-            </button>
-
-            <button class="category" data-category="مسابقه‌ای">
-                🏎️ مسابقه‌ای
-            </button>
-
-            <button class="category" data-category="استراتژی">
-                🧠 استراتژی
-            </button>
-
-            <button class="category" data-category="شوتر">
-                🎯 شوتر
-            </button>
+            <div class="stat">
+                <strong>∞</strong>
+                <span>سرگرمی</span>
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- Games -->
-    <main class="games-section" id="games">
+    <section class="games-library">
 
-        <div class="section-title">
+        <div class="library-heading">
 
             <div>
-                <span>GAME LIBRARY</span>
+                <span>GAME COLLECTION</span>
                 <h2>کتابخانه بازی‌ها</h2>
             </div>
 
-            <div class="game-count">
-                <span id="gameCount">200</span>
-                بازی
+            <div class="heading-icon">
+                🎮
             </div>
 
         </div>
 
 
-        <div class="sort-box">
+        <div class="game-tools">
 
-            <label for="sortSelect">مرتب‌سازی:</label>
+            <div class="game-search">
 
-            <select id="sortSelect">
+                <span>⌕</span>
 
-                <option value="default">
-                    پیش‌فرض
-                </option>
+                <input
+                    type="search"
+                    id="gameSearch"
+                    placeholder="جستجوی نام بازی..."
+                    autocomplete="off"
+                >
 
-                <option value="name">
-                    نام بازی
-                </option>
+            </div>
 
-                <option value="year">
-                    سال انتشار
-                </option>
 
-                <option value="rating">
-                    امتیاز
-                </option>
+            <div class="filters">
 
-            </select>
+                <button class="filter-button active" data-filter="all">
+                    همه
+                </button>
 
+                <button class="filter-button" data-filter="action">
+                    ⚔ اکشن
+                </button>
+
+                <button class="filter-button" data-filter="shooter">
+                    🔫 شوتر
+                </button>
+
+                <button class="filter-button" data-filter="rpg">
+                    🧙 RPG
+                </button>
+
+                <button class="filter-button" data-filter="horror">
+                    👻 ترسناک
+                </button>
+
+                <button class="filter-button" data-filter="adventure">
+                    🗺 ماجراجویی
+                </button>
+
+                <button class="filter-button" data-filter="racing">
+                    🏎 مسابقه‌ای
+                </button>
+
+                <button class="filter-button" data-filter="sports">
+                    ⚽ ورزشی
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="games-status" id="loadingBox">
+            <div class="loading-circle"></div>
+            <span>در حال آماده‌سازی بازی‌ها...</span>
         </div>
 
 
         <div class="games-grid" id="gamesGrid"></div>
 
 
-        <div class="no-result" id="noResult">
+        <div class="no-results" id="noResults" hidden>
 
-            <div>😕</div>
-
-            <h3>بازی پیدا نشد</h3>
-
-            <p>
-                نام بازی یا دسته‌بندی دیگری را امتحان کنید.
-            </p>
-
-        </div>
-
-    </main>
-
-
-    <!-- About -->
-    <section class="about-section" id="about">
-
-        <div class="about-card">
-
-            <div class="about-icon">
+            <div class="empty-icon">
                 🎮
             </div>
 
-            <div>
+            <h3>
+                بازی پیدا نشد
+            </h3>
 
-                <span>درباره GAMEZONE</span>
-
-                <h2>
-                    دنیای بازی همیشه همراه توست
-                </h2>
-
-                <p>
-                    GAMEZONE یک سایت گیمینگ فارسی برای
-                    معرفی و جستجوی بازی‌های محبوب کامپیوتری است.
-                    در این سایت می‌توانی بازی‌های مختلف را بر اساس
-                    سبک، سال انتشار و امتیاز پیدا کنی.
-                </p>
-
-            </div>
+            <p>
+                نام بازی یا دسته‌بندی دیگری را امتحان کن.
+            </p>
 
         </div>
 
     </section>
 
-
-    <!-- Footer -->
-    <footer>
-
-        <div class="footer-logo">
-            🎮 GAMEZONE
-        </div>
-
-        <p>
-            ساخته شده برای علاقه‌مندان دنیای بازی
-        </p>
-
-        <div class="footer-line"></div>
-
-        <small>
-            © 2026 GAMEZONE - تمامی حقوق محفوظ است
-        </small>
-
-    </footer>
+</main>
 
 
-    <!-- Modal -->
-    <div class="modal" id="gameModal">
+<footer class="games-footer">
 
-        <div class="modal-content">
-
-            <button class="modal-close" id="modalClose">
-                ×
-            </button>
-
-            <div class="modal-image" id="modalImage">
-                🎮
-            </div>
-
-            <div class="modal-info">
-
-                <span id="modalCategory">
-                    اکشن
-                </span>
-
-                <h2 id="modalTitle">
-                    Game
-                </h2>
-
-                <div class="modal-details">
-
-                    <div>
-                        <small>سال انتشار</small>
-                        <strong id="modalYear">2020</strong>
-                    </div>
-
-                    <div>
-                        <small>امتیاز</small>
-                        <strong id="modalRating">9.0</strong>
-                    </div>
-
-                    <div>
-                        <small>پلتفرم</small>
-                        <strong>PC</strong>
-                    </div>
-
-                </div>
-
-                <p id="modalDescription">
-                    توضیحات بازی
-                </p>
-
-            </div>
-
-        </div>
-
+    <div class="footer-brand">
+        <span>ARTIN</span>
+        <b>GAMES</b>
     </div>
 
+    <p>
+        دنیای بازی‌ها، در یکجا.
+    </p>
 
-    <script src="script.js"></script>
+    <small>
+        © 2026 ARTIN GAMES
+    </small>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 </body>
 </html>
