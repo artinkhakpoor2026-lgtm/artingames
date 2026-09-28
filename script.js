@@ -1,4 +1,4 @@
-"use strict";
+alert("NEW ARTIN GAMES SCRIPT LOADED");
 
 /* =========================================================
    ARTIN GAMES
