@@ -1,139 +1,23 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>ARTIN GAMES | بازی</title>
-
-    <meta
-        name="description"
-        content="صفحه اطلاعات بازی در ARTIN GAMES"
-    >
-
-    <link
-        rel="stylesheet"
-        href="style.css"
-    >
-
-    <link
-        rel="stylesheet"
-        href="games.css"
-    >
-
+<meta charset="UTF-8">
+<title>ARTIN TEST</title>
 </head>
-
 
 <body>
 
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
+<h1>ARTIN GAMES TEST</h1>
 
-    <header class="games-header">
+<div id="test"></div>
 
-        <div class="header-inner">
-
-            <a
-                href="index.html"
-                class="logo"
-            >
-                ARTIN GAMES
-            </a>
-
-
-            <nav class="main-nav">
-
-                <a href="index.html">
-                    خانه
-                </a>
-
-                <a
-                    href="games.html"
-                    class="active"
-                >
-                    بازی‌ها
-                </a>
-
-                <a href="index.html#news">
-                    اخبار
-                </a>
-
-            </nav>
-
-
-            <a
-                href="games.html"
-                class="back-home"
-            >
-                ← بازگشت به بازی‌ها
-            </a>
-
-        </div>
-
-    </header>
-
-
-    <!-- =====================================================
-         GAME DETAILS
-         ===================================================== -->
-
-    <main>
-
-        <section
-            id="gameDetails"
-            class="game-details-page"
-        >
-
-            <div class="game-loading">
-
-                <div class="loading-spinner"></div>
-
-                <p>
-                    در حال بارگذاری اطلاعات بازی...
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-         ===================================================== -->
-
-    <footer class="games-footer">
-
-        <div class="footer-inner">
-
-            <div class="footer-brand">
-                <strong>ARTIN GAMES</strong>
-                <span>دنیای گیم در یکجا</span>
-            </div>
-
-            <div class="footer-copy">
-                © 2026 ARTIN GAMES
-            </div>
-
-        </div>
-
-    </footer>
-
-
-    <!-- =====================================================
-         SCRIPT
-         ===================================================== -->
-
-    <script src="script.js"></script>
+<script>
+document.getElementById("test").innerHTML =
+    "<h2 style='color:green'>GAME.HTML درست اجرا می‌شود ✅</h2>" +
+    "<p>ID دریافت شده: " +
+    new URLSearchParams(window.location.search).get("id") +
+    "</p>";
+</script>
 
 </body>
-
 </html>
