@@ -1,15 +1,10 @@
 /* =========================================================
    ARTIN GAMES
    MAIN SCRIPT
-   ========================================================= */
-
-
-/* =========================================================
-   CATEGORY NAMES
+   VERSION 2
    ========================================================= */
 
 const categoryNames = {
-
     action: "اکشن",
     shooter: "شوتر",
     rpg: "نقش‌آفرینی",
@@ -17,19 +12,16 @@ const categoryNames = {
     adventure: "ماجراجویی",
     racing: "مسابقه‌ای",
     sports: "ورزشی"
-
 };
 
 
 /* =========================================================
-   GAMES DATABASE
-   EXACTLY 200 GAMES
+   200 UNIQUE GAMES
    ========================================================= */
 
 const games = [
 
-    /* ================= ACTION 1-45 ================= */
-
+    /* ACTION 1-45 */
     {id:271590,name:"Grand Theft Auto V",category:"action",year:2015},
     {id:12210,name:"Grand Theft Auto IV",category:"action",year:2008},
     {id:12120,name:"Grand Theft Auto: San Andreas",category:"action",year:2005},
@@ -76,9 +68,7 @@ const games = [
     {id:413150,name:"Stardew Valley",category:"action",year:2016},
     {id:892970,name:"Valheim",category:"action",year:2021},
 
-
-    /* ================= RPG 46-75 ================= */
-
+    /* RPG 46-75 */
     {id:1091500,name:"Cyberpunk 2077",category:"rpg",year:2020},
     {id:292030,name:"The Witcher 3: Wild Hunt",category:"rpg",year:2015},
     {id:20920,name:"The Witcher 2: Assassins of Kings",category:"rpg",year:2011},
@@ -110,9 +100,7 @@ const games = [
     {id:238960,name:"Path of Exile",category:"rpg",year:2013},
     {id:2694490,name:"Path of Exile 2",category:"rpg",year:2024},
 
-
-    /* ================= SHOOTER 76-120 ================= */
-
+    /* SHOOTER 76-120 */
     {id:730,name:"Counter-Strike 2",category:"shooter",year:2023},
     {id:240,name:"Counter-Strike: Source",category:"shooter",year:2004},
     {id:10,name:"Counter-Strike 1.6",category:"shooter",year:2000},
@@ -159,9 +147,7 @@ const games = [
     {id:9200,name:"RAGE",category:"shooter",year:2011},
     {id:2310,name:"Quake",category:"shooter",year:1996},
 
-
-    /* ================= HORROR 121-150 ================= */
-
+    /* HORROR 121-150 */
     {id:883710,name:"Resident Evil 2",category:"horror",year:2019},
     {id:952060,name:"Resident Evil 3",category:"horror",year:2020},
     {id:2050650,name:"Resident Evil 4",category:"horror",year:2023},
@@ -193,9 +179,7 @@ const games = [
     {id:594330,name:"Visage",category:"horror",year:2020},
     {id:391720,name:"Layers of Fear",category:"horror",year:2016},
 
-
-    /* ================= ADVENTURE 151-180 ================= */
-
+    /* ADVENTURE 151-180 */
     {id:203160,name:"Tomb Raider",category:"adventure",year:2013},
     {id:391220,name:"Rise of the Tomb Raider",category:"adventure",year:2016},
     {id:750920,name:"Shadow of the Tomb Raider",category:"adventure",year:2018},
@@ -227,9 +211,7 @@ const games = [
     {id:264710,name:"Subnautica",category:"adventure",year:2018},
     {id:1145360,name:"Hades",category:"adventure",year:2020},
 
-
-    /* ================= RACING 181-190 ================= */
-
+    /* RACING 181-190 */
     {id:1293830,name:"Forza Horizon 4",category:"racing",year:2018},
     {id:1551360,name:"Forza Horizon 5",category:"racing",year:2021},
     {id:1222680,name:"Need for Speed Heat",category:"racing",year:2019},
@@ -241,9 +223,7 @@ const games = [
     {id:270880,name:"American Truck Simulator",category:"racing",year:2016},
     {id:635260,name:"CarX Drift Racing Online",category:"racing",year:2017},
 
-
-    /* ================= SPORTS 191-200 ================= */
-
+    /* SPORTS 191-200 */
     {id:1665460,name:"eFootball",category:"sports",year:2021},
     {id:1778820,name:"TEKKEN 8",category:"sports",year:2024},
     {id:389730,name:"TEKKEN 7",category:"sports",year:2017},
@@ -254,51 +234,24 @@ const games = [
     {id:2315690,name:"WWE 2K24",category:"sports",year:2024},
     {id:252950,name:"Rocket League",category:"sports",year:2015},
     {id:2225070,name:"Trackmania",category:"sports",year:2020}
-
 ];
 
 
 /* =========================================================
-   SAFETY CHECK
+   CHECK DATABASE
    ========================================================= */
 
-console.log("ARTIN GAMES - Total games:", games.length);
+console.log("ARTIN GAMES:", games.length, "games loaded");
 
-
-/*
-   اگر تعداد بازی‌ها اشتباه باشد،
-   در Console مرورگر مشخص می‌شود.
-*/
+const ids = games.map(game => game.id);
+const duplicateIds = ids.filter((id, index) => ids.indexOf(id) !== index);
 
 if (games.length !== 200) {
-
-    console.error(
-        "ARTIN GAMES ERROR: تعداد بازی‌ها باید 200 باشد اما:",
-        games.length
-    );
-
+    console.error("ERROR: Games count is not 200:", games.length);
 }
 
-
-/*
-   بررسی ID های تکراری
-*/
-
-const gameIds = games.map(game => game.id);
-
-const duplicateIds = gameIds.filter(
-    (id, index) =>
-        gameIds.indexOf(id) !== index
-);
-
-
-if (duplicateIds.length > 0) {
-
-    console.error(
-        "ARTIN GAMES ERROR: ID تکراری:",
-        duplicateIds
-    );
-
+if (duplicateIds.length) {
+    console.error("ERROR: Duplicate IDs:", duplicateIds);
 }
 
 
@@ -307,171 +260,96 @@ if (duplicateIds.length > 0) {
    ========================================================= */
 
 function getGameById(id) {
+    const cleanId = String(id || "").trim();
 
-    return games.find(
-        game => String(game.id) === String(id)
-    );
-
+    return games.find(game => String(game.id) === cleanId);
 }
-
 
 function getCategoryName(category) {
-
     return categoryNames[category] || "بازی";
-
 }
-
 
 function getSteamLink(id) {
-
-    return `https://store.steampowered.com/app/${id}/`;
-
+    return "https://store.steampowered.com/app/" + id + "/";
 }
-
 
 function getGameImage(id) {
-
-    return `https://cdn.cloudflare.steamstatic.com/steam/apps/${id}/header.jpg`;
-
+    return "https://cdn.cloudflare.steamstatic.com/steam/apps/" + id + "/header.jpg";
 }
-
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
 
 function getDescription(game) {
-
     const descriptions = {
-
-        action:
-            "یک بازی اکشن با تمرکز بر مبارزه، مأموریت، اکتشاف و پیشرفت در دنیای بازی.",
-
-        shooter:
-            "یک بازی شوتر با تمرکز بر مبارزات، سلاح‌ها، مأموریت‌های مختلف و گیم‌پلی سریع.",
-
-        rpg:
-            "یک بازی نقش‌آفرینی با تمرکز بر داستان، شخصیت‌ها، اکتشاف و پیشرفت بازیکن.",
-
-        horror:
-            "یک بازی ترسناک و دلهره‌آور که با محیط، صدا و اتفاقات مختلف فضای خاصی ایجاد می‌کند.",
-
-        adventure:
-            "یک بازی ماجراجویی با تمرکز بر داستان، اکتشاف محیط و اتفاقات مختلف.",
-
-        racing:
-            "یک بازی مسابقه‌ای که در آن بازیکن می‌تواند با وسایل نقلیه مختلف در مسابقات متنوع رقابت کند.",
-
-        sports:
-            "یک بازی ورزشی و رقابتی که بازیکن می‌تواند در مسابقات و حالت‌های مختلف بازی کند."
-
+        action: "یک بازی اکشن با تمرکز بر مبارزه، مأموریت، اکتشاف و پیشرفت در دنیای بازی.",
+        shooter: "یک بازی شوتر با تمرکز بر مبارزات، سلاح‌ها، مأموریت‌های مختلف و گیم‌پلی سریع.",
+        rpg: "یک بازی نقش‌آفرینی با تمرکز بر داستان، شخصیت‌ها، اکتشاف و پیشرفت بازیکن.",
+        horror: "یک بازی ترسناک و دلهره‌آور با محیط و اتفاقات مختلف.",
+        adventure: "یک بازی ماجراجویی با تمرکز بر داستان، اکتشاف محیط و اتفاقات مختلف.",
+        racing: "یک بازی مسابقه‌ای با وسایل نقلیه و مسابقات مختلف.",
+        sports: "یک بازی رقابتی با حالت‌ها و مسابقات مختلف."
     };
 
-    return descriptions[game.category] ||
-        "اطلاعات این بازی در کتابخانه ARTIN GAMES قرار دارد.";
-
+    return descriptions[game.category] || "اطلاعات این بازی در کتابخانه ARTIN GAMES قرار دارد.";
 }
 
-
-/* =========================================================
-   SYSTEM REQUIREMENTS
-   ========================================================= */
-
 function getRequirements(game) {
-
-    /*
-       فعلاً اطلاعات پایه نمایش داده می‌شود.
-       ساختار آماده است تا بعداً برای هر بازی
-       مشخصات واقعی جداگانه قرار دهیم.
-    */
-
     if (game.year >= 2020) {
-
         return {
-
             minimum: {
-
                 os: "Windows 10 64-bit",
                 cpu: "Intel Core i5 / AMD Ryzen 5",
                 ram: "8 GB RAM",
                 gpu: "NVIDIA GTX 1060 / AMD RX 580",
                 directx: "DirectX 12",
                 storage: "حداقل 70 GB"
-
             },
-
             recommended: {
-
                 os: "Windows 10 / 11 64-bit",
                 cpu: "Intel Core i7 / AMD Ryzen 7",
                 ram: "16 GB RAM",
                 gpu: "NVIDIA RTX 2060 / AMD RX 5700",
                 directx: "DirectX 12",
                 storage: "حدود 100 GB"
-
             }
-
         };
-
     }
 
-
     return {
-
         minimum: {
-
             os: "Windows 7 / 8 / 10 64-bit",
             cpu: "Intel Core i3 / AMD equivalent",
             ram: "4 GB RAM",
             gpu: "NVIDIA GTX 660 / AMD Radeon HD 7870",
             directx: "DirectX 11",
             storage: "حداقل 30 GB"
-
         },
-
         recommended: {
-
             os: "Windows 10 64-bit",
             cpu: "Intel Core i5 / AMD Ryzen 5",
             ram: "8 GB RAM",
             gpu: "NVIDIA GTX 1060 / AMD RX 580",
             directx: "DirectX 11",
             storage: "حدود 50 GB"
-
         }
-
     };
-
 }
 
 
 /* =========================================================
-   GAMES PAGE VARIABLES
+   GAME CARDS
    ========================================================= */
 
 let filteredGames = [...games];
-
 let visibleGames = 0;
-
 const GAMES_PER_LOAD = 20;
-
-
-/* =========================================================
-   CREATE GAME CARD
-   ========================================================= */
 
 function createGameCard(game) {
 
     const card = document.createElement("article");
-
     card.className = "game-card";
-
     card.dataset.id = game.id;
 
     card.innerHTML = `
-
         <div class="game-card-image">
-
             <img
                 src="${getGameImage(game.id)}"
                 alt="${game.name}"
@@ -481,136 +359,61 @@ function createGameCard(game) {
             <span class="game-card-category">
                 ${getCategoryName(game.category)}
             </span>
-
         </div>
-
 
         <div class="game-card-content">
-
-            <h3>
-                ${game.name}
-            </h3>
-
+            <h3>${game.name}</h3>
 
             <div class="game-card-info">
-
-                <span>
-                    ${game.year}
-                </span>
-
-                <span>
-                    ${getCategoryName(game.category)}
-                </span>
-
+                <span>${game.year}</span>
+                <span>${getCategoryName(game.category)}</span>
             </div>
 
-
-            <button
+            <a
+                href="game.html?id=${encodeURIComponent(game.id)}"
                 class="view-game-button"
-                type="button"
             >
                 مشاهده بازی
-            </button>
-
+            </a>
         </div>
-
     `;
 
+    const image = card.querySelector("img");
 
-    const image =
-        card.querySelector("img");
-
-
-    image.addEventListener(
-        "error",
-        function () {
-
+    if (image) {
+        image.addEventListener("error", function () {
             this.src =
                 "https://placehold.co/600x338/111111/ffffff?text=ARTIN+GAMES";
-
-        },
-        { once: true }
-    );
-
-
-    const button =
-        card.querySelector(
-            ".view-game-button"
-        );
-
-
-    button.addEventListener(
-        "click",
-        function () {
-
-            window.location.href =
-                `game.html?id=${game.id}`;
-
-        }
-    );
-
+        }, {once: true});
+    }
 
     return card;
-
 }
 
 
 /* =========================================================
-   RENDER FIRST 20
+   RENDER GAMES
    ========================================================= */
 
 function renderGames() {
 
-    const grid =
-        document.getElementById(
-            "gamesGrid"
-        );
+    const grid = document.getElementById("gamesGrid");
 
-    const noResults =
-        document.getElementById(
-            "noResults"
-        );
-
-    const loadMore =
-        document.getElementById(
-            "loadMoreButton"
-        );
-
-
-    if (!grid) {
-        return;
-    }
-
+    if (!grid) return;
 
     grid.innerHTML = "";
 
     visibleGames = 0;
 
+    const firstBatch = filteredGames.slice(0, GAMES_PER_LOAD);
 
-    const firstBatch =
-        filteredGames.slice(
-            0,
-            GAMES_PER_LOAD
-        );
+    firstBatch.forEach(game => {
+        grid.appendChild(createGameCard(game));
+    });
 
-
-    firstBatch.forEach(
-        game => {
-
-            grid.appendChild(
-                createGameCard(game)
-            );
-
-        }
-    );
-
-
-    visibleGames =
-        firstBatch.length;
-
+    visibleGames = firstBatch.length;
 
     updateGameControls();
-
 }
 
 
@@ -620,56 +423,26 @@ function renderGames() {
 
 function loadMoreGames() {
 
-    const grid =
-        document.getElementById(
-            "gamesGrid"
-        );
+    const grid = document.getElementById("gamesGrid");
 
+    if (!grid) return;
 
-    if (!grid) {
-        return;
-    }
+    const start = visibleGames;
 
-
-    const start =
-        visibleGames;
-
-
-    const end =
-        Math.min(
-            start + GAMES_PER_LOAD,
-            filteredGames.length
-        );
-
-
-    /*
-       فقط بازی‌های جدید را اضافه می‌کنیم.
-       بازی‌های قبلی دوباره render نمی‌شوند.
-    */
-
-    const newGames =
-        filteredGames.slice(
-            start,
-            end
-        );
-
-
-    newGames.forEach(
-        game => {
-
-            grid.appendChild(
-                createGameCard(game)
-            );
-
-        }
+    const end = Math.min(
+        start + GAMES_PER_LOAD,
+        filteredGames.length
     );
 
+    const newGames = filteredGames.slice(start, end);
+
+    newGames.forEach(game => {
+        grid.appendChild(createGameCard(game));
+    });
 
     visibleGames = end;
 
-
     updateGameControls();
-
 }
 
 
@@ -679,37 +452,20 @@ function loadMoreGames() {
 
 function updateGameControls() {
 
-    const noResults =
-        document.getElementById(
-            "noResults"
-        );
-
-    const loadMore =
-        document.getElementById(
-            "loadMoreButton"
-        );
-
+    const noResults = document.getElementById("noResults");
+    const loadMore = document.getElementById("loadMoreButton");
 
     if (noResults) {
-
         noResults.style.display =
-            filteredGames.length === 0
-                ? "block"
-                : "none";
-
+            filteredGames.length === 0 ? "block" : "none";
     }
-
 
     if (loadMore) {
-
         loadMore.style.display =
-            visibleGames <
-            filteredGames.length
+            visibleGames < filteredGames.length
                 ? "inline-flex"
                 : "none";
-
     }
-
 }
 
 
@@ -719,364 +475,187 @@ function updateGameControls() {
 
 function searchGames(text) {
 
-    const search =
-        text
-            .trim()
-            .toLowerCase();
-
+    const search = String(text || "").trim().toLowerCase();
 
     if (!search) {
-
-        filteredGames =
-            [...games];
-
+        filteredGames = [...games];
     } else {
-
-        filteredGames =
-            games.filter(
-                game =>
-                    game.name
-                        .toLowerCase()
-                        .includes(search)
-            );
-
+        filteredGames = games.filter(game =>
+            game.name.toLowerCase().includes(search)
+        );
     }
 
-
     renderGames();
-
 }
 
 
 /* =========================================================
-   CATEGORY
+   CATEGORY FILTER
    ========================================================= */
 
 function filterGames(category) {
 
     if (category === "all") {
-
-        filteredGames =
-            [...games];
-
+        filteredGames = [...games];
     } else {
-
-        filteredGames =
-            games.filter(
-                game =>
-                    game.category === category
-            );
-
+        filteredGames = games.filter(
+            game => game.category === category
+        );
     }
 
-
     renderGames();
-
 }
 
 
 /* =========================================================
-   INITIALIZE GAMES PAGE
+   GAMES PAGE
    ========================================================= */
 
 function initGamesPage() {
 
-    const grid =
-        document.getElementById(
-            "gamesGrid"
-        );
+    const grid = document.getElementById("gamesGrid");
 
+    if (!grid) return;
 
-    if (!grid) {
-        return;
-    }
+    const loading = document.getElementById("loadingBox");
+    const count = document.getElementById("gameCount");
+    const search = document.getElementById("gameSearch");
+    const loadMore = document.getElementById("loadMoreButton");
 
-
-    const loading =
-        document.getElementById(
-            "loadingBox"
-        );
-
-
-    const count =
-        document.getElementById(
-            "gameCount"
-        );
-
-
-    const search =
-        document.getElementById(
-            "gameSearch"
-        );
-
-
-    const loadMore =
-        document.getElementById(
-            "loadMoreButton"
-        );
-
-
-    const filters =
-        document.querySelectorAll(
-            ".filter"
-        );
-
+    const filters = document.querySelectorAll(".filter");
 
     if (loading) {
-
-        loading.style.display =
-            "none";
-
+        loading.style.display = "none";
     }
-
 
     if (count) {
-
-        count.textContent =
-            games.length;
-
+        count.textContent = games.length;
     }
-
 
     renderGames();
 
-
     if (search) {
-
-        search.addEventListener(
-            "input",
-            function () {
-
-                searchGames(
-                    this.value
-                );
-
-            }
-        );
-
+        search.addEventListener("input", function () {
+            searchGames(this.value);
+        });
     }
 
+    filters.forEach(filter => {
 
-    filters.forEach(
-        filter => {
+        filter.addEventListener("click", function () {
 
-            filter.addEventListener(
-                "click",
-                function () {
+            filters.forEach(item => {
+                item.classList.remove("active");
+            });
 
-                    filters.forEach(
-                        item =>
-                            item.classList.remove(
-                                "active"
-                            )
-                    );
+            this.classList.add("active");
 
-
-                    this.classList.add(
-                        "active"
-                    );
-
-
-                    filterGames(
-                        this.dataset.category
-                    );
-
-                }
+            filterGames(
+                this.dataset.category || "all"
             );
+        });
 
-        }
-    );
-
+    });
 
     if (loadMore) {
-
-        loadMore.addEventListener(
-            "click",
-            loadMoreGames
-        );
-
+        loadMore.addEventListener("click", loadMoreGames);
     }
-
 }
 
 
 /* =========================================================
-   GAME DETAILS
+   GAME DETAILS PAGE
    ========================================================= */
 
 function initGameDetails() {
 
-    const container =
-        document.getElementById(
-            "gameDetails"
-        );
+    const container = document.getElementById("gameDetails");
 
+    if (!container) return;
 
-    if (!container) {
-        return;
-    }
+    const params = new URLSearchParams(window.location.search);
 
+    const id = params.get("id");
 
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-
-    const id =
-        params.get("id");
-
+    console.log("ARTIN GAMES - Requested game ID:", id);
 
     if (!id) {
-
-        showGameNotFound(
-            container
-        );
-
+        showGameNotFound(container);
         return;
-
     }
 
+    const game = getGameById(id);
 
-    const game =
-        getGameById(id);
-
+    console.log("ARTIN GAMES - Found game:", game);
 
     if (!game) {
-
-        showGameNotFound(
-            container
-        );
-
+        showGameNotFound(container);
         return;
-
     }
 
-
-    renderGameDetails(
-        container,
-        game
-    );
-
+    renderGameDetails(container, game);
 }
 
 
 /* =========================================================
-   RENDER DETAILS
+   RENDER GAME DETAILS
    ========================================================= */
 
-function renderGameDetails(
-    container,
-    game
-) {
+function renderGameDetails(container, game) {
 
-    const requirements =
-        getRequirements(game);
-
+    const requirements = getRequirements(game);
 
     container.innerHTML = `
 
         <div class="game-details-container">
 
-
             <div class="game-details-top">
 
-
                 <div class="game-details-cover">
-
                     <img
                         id="gameDetailImage"
                         src="${getGameImage(game.id)}"
                         alt="${game.name}"
                     >
-
                 </div>
-
 
                 <div class="game-details-main">
 
-
                     <span class="game-details-category">
-
                         ${getCategoryName(game.category)}
-
                     </span>
 
-
-                    <h1>
-
-                        ${game.name}
-
-                    </h1>
-
+                    <h1>${game.name}</h1>
 
                     <p class="game-details-description">
-
                         ${getDescription(game)}
-
                     </p>
-
 
                     <div class="game-meta">
 
-
                         <div class="meta-item">
-
-                            <strong>
-                                سال انتشار
-                            </strong>
-
-                            <span>
-                                ${game.year}
-                            </span>
-
+                            <strong>سال انتشار</strong>
+                            <span>${game.year}</span>
                         </div>
 
-
                         <div class="meta-item">
-
-                            <strong>
-                                دسته‌بندی
-                            </strong>
-
-                            <span>
-                                ${getCategoryName(game.category)}
-                            </span>
-
+                            <strong>دسته‌بندی</strong>
+                            <span>${getCategoryName(game.category)}</span>
                         </div>
 
-
                         <div class="meta-item">
-
-                            <strong>
-                                پلتفرم
-                            </strong>
-
-                            <span>
-                                PC
-                            </span>
-
+                            <strong>پلتفرم</strong>
+                            <span>PC</span>
                         </div>
 
-
                         <div class="meta-item">
-
-                            <strong>
-                                سیستم‌عامل
-                            </strong>
-
-                            <span>
-                                Windows
-                            </span>
-
+                            <strong>سیستم‌عامل</strong>
+                            <span>Windows</span>
                         </div>
-
 
                     </div>
 
-
                     <div class="game-details-actions">
-
 
                         <a
                             href="${getSteamLink(game.id)}"
@@ -1084,235 +663,110 @@ function renderGameDetails(
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-
                             دانلود / خرید از Steam
-
                         </a>
-
 
                         <a
                             href="games.html"
                             class="back-games-button"
                         >
-
                             ← بازگشت به بازی‌ها
-
                         </a>
-
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
 
             <section class="requirements-section">
 
-
                 <div class="section-title">
-
-                    <span>
-                        SYSTEM REQUIREMENTS
-                    </span>
-
-                    <h2>
-                        سیستم مورد نیاز
-                    </h2>
-
+                    <span>SYSTEM REQUIREMENTS</span>
+                    <h2>سیستم مورد نیاز</h2>
                 </div>
-
 
                 <div class="requirements-grid">
 
-
                     <div class="requirement-box">
 
                         <div class="requirement-header">
-
-                            <h3>
-                                حداقل سیستم
-                            </h3>
-
+                            <h3>حداقل سیستم</h3>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                سیستم‌عامل
-                            </strong>
-
-                            <span>
-                                ${requirements.minimum.os}
-                            </span>
-
+                            <strong>سیستم‌عامل</strong>
+                            <span>${requirements.minimum.os}</span>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                پردازنده
-                            </strong>
-
-                            <span>
-                                ${requirements.minimum.cpu}
-                            </span>
-
+                            <strong>پردازنده</strong>
+                            <span>${requirements.minimum.cpu}</span>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                رم
-                            </strong>
-
-                            <span>
-                                ${requirements.minimum.ram}
-                            </span>
-
+                            <strong>رم</strong>
+                            <span>${requirements.minimum.ram}</span>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                کارت گرافیک
-                            </strong>
-
-                            <span>
-                                ${requirements.minimum.gpu}
-                            </span>
-
+                            <strong>کارت گرافیک</strong>
+                            <span>${requirements.minimum.gpu}</span>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                DirectX
-                            </strong>
-
-                            <span>
-                                ${requirements.minimum.directx}
-                            </span>
-
+                            <strong>DirectX</strong>
+                            <span>${requirements.minimum.directx}</span>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                فضای ذخیره‌سازی
-                            </strong>
-
-                            <span>
-                                ${requirements.minimum.storage}
-                            </span>
-
+                            <strong>فضای ذخیره‌سازی</strong>
+                            <span>${requirements.minimum.storage}</span>
                         </div>
 
                     </div>
 
 
-
                     <div class="requirement-box">
 
                         <div class="requirement-header">
-
-                            <h3>
-                                سیستم پیشنهادی
-                            </h3>
-
+                            <h3>سیستم پیشنهادی</h3>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                سیستم‌عامل
-                            </strong>
-
-                            <span>
-                                ${requirements.recommended.os}
-                            </span>
-
+                            <strong>سیستم‌عامل</strong>
+                            <span>${requirements.recommended.os}</span>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                پردازنده
-                            </strong>
-
-                            <span>
-                                ${requirements.recommended.cpu}
-                            </span>
-
+                            <strong>پردازنده</strong>
+                            <span>${requirements.recommended.cpu}</span>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                رم
-                            </strong>
-
-                            <span>
-                                ${requirements.recommended.ram}
-                            </span>
-
+                            <strong>رم</strong>
+                            <span>${requirements.recommended.ram}</span>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                کارت گرافیک
-                            </strong>
-
-                            <span>
-                                ${requirements.recommended.gpu}
-                            </span>
-
+                            <strong>کارت گرافیک</strong>
+                            <span>${requirements.recommended.gpu}</span>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                DirectX
-                            </strong>
-
-                            <span>
-                                ${requirements.recommended.directx}
-                            </span>
-
+                            <strong>DirectX</strong>
+                            <span>${requirements.recommended.directx}</span>
                         </div>
 
-
                         <div class="requirement-row">
-
-                            <strong>
-                                فضای ذخیره‌سازی
-                            </strong>
-
-                            <span>
-                                ${requirements.recommended.storage}
-                            </span>
-
+                            <strong>فضای ذخیره‌سازی</strong>
+                            <span>${requirements.recommended.storage}</span>
                         </div>
 
                     </div>
-
 
                 </div>
-
 
             </section>
 
@@ -1323,40 +777,22 @@ function renderGameDetails(
                     href="games.html"
                     class="back-games-button"
                 >
-
                     ← بازگشت به کتابخانه بازی‌ها
-
                 </a>
 
             </div>
 
-
         </div>
-
     `;
 
-
-    const image =
-        document.getElementById(
-            "gameDetailImage"
-        );
-
+    const image = document.getElementById("gameDetailImage");
 
     if (image) {
-
-        image.addEventListener(
-            "error",
-            function () {
-
-                this.src =
-                    "https://placehold.co/600x338/111111/ffffff?text=ARTIN+GAMES";
-
-            },
-            { once: true }
-        );
-
+        image.addEventListener("error", function () {
+            this.src =
+                "https://placehold.co/800x450/111111/ffffff?text=ARTIN+GAMES";
+        }, {once: true});
     }
-
 }
 
 
@@ -1374,31 +810,21 @@ function showGameNotFound(container) {
                 🎮
             </div>
 
-
-            <h1>
-                بازی پیدا نشد
-            </h1>
-
+            <h1>بازی پیدا نشد</h1>
 
             <p>
-                بازی موردنظر در کتابخانه ARTIN GAMES
-                وجود ندارد.
+                بازی موردنظر در کتابخانه ARTIN GAMES وجود ندارد.
             </p>
-
 
             <a
                 href="games.html"
                 class="back-games-button"
             >
-
                 ← بازگشت به بازی‌ها
-
             </a>
 
         </div>
-
     `;
-
 }
 
 
@@ -1406,13 +832,10 @@ function showGameNotFound(container) {
    START
    ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-        initGamesPage();
+    initGamesPage();
 
-        initGameDetails();
+    initGameDetails();
 
-    }
-);
+});
