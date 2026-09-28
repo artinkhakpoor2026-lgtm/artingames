@@ -870,7 +870,140 @@ body {
     box-shadow:
         0 8px 25px rgba(255, 0, 0, 0.15);
 }
+/* ================================
+   GAME INFO MODAL
+================================ */
 
+#gameInfoModal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.game-info-backdrop {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.82);
+
+    backdrop-filter: blur(8px);
+}
+
+.game-info-box {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 430px;
+
+    padding: 30px;
+
+    background: #0b0b0b;
+
+    border: 1px solid rgba(255, 0, 0, 0.3);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.7),
+        0 0 35px rgba(255, 0, 0, 0.08);
+
+    text-align: center;
+
+    animation: gameModalIn 0.25s ease;
+}
+
+@keyframes gameModalIn {
+
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
+
+.game-info-box h2 {
+    margin: 0 35px 25px;
+
+    color: white;
+
+    font-size: 22px;
+}
+
+.game-info-close {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    color: #aaa;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.game-info-close:hover {
+    background: #d90000;
+    color: white;
+}
+
+.game-info-details {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+.game-info-details div {
+    padding: 18px 10px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+
+    border-radius: 10px;
+}
+
+.game-info-details span {
+    display: block;
+
+    color: #666;
+
+    font-size: 11px;
+
+    margin-bottom: 7px;
+}
+
+.game-info-details strong {
+    display: block;
+
+    color: #ff2929;
+
+    font-size: 14px;
+}
 .load-more-button:active {
     transform: translateY(0);
 }
