@@ -628,3 +628,333 @@ function startGamesPage() {
 ========================================================= */
 
 startGamesPage();
+/* =========================================
+   ARTIN GAMES - GAME DETAILS
+========================================= */
+
+const gamePage = document.getElementById("gameName");
+
+if (gamePage) {
+
+    const params = new URLSearchParams(window.location.search);
+    const gameId = Number(params.get("id"));
+
+    const selectedGame = games.find(game => Number(game.id) === gameId);
+
+    if (!selectedGame) {
+
+        document.getElementById("gameName").textContent =
+            "بازی پیدا نشد";
+
+        document.getElementById("gameDescription").textContent =
+            "اطلاعات این بازی در سایت موجود نیست.";
+
+    } else {
+
+        const name = selectedGame.name;
+        const id = selectedGame.id;
+        const category = selectedGame.category || "نامشخص";
+        const type = selectedGame.type || "نامشخص";
+
+        /*
+         * برای بازی‌های رایگان واقعی این مقدار را true کن.
+         * برای بازی‌های پولی false باشد.
+         */
+        const isFree = selectedGame.isFree === true;
+
+
+        /* تصویر */
+
+        const image = document.getElementById("gameImage");
+
+        image.src =
+            `https://cdn.akamai.steamstatic.com/steam/apps/${id}/library_600x900_2x.jpg`;
+
+        image.alt = name;
+
+
+        /* اطلاعات اصلی */
+
+        document.getElementById("gameName").textContent = name;
+
+        document.getElementById("gameDescription").textContent =
+            `اطلاعات کامل ${name} در ARTIN GAMES. این بازی در دسته ${category} قرار دارد.`;
+
+
+        document.getElementById("gameCategory").textContent =
+            category;
+
+        document.getElementById("gameType").textContent =
+            type;
+
+        document.getElementById("gamePrice").textContent =
+            isFree ? "رایگان" : "پولی";
+
+
+        document.getElementById("infoCategory").textContent =
+            category;
+
+        document.getElementById("infoType").textContent =
+            type;
+
+        document.getElementById("gameStatus").textContent =
+            isFree ? "رایگان" : "پولی";
+
+
+        /* اطلاعات فعلی */
+
+        document.getElementById("releaseDate").textContent =
+            selectedGame.releaseDate || "در حال تکمیل";
+
+        document.getElementById("gameSize").textContent =
+            selectedGame.size || "در حال تکمیل";
+
+        document.getElementById("gameMode").textContent =
+            selectedGame.mode || "در حال تکمیل";
+
+
+        /* سیستم */
+
+        const min = selectedGame.minimum || {};
+
+        document.getElementById("minOS").textContent =
+            min.os || "در حال تکمیل";
+
+        document.getElementById("minCPU").textContent =
+            min.cpu || "در حال تکمیل";
+
+        document.getElementById("minRAM").textContent =
+            min.ram || "در حال تکمیل";
+
+        document.getElementById("minGPU").textContent =
+            min.gpu || "در حال تکمیل";
+
+        document.getElementById("minDX").textContent =
+            min.directx || "در حال تکمیل";
+
+        document.getElementById("minStorage").textContent =
+            min.storage || "در حال تکمیل";
+
+
+        /* سیستم پیشنهادی */
+
+        const rec = selectedGame.recommended || {};
+
+        document.getElementById("recOS").textContent =
+            rec.os || "در حال تکمیل";
+
+        document.getElementById("recCPU").textContent =
+            rec.cpu || "در حال تکمیل";
+
+        document.getElementById("recRAM").textContent =
+            rec.ram || "در حال تکمیل";
+
+        document.getElementById("recGPU").textContent =
+            rec.gpu || "در حال تکمیل";
+
+        document.getElementById("recDX").textContent =
+            rec.directx || "در حال تکمیل";
+
+        document.getElementById("recStorage").textContent =
+            rec.storage || "در حال تکمیل";
+
+
+        /* لینک Steam */
+
+        const steamURL =
+            `https://store.steampowered.com/app/${id}/`;
+
+
+        document
+            .getElementById("steamDownload")
+            .addEventListener("click", function () {
+
+                window.open(
+                    steamURL,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            });
+
+
+        /* دکمه دانلود رایگان */
+
+        const freeButton =
+            document.getElementById("freeDownload");
+
+        const modal =
+            document.getElementById("downloadModal");
+
+        const closeModal =
+            document.getElementById("closeModal");
+
+        const modalSteam =
+            document.getElementById("modalSteam");
+
+
+        freeButton.addEventListener("click", function () {
+
+            if (isFree) {
+
+                window.open(
+                    steamURL,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            } else {
+
+                modal.classList.add("show");
+
+            }
+
+        });
+
+
+        closeModal.addEventListener("click", function () {
+
+            modal.classList.remove("show");
+
+        });
+
+
+        modal.addEventListener("click", function (event) {
+
+            if (event.target === modal) {
+
+                modal.classList.remove("show");
+
+            }
+
+        });
+
+
+        modalSteam.addEventListener("click", function () {
+
+            window.open(
+                steamURL,
+                "_blank",
+                "noopener,noreferrer"
+            );
+
+        });
+
+
+        /* =====================================
+           PC CHECKER
+        ===================================== */
+
+        document
+            .getElementById("checkPC")
+            .addEventListener("click", function () {
+
+                const userCPU =
+                    document.getElementById("userCPU").value.trim();
+
+                const userGPU =
+                    document.getElementById("userGPU").value.trim();
+
+                const userRAM =
+                    Number(document.getElementById("userRAM").value);
+
+                const userStorage =
+                    Number(document.getElementById("userStorage").value);
+
+
+                const result =
+                    document.getElementById("pcResult");
+
+
+                if (
+                    !userCPU ||
+                    !userGPU ||
+                    !userRAM ||
+                    !userStorage
+                ) {
+
+                    result.innerHTML =
+                        "⚠️ لطفاً تمام مشخصات سیستم را وارد کن.";
+
+                    return;
+                }
+
+
+                const minimumRAM =
+                    Number(
+                        String(min.ram || "0")
+                            .replace(/[^\d.]/g, "")
+                    ) || 0;
+
+
+                const minimumStorage =
+                    Number(
+                        String(min.storage || "0")
+                            .replace(/[^\d.]/g, "")
+                    ) || 0;
+
+
+                let problems = [];
+
+
+                if (
+                    minimumRAM &&
+                    userRAM < minimumRAM
+                ) {
+
+                    problems.push(
+                        "RAM سیستم شما کمتر از حداقل موردنیاز است."
+                    );
+
+                }
+
+
+                if (
+                    minimumStorage &&
+                    userStorage < minimumStorage
+                ) {
+
+                    problems.push(
+                        "فضای خالی کافی ندارید."
+                    );
+
+                }
+
+
+                if (problems.length === 0) {
+
+                    result.innerHTML =
+                        `
+                        <strong>🟢 سیستم شما از نظر اطلاعات واردشده مناسب به نظر می‌رسد.</strong>
+                        <br>
+                        CPU: ${userCPU}
+                        <br>
+                        GPU: ${userGPU}
+                        <br>
+                        RAM: ${userRAM} GB
+                        <br>
+                        فضای خالی: ${userStorage} GB
+                        <br><br>
+                        ⚠️ این نتیجه تخمینی است و عملکرد واقعی به تنظیمات گرافیکی، درایورها و رزولوشن بستگی دارد.
+                        `;
+
+                } else {
+
+                    result.innerHTML =
+                        `
+                        <strong>🟡 سیستم شما نیاز به بررسی بیشتری دارد.</strong>
+                        <br><br>
+                        ${problems.join("<br>")}
+                        <br><br>
+                        CPU: ${userCPU}
+                        <br>
+                        GPU: ${userGPU}
+                        `;
+
+                }
+
+            });
+
+    }
+
+}
