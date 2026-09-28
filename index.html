@@ -3,292 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>مشاهده بازی | ARTIN GAMES</title>
-
+    <title>ARTIN GAMES | بازی‌ها</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="games.css">
 </head>
 
 <body>
 
-<header class="game-header">
-
-    <a href="index.html" class="game-logo">
-        ARTIN <span>GAMES</span>
-    </a>
-
-    <nav>
-        <a href="index.html">خانه</a>
-        <a href="games.html">بازی‌ها</a>
-        <a href="#">اخبار</a>
-    </nav>
-
-</header>
-
-
-<main class="game-page">
-
-    <a href="games.html" class="back-games">
-        ← بازگشت به بازی‌ها
-    </a>
-
-
-    <!-- HERO -->
-
-    <section class="game-hero">
-
-        <div class="game-cover">
-            <img id="gameImage" src="" alt="">
-        </div>
-
-        <div class="game-main-info">
-
-            <span class="game-label">
-                ARTIN GAMES
-            </span>
-
-            <h1 id="gameName">
-                در حال بارگذاری...
-            </h1>
-
-            <p id="gameDescription">
-                اطلاعات بازی در حال بارگذاری است...
-            </p>
-
-            <div class="game-tags">
-
-                <span id="gameCategory">---</span>
-                <span id="gameType">---</span>
-                <span id="gamePrice">---</span>
-
-            </div>
-
-            <div class="game-actions">
-
-                <button id="freeDownload" class="download-free">
-                    🟢 دانلود رایگان
-                </button>
-
-                <button id="steamDownload" class="download-steam">
-                    🔵 مشاهده در Steam
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- INFORMATION -->
-
-    <section class="details-box">
-
-        <h2>🎮 اطلاعات بازی</h2>
-
-        <div class="info-grid">
-
-            <div>
-                <span>ژانر</span>
-                <strong id="infoCategory">---</strong>
-            </div>
-
-            <div>
-                <span>نوع بازی</span>
-                <strong id="infoType">---</strong>
-            </div>
-
-            <div>
-                <span>تاریخ انتشار</span>
-                <strong id="releaseDate">---</strong>
-            </div>
-
-            <div>
-                <span>حجم تقریبی</span>
-                <strong id="gameSize">---</strong>
-            </div>
-
-            <div>
-                <span>حالت بازی</span>
-                <strong id="gameMode">---</strong>
-            </div>
-
-            <div>
-                <span>وضعیت</span>
-                <strong id="gameStatus">---</strong>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SYSTEM REQUIREMENTS -->
-
-    <section class="details-box">
-
-        <h2>💻 حداقل سیستم مورد نیاز</h2>
-
-        <div class="requirements">
-
-            <div>
-                <span>سیستم‌عامل</span>
-                <strong id="minOS">---</strong>
-            </div>
-
-            <div>
-                <span>پردازنده</span>
-                <strong id="minCPU">---</strong>
-            </div>
-
-            <div>
-                <span>RAM</span>
-                <strong id="minRAM">---</strong>
-            </div>
-
-            <div>
-                <span>کارت گرافیک</span>
-                <strong id="minGPU">---</strong>
-            </div>
-
-            <div>
-                <span>DirectX</span>
-                <strong id="minDX">---</strong>
-            </div>
-
-            <div>
-                <span>فضای خالی</span>
-                <strong id="minStorage">---</strong>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- RECOMMENDED -->
-
-    <section class="details-box">
-
-        <h2>🚀 سیستم پیشنهادی</h2>
-
-        <div class="requirements">
-
-            <div>
-                <span>سیستم‌عامل</span>
-                <strong id="recOS">---</strong>
-            </div>
-
-            <div>
-                <span>پردازنده</span>
-                <strong id="recCPU">---</strong>
-            </div>
-
-            <div>
-                <span>RAM</span>
-                <strong id="recRAM">---</strong>
-            </div>
-
-            <div>
-                <span>کارت گرافیک</span>
-                <strong id="recGPU">---</strong>
-            </div>
-
-            <div>
-                <span>DirectX</span>
-                <strong id="recDX">---</strong>
-            </div>
-
-            <div>
-                <span>فضای خالی</span>
-                <strong id="recStorage">---</strong>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PC CHECKER -->
-
-    <section class="details-box checker">
-
-        <h2>🖥️ آیا سیستم من این بازی را اجرا می‌کند؟</h2>
-
-        <p>
-            مشخصات کامپیوتر خودت را وارد کن تا ARTIN GAMES یک بررسی اولیه انجام دهد.
-        </p>
-
-        <div class="checker-grid">
-
-            <div class="input-group">
-                <label>پردازنده</label>
-                <input id="userCPU" placeholder="مثلاً i5-4670">
-            </div>
-
-            <div class="input-group">
-                <label>کارت گرافیک</label>
-                <input id="userGPU" placeholder="مثلاً RX 580">
-            </div>
-
-            <div class="input-group">
-                <label>RAM (GB)</label>
-                <input id="userRAM" type="number" min="1" placeholder="مثلاً 16">
-            </div>
-
-            <div class="input-group">
-                <label>فضای خالی (GB)</label>
-                <input id="userStorage" type="number" min="1" placeholder="مثلاً 100">
-            </div>
-
-        </div>
-
-        <button id="checkPC" class="check-button">
-            🔍 بررسی سیستم من
-        </button>
-
-        <div id="pcResult" class="pc-result">
-            مشخصاتت را وارد کن و دکمه بررسی را بزن.
-        </div>
-
-    </section>
-
-
-    <!-- FREE DOWNLOAD MESSAGE -->
-
-    <div id="downloadModal" class="download-modal">
-
-        <div class="modal-content">
-
-            <button id="closeModal" class="close-modal">
-                ×
-            </button>
-
-            <div class="modal-icon">
-                ⚠️
-            </div>
-
-            <h2>این بازی پولی است</h2>
-
-            <p>
-                این بازی به‌صورت رایگان عرضه نمی‌شود.
-                برای دریافت قانونی بازی می‌توانید از فروشگاه رسمی Steam استفاده کنید.
-            </p>
-
-            <button id="modalSteam" class="modal-steam">
-                🔵 رفتن به Steam
-            </button>
-
-        </div>
+<header class="games-header">
+    <div class="header-inner">
+
+        <a href="index.html" class="logo">
+            ARTIN <span>GAMES</span>
+        </a>
+
+        <nav>
+            <a href="index.html">خانه</a>
+            <a href="games.html" class="active">بازی‌ها</a>
+            <a href="index.html#news">اخبار</a>
+        </nav>
+
+        <a href="index.html" class="back-home">← بازگشت</a>
 
     </div>
+</header>
+
+<main>
+
+    <section class="games-hero">
+        <div class="hero-content">
+            <span class="hero-label">ARTIN GAMES LIBRARY</span>
+
+            <h1>دنیای بازی‌ها</h1>
+
+            <p>
+                مجموعه‌ای بزرگ از بازی‌های محبوب PC
+                همراه با جستجو، دسته‌بندی و اطلاعات کامل بازی‌ها
+            </p>
+
+            <div class="stats">
+
+                <div class="stat-box">
+                    <strong id="gameCount">200</strong>
+                    <span>بازی</span>
+                </div>
+
+                <div class="stat-box">
+                    <strong>8</strong>
+                    <span>دسته‌بندی</span>
+                </div>
+
+                <div class="stat-box">
+                    <strong>∞</strong>
+                    <span>دنیای گیم</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="library-section">
+
+        <div class="section-title">
+            <span>GAME LIBRARY</span>
+            <h2>کتابخانه بازی‌ها</h2>
+        </div>
+
+
+        <div class="library-tools">
+
+            <div class="search-box">
+                <span>⌕</span>
+                <input
+                    type="text"
+                    id="gameSearch"
+                    placeholder="نام بازی را جستجو کنید..."
+                    autocomplete="off"
+                >
+            </div>
+
+
+            <div class="filters">
+
+                <button class="filter active" data-category="all">
+                    همه
+                </button>
+
+                <button class="filter" data-category="action">
+                    اکشن
+                </button>
+
+                <button class="filter" data-category="shooter">
+                    شوتر
+                </button>
+
+                <button class="filter" data-category="rpg">
+                    نقش‌آفرینی
+                </button>
+
+                <button class="filter" data-category="horror">
+                    ترسناک
+                </button>
+
+                <button class="filter" data-category="adventure">
+                    ماجراجویی
+                </button>
+
+                <button class="filter" data-category="racing">
+                    مسابقه‌ای
+                </button>
+
+                <button class="filter" data-category="sports">
+                    ورزشی
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div id="loadingBox" class="loading-box">
+            <div class="loader"></div>
+            <span>در حال آماده‌سازی بازی‌ها...</span>
+        </div>
+
+
+        <div id="gamesGrid" class="games-grid"></div>
+
+
+        <div id="noResults" class="no-results">
+            <div>🎮</div>
+            <h3>بازی پیدا نشد</h3>
+            <p>نام بازی یا دسته‌بندی دیگری را امتحان کنید.</p>
+        </div>
+
+
+        <div class="load-more-container">
+            <button id="loadMoreButton" class="load-more-button">
+                نمایش ۲۰ بازی دیگر
+            </button>
+        </div>
+
+    </section>
 
 </main>
 
 
-<footer>
-    <p>© 2026 ARTIN GAMES — تمامی حقوق محفوظ است.</p>
+<footer class="games-footer">
+    <div>
+        <strong>ARTIN GAMES</strong>
+        <span>دنیای گیم در یکجا</span>
+    </div>
+
+    <span>© 2026 ARTIN GAMES</span>
 </footer>
 
 
